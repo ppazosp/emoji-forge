@@ -82,10 +82,18 @@ UNIFORMS = {
     35690: ("m", [4, 3]),
 }
 SAMPLER_2D = 35678
+LIBRARY_INCLUDE = re.compile(r'^#include "(lib/[a-z-]+\.glsl)"[ \t]*$', re.MULTILINE)
 
 
 class ContextUnavailable(RuntimeError):
     pass
+
+
+def shader_library():
+    source = (SHADERS / "library.glsl").read_text(encoding="utf-8")
+    return LIBRARY_INCLUDE.sub(
+        lambda match: (SHADERS / match[1]).read_text(encoding="utf-8"), source
+    )
 
 
 def fragment_source(stage, prefix, library):
@@ -403,7 +411,7 @@ def render(args):
     if args.params:
         extra = json.loads(args.params.read_text(encoding="utf-8"))
         params.update(parameter_images(extra, args.params.parent))
-    library = (SHADERS / "library.glsl").read_text(encoding="utf-8")
+    library = shader_library()
 
     def inputs():
         duration = sum(delays)

@@ -160,3 +160,11 @@ vec2 forgeShakeOffset(float framePhase, float strength) {
 vec2 forgeShake(float framePhase, float amplitude) {
     return forgeShakeOffset(framePhase, forgePulse(framePhase, 0.19, 0.36, 0.67) * amplitude);
 }
+
+// Shared modules are assembled in this order by the renderer.
+#include "lib/noise.glsl"
+#include "lib/geometry.glsl"
+#include "lib/timing.glsl"
+#include "lib/color.glsl"
+#include "lib/sampling.glsl"
+#include "lib/particles.glsl"

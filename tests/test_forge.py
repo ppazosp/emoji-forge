@@ -254,7 +254,7 @@ def test_scaffold_build_cache_edits_snapshot_and_comparison(tmp_path):
 
 
 @pytest.mark.parametrize("backend", ["moderngl", "webgl"])
-def test_every_shader_renders(tmp_path, cels, backend):
+def test_every_shader_renders_deterministically(tmp_path, cels, backend):
     options = []
     if backend == "webgl":
         channel = os.getenv("FORGE_TEST_CHROME")
@@ -262,25 +262,34 @@ def test_every_shader_renders(tmp_path, cels, backend):
             pytest.skip("set FORGE_TEST_CHROME to test WebGL")
         options = ["--channel", channel]
     base = json.loads(cels.read_text())["frames"][0]
-    save(cels, {"frames": [{**base, "ms": 420}, {**base, "ms": 580}]})
+    save(
+        cels,
+        {"frames": [{**base, "ms": 420}, {**base, "ms": 330}, {**base, "ms": 250}]},
+    )
     for shader in sorted((SKILL / "shaders").glob("*.frag")):
-        result = call(
-            "render",
-            cels,
-            shader,
-            tmp_path / shader.stem,
-            "--backend",
-            backend,
-            "--size",
-            24,
-            *options,
-        )
-        assert len(result["files"]) == 3
-        first, peak = [
-            Image.open(result["files"][i]["path"]).convert("RGBA") for i in (0, 1)
-        ]
-        assert first.getbbox() and first.getpixel((0, 0))[3] == 0, shader.name
-        assert first.tobytes() != peak.tobytes(), shader.name
+        renders = []
+        for attempt in (1, 2):
+            directory = tmp_path / f"{shader.stem}-{attempt}"
+            call(
+                "render",
+                cels,
+                shader,
+                directory,
+                "--backend",
+                backend,
+                "--size",
+                32,
+                *options,
+            )
+            frames = []
+            for path in sorted(directory.glob("*.png")):
+                with Image.open(path) as image:
+                    frame = image.convert("RGBA")
+                assert frame.getpixel((0, 0))[3] == 0, shader.name
+                frames.append(frame.tobytes())
+            assert len(frames) == 3 and len(set(frames)) > 1, shader.name
+            renders.append(frames)
+        assert renders[0] == renders[1], shader.name
 
 
 def test_headless_webgl_fallback_renders(tmp_path, cels):
