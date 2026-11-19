@@ -32,7 +32,7 @@ See also the [Sprout reaction pack](examples/demo/) and the [GPU effects gallery
 npx skills add ppazosp/emoji-forge
 ```
 
-Select your agent when prompted. Forge runs with uv. [Get uv](https://docs.astral.sh/uv/)
+Select your agent when prompted. Install uv so your agent can run the bundled tools. [Get uv](https://docs.astral.sh/uv/)
 
 **Claude Code marketplace**
 
@@ -45,13 +45,23 @@ Select your agent when prompted. Forge runs with uv. [Get uv](https://docs.astra
 
 ## Usage
 
-Select Emoji Forge in your agent and tell it what you want. In Claude Code, use `/emoji-forge` for a skills install or `/emoji-forge:emoji-forge` for the marketplace plugin.
+**Claude Code.** After installing with `npx skills add`, open a session in your project and try this prompt.
 
-> Make me six animated Slack emoji of our mascot using the attached reference. Include a wave, a cheer, and a surprised reaction.
+```text
+/emoji-forge make 6 animated Slack emojis of our mascot: a blue robot with spring arms
+```
 
-> Make a looping portal sticker with a violet glow, plus a still PNG for announcements.
+For a one-shot run, enter `/emoji-forge make <idea>`. Your agent reviews the work and returns the finished GIF or PNG overview and ZIP. To see something along the way, add “show me the storyboard before animating” or `--checkpoints storyboard,keys` to your prompt.
 
-For an idea-to-pack run, ask your agent to use `forge make`. [Emoji Forge skill](skills/emoji-forge/SKILL.md) · [CLI and workflow reference](skills/emoji-forge/references/workflow.md)
+If you installed through the marketplace, use `/emoji-forge:emoji-forge` in place of `/emoji-forge`. [Claude Code skills](https://code.claude.com/docs/en/skills)
+
+**Codex CLI or IDE.** Type `$` and select `emoji-forge`, or enter `$emoji-forge` followed by your request. You can also find the skill through `/skills`. [Codex skills](https://learn.chatgpt.com/docs/build-skills#how-chatgpt-and-codex-use-skills)
+
+**Cursor.** Type `/` in Agent chat and select `emoji-forge`, then add your request. [Cursor skills](https://cursor.com/docs/skills#how-skills-work)
+
+**Any agent with the skill installed.** Ask in plain language.
+
+> Use emoji-forge to turn this logo into a Slack emoji pack.
 
 ## Authors and license
 

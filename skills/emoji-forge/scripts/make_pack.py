@@ -6,7 +6,7 @@ import os
 import re
 import subprocess
 import sys
-from argparse import Namespace
+from argparse import SUPPRESS, ArgumentTypeError, Namespace
 from io import BytesIO
 from pathlib import Path
 from shutil import copy2, copytree
@@ -28,6 +28,15 @@ BEATS = (
     ("peak", "Peak", "Show the most legible moment of the action."),
     ("settle", "Settle", "Edit back toward the opening pose."),
 )
+
+
+def parse_checkpoints(value):
+    stages = [stage.strip() for stage in value.split(",")]
+    if any(stage not in production.STAGES for stage in stages):
+        raise ArgumentTypeError(
+            f"choose checkpoints from {', '.join(production.STAGES)}"
+        )
+    return stages
 
 
 def configure(subcommands):
@@ -54,13 +63,19 @@ def configure(subcommands):
         help="name a still emoji in a mixed pack",
     )
     parser.add_argument(
-        "--yes", action="store_true", help="skip optional approval gates"
+        "--checkpoints",
+        type=parse_checkpoints,
+        metavar="STAGE[,STAGE...]",
+        help="pause for user review at selected stages, e.g. storyboard,keys (default: none)",
+    )
+    parser.add_argument("--yes", action="store_true", help=SUPPRESS)
+    parser.add_argument(
+        "--gate", choices=production.STAGES, action="append", default=[], help=SUPPRESS
     )
     parser.add_argument(
-        "--gate", choices=production.STAGES, action="append", default=[]
-    )
-    parser.add_argument(
-        "--approve", action="store_true", help="approve the pending optional gate"
+        "--approve",
+        action="store_true",
+        help="continue past the current user checkpoint",
     )
     parser.add_argument("--resume", action="store_true")
     parser.add_argument(
@@ -187,8 +202,6 @@ def start(args, root):
         "stills": args.still,
         "refs": refs,
         "phase": 0,
-        "gates": args.gate,
-        "yes": args.yes,
         "generator": str(args.generator.resolve()) if args.generator else None,
         "scales": args.scales,
         "master_size": master_size,
@@ -512,12 +525,34 @@ def run_step(root, state, stage, invoke):
 def run(args, invoke):
     root = args.project.resolve()
     path = root / "make.json"
+    next_task = root / "next-task.json"
+    approval_error = "--approve requires --resume and a pending user checkpoint"
+    if args.approve and not args.resume:
+        raise ValueError(approval_error)
     state = common.read_json(path) if args.resume else start(args, root)
+    legacy_checkpoints = state.pop("gates", [])
+    if state.pop("yes", False):
+        legacy_checkpoints = []
+    state.setdefault("checkpoints", legacy_checkpoints)
+    requested = [*(args.checkpoints or []), *args.gate]
+    if requested:
+        state["checkpoints"] = list(dict.fromkeys(requested))
+    if args.yes:
+        state["checkpoints"] = []
+    if args.approve:
+        pending = common.read_json(next_task) if next_task.is_file() else {}
+        phase = state["phase"]
+        stage = production.STAGES[phase] if phase < len(production.STAGES) else None
+        if (
+            pending.get("kind") != "review"
+            or pending.get("stage", stage) != stage
+            or stage not in state["checkpoints"]
+        ):
+            raise ValueError(approval_error)
     if args.generator and args.resume:
         if not args.generator.is_file():
             raise ValueError("--generator must point to a Python adapter file")
         state["generator"] = str(args.generator.resolve())
-    state["yes"] = state["yes"] or args.yes
     save_state(path, state)
     approve = args.approve
     while state["phase"] < len(production.STAGES):
@@ -531,17 +566,18 @@ def run(args, invoke):
                     "project": str(root),
                 }
         run_step(root, state, step, invoke)
-        if step in state["gates"] and not (state["yes"] or approve):
+        if step in state["checkpoints"] and not approve:
             packs = [
                 production.review_pack(root, name, step, None)
                 for name in state["names"]
             ]
             pending = {
                 "kind": "review",
+                "stage": step,
                 "review_packs": packs,
-                "resume": "Run forge make --resume --approve after review.",
+                "resume": "Run forge make --resume --approve after the user approves this checkpoint.",
             }
-            production.save_json(root / "next-task.json", pending)
+            production.save_json(next_task, pending)
             return {
                 "status": "needs-review",
                 "stage": step,
@@ -555,15 +591,15 @@ def run(args, invoke):
                     emoji=name,
                     stage=step,
                     review="pass",
-                    notes="Optional review approved."
+                    notes="User checkpoint approved."
                     if approve
-                    else "Automated hand-off. Expected files present. Review art and any drift flags visually.",
+                    else "Automated checks completed. Use the snapshot for the internal visual review.",
                 )
             )
         approve = False
         state["phase"] += 1
         save_state(path, state)
-    (root / "next-task.json").unlink(missing_ok=True)
+    next_task.unlink(missing_ok=True)
     pack = root / "result/pack"
     overview = pack / preview_name(state)
     return {

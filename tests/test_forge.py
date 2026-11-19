@@ -624,3 +624,60 @@ def test_check_and_register_against_model_height_and_centroid(tmp_path):
         "register", source, tmp_path / "alternate", "--body-reference", smaller
     )
     assert variant["files"][0]["size"] == [32, 32]
+
+
+def test_rigid_prop_check_accepts_rotation_and_rejects_shortened_handle(tmp_path, cels):
+    timing = json.loads(cels.read_text())
+    prop = Image.new("L", (32, 32))
+    draw = ImageDraw.Draw(prop)
+    draw.rectangle((6, 13, 25, 16), fill=255)
+    draw.rectangle((21, 8, 25, 21), fill=255)
+    prop.save(tmp_path / "ready.png")
+    prop.rotate(90).save(tmp_path / "swing.png")
+    for i, row in enumerate(timing["frames"]):
+        row["props"] = {"hammer": "swing.png" if i == 2 else "ready.png"}
+    save(cels, timing)
+    gif = tmp_path / "strike.gif"
+    call("fit", cels, gif, "--size", 32)
+    entry = {
+        "name": "strike",
+        "file": gif.name,
+        "timing": cels.name,
+        "rigid_props": {"hammer": 2},
+    }
+    pack = save(tmp_path / "pack.json", {"emojis": [entry]})
+    assert call("check", pack, "--size", 32)["emojis"][0]["prop_drift_percent"] == {
+        "hammer": 0
+    }
+    draw.rectangle((6, 13, 15, 16), fill=0)
+    prop.rotate(90).save(tmp_path / "swing.png")
+    failure = call("check", pack, "--size", 32, status=1)
+    assert "exposure 3: hammer area drift" in failure["emojis"][0]["error"]
+
+
+def test_tavvik_cels_and_prop_masks_match_the_rig(tmp_path):
+    import shutil
+
+    project = ROOT / "examples/mascot"
+    shot = Path("emojis/hammering")
+    rig = shot / "rig"
+    model = Path("images/assets/hammer/model.png")
+    for asset in (
+        model,
+        *(
+            rig / name
+            for name in ("stage.png", "sleeve.png", "mitten.png", "compose.py")
+        ),
+    ):
+        (tmp_path / asset).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(project / asset, tmp_path / asset)
+    (tmp_path / shot / "cels").mkdir()
+    subprocess.run([sys.executable, tmp_path / rig / "compose.py"], check=True)
+    for generated in sorted((tmp_path / shot).rglob("*.png")):
+        if generated.parent.name == "cels" or generated.name.startswith("prop-"):
+            with (
+                Image.open(project / generated.relative_to(tmp_path)) as saved,
+                Image.open(generated) as posed,
+            ):
+                assert saved.tobytes() == posed.tobytes(), generated.name
+    assert call("check", project / "scale-manifest.json")["ok"]
