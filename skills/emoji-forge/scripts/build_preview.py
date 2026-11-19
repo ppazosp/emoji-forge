@@ -16,21 +16,33 @@ def configure(parser):
     parser.add_argument("output", type=Path, help="output stem, without extension")
     parser.add_argument("--columns", type=int, default=4)
     parser.add_argument("--tile", type=int, default=96)
-    parser.add_argument("--duration-ms", type=int, help="defaults to longest emoji cycle")
+    parser.add_argument(
+        "--duration-ms", type=int, help="defaults to longest emoji cycle"
+    )
     parser.add_argument("--still-ms", type=int, default=0)
     parser.add_argument("--background", default="#20252f")
     parser.add_argument("--text", default="#ffffff")
+    parser.add_argument("--pixel-art", action="store_true")
+    parser.add_argument("--font-size", type=int, default=14)
 
 
 def build(args):
-    items = [(entry["name"], decode(path)) for entry, path in pack_entries(args.manifest)]
-    if args.columns < 1 or args.tile < 1 or (args.duration_ms is not None and args.duration_ms < 20):
+    items = [
+        (entry["name"], decode(path)) for entry, path in pack_entries(args.manifest)
+    ]
+    if (
+        args.columns < 1
+        or args.tile < 1
+        or (args.duration_ms is not None and args.duration_ms < 20)
+    ):
         raise ValueError("invalid grid size or duration")
     columns = min(args.columns, len(items))
     rows = (len(items) + columns - 1) // columns
-    font = ImageFont.load_default(size=14)
-    width = max(args.tile + 20, round(max(font.getlength(name) for name, _ in items)) + 20)
-    height = args.tile + 38
+    font = ImageFont.load_default(size=args.font_size)
+    width = max(
+        args.tile + 20, round(max(font.getlength(name) for name, _ in items)) + 20
+    )
+    height = args.tile + args.font_size + 24
     duration = args.duration_ms or max(timeline.duration for _, timeline in items)
     duration = round(duration / 10) * 10
     starts = [timeline.starts for _, timeline in items]
@@ -39,19 +51,32 @@ def build(args):
         if len(offsets) == 1:
             continue
         boundaries.update(
-            t for cycle in range(0, duration, timeline.duration) for offset in offsets
+            t
+            for cycle in range(0, duration, timeline.duration)
+            for offset in offsets
             if 0 < (t := cycle + offset) < duration
         )
 
     def grid(timestamp):
         canvas = Image.new("RGBA", (columns * width, rows * height), args.background)
         draw = ImageDraw.Draw(canvas)
-        for index, ((name, timeline), offsets) in enumerate(zip(items, starts, strict=True)):
+        for index, ((name, timeline), offsets) in enumerate(
+            zip(items, starts, strict=True)
+        ):
             left, top = (index % columns) * width, (index // columns) * height
             frame = preview_frame(timeline, offsets, timestamp).copy()
-            frame.thumbnail((args.tile, args.tile), Image.Resampling.LANCZOS)
+            resample = (
+                Image.Resampling.NEAREST if args.pixel_art else Image.Resampling.LANCZOS
+            )
+            frame.thumbnail((args.tile, args.tile), resample)
             canvas.alpha_composite(frame, (left + (width - frame.width) // 2, top + 8))
-            draw.text((left + width / 2, top + args.tile + 13), name, font=font, anchor="mt", fill=args.text)
+            draw.text(
+                (left + width / 2, top + args.tile + 13),
+                name,
+                font=font,
+                anchor="mt",
+                fill=args.text,
+            )
         return canvas.convert("RGB")
 
     times = sorted(boundaries)
@@ -59,8 +84,12 @@ def build(args):
     output_path(args.output.with_suffix(".png"))
     grid(args.still_ms).save(args.output.with_suffix(".png"))
     frames[0].save(
-        args.output.with_suffix(".gif"), save_all=True, append_images=frames[1:],
-        duration=[b - a for a, b in pairwise(times)], loop=0, disposal=2,
+        args.output.with_suffix(".gif"),
+        save_all=True,
+        append_images=frames[1:],
+        duration=[b - a for a, b in pairwise(times)],
+        loop=0,
+        disposal=2,
     )
 
 

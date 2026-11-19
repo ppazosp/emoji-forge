@@ -1,0 +1,54 @@
+{
+  "durations_ms": [
+    430,
+    230,
+    500,
+    260
+  ],
+  "frames": [
+    {
+      "file": "raw/001.png",
+      "ms": 430,
+      "key_frame": true,
+      "references": {
+        "previous_frame": null,
+        "key_pose": "keys/low.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 01/04: Start with both wings low.\nExpression: Relaxed dot eyes\nEdit only the viewer-right wing. Keep the same palette, shoulder attachment, paper folds, eyes, beak and feet on a transparent square."
+    },
+    {
+      "file": "raw/002.png",
+      "ms": 230,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/001.png",
+        "key_pose": "keys/low.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 02/04: Edit the right wing halfway up so it points sideways. Leave the head and feet fixed.\nEdit only the viewer-right wing. Keep the same palette, shoulder attachment, paper folds, eyes, beak and feet on a transparent square."
+    },
+    {
+      "file": "raw/003.png",
+      "ms": 500,
+      "key_frame": true,
+      "references": {
+        "previous_frame": "raw/002.png",
+        "key_pose": "keys/high.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 03/04: Hold the right wing at the top of the wave.\nEdit only the viewer-right wing. Keep the same palette, shoulder attachment, paper folds, eyes, beak and feet on a transparent square."
+    },
+    {
+      "file": "raw/004.png",
+      "ms": 260,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/003.png",
+        "key_pose": "keys/high.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 04/04: Lower the right wing toward rest, leaving a small outward angle.\nEdit only the viewer-right wing. Keep the same palette, shoulder attachment, paper folds, eyes, beak and feet on a transparent square."
+    }
+  ]
+}

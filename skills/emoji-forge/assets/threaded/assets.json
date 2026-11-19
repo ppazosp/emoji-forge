@@ -1,0 +1,9 @@
+{
+  "emojis": {
+    "wave": [
+      {"name": "Paper bird", "type": "character", "status": "approved", "file": "images/model/three-quarter.png"},
+      {"name": "Raised wing", "type": "character", "status": "approved", "file": "images/poses/raised-wing.png"},
+      {"name": "Transparent canvas", "type": "background", "status": "approved", "file": ""}
+    ]
+  }
+}

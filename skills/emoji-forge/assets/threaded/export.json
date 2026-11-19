@@ -1,0 +1,12 @@
+{
+  "target": "slack",
+  "emojis": [
+    {
+      "name": "wave",
+      "use": "Say a quick hello",
+      "frames": "emojis/wave/cels",
+      "timing": [430, 230, 500, 260],
+      "register": false
+    }
+  ]
+}

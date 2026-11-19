@@ -5,6 +5,12 @@ Run `uv run forge COMMAND --help` from the skill directory. Commands accept `--j
 | Command | Plain input | Result |
 | --- | --- | --- |
 | `new PROJECT` | New folder | Free-form style and storyboard prompts, plus an optional example manifest. Use `--no-manifest` to skip it. |
+| `make "IDEA"` | Idea and optional references | Resumable brief-to-pack workflow with native image tasks. |
+| `sheets` | Project artwork and thumbnail panels | Contact sheets and a timed animatic. |
+| `stage`, `status`, `review-pack` | Production project | Track reviews and snapshot or bundle the stage hand-off. |
+| `plan BOARD OUT` | Storyboard plus X-sheet | JSON or Markdown prompts with previous cel, key and style references. |
+| `import RAW OUT` | Generated image or folder | Keyed and aligned RGBA cels, masks and timing. |
+| `drift CELS STYLE OUT` | Cels and cropped model references | Palette, silhouette and perceptual comparisons. |
 | `register CELS OUT` | Image, GIF or folder of cels | Cels aligned using body masks, or visible alpha when there are no masks. |
 | `render CELS EFFECT OUT` | Image or cel folder, plus a fragment file or pass-chain JSON | RGBA frames rendered by [custom GLSL](shaders.md). |
 | `assemble CELS OUT.gif` | GIF or cel folder | GIF from supplied exposures. |
@@ -12,7 +18,7 @@ Run `uv run forge COMMAND --help` from the skill directory. Commands accept `--j
 | `check FILES` | Export image or folder | Decoded dimensions, bytes, frame count, border and seam. Geometry is available when you supply annotated timing. |
 | `strips CELS OUT.png` | Image, GIF or cel folder | Timestamped frames at configurable sizes on light and dark. |
 | `preview FILES STEM` | Export image or folder | Labelled GIF grid and still PNG. |
-| `bundle FILES OUT` | Export image or folder | Individually named files, `NAMES.md` and ZIP. |
+| `report FILES OUT`, `bundle FILES OUT` | Export image, folder or export manifest | One overview, multiscale named files, `NAMES.md` and ZIP. |
 | `all INPUT OUT` | Cel folder, export folder with GIFs, single export, Python generator or pack JSON | A new version with checks, preview, strips and the distribution pack. |
 | `snapshot INPUT OUT` | File or folder | A UTC-dated copy. |
 | `compare BEFORE AFTER STEM` | Two files or two version folders | Side-by-side GIF and PNG. |
@@ -93,3 +99,21 @@ Use `forge all PACK OUT --allow-scripts` for a manifest with trusted local Pytho
 - Context includes `name`, suggested canvas `size`, `draft`, `project_dir`, `source_dir` and the hook's `params`. List any additional files your hook reads in `deps` so a change invalidates the cache. Use a new cache if behavior depends on external state.
 
 See the [custom animation example](../assets/lantern/README.md) for a hook and two bespoke passes working together.
+
+## Report and distribution
+
+`forge report INPUT OUTPUT` and `forge bundle INPUT OUTPUT` create the same pack directory and sibling ZIP. For each emoji, keep PNG for a still and GIF for animation at every scale. Pass `--scales 64,128,256,512` to choose sizes and `--2x` for an optional larger overview. Use `--pixel-art` for nearest-neighbor scaling. The overview is PNG for an all-static pack and GIF if any emoji is animated. Use the single `overview` path returned with `--json` when sharing the pack in chat.
+
+```text
+pack/
+├── overview.gif or overview.png
+├── overview@2x.gif or overview@2x.png   (optional)
+├── NAMES.md
+└── emoji/
+    ├── 64/
+    ├── 128/
+    ├── 256/
+    └── 512/
+```
+
+Only the upload scale identified by the preset or manifest has the platform byte and frame cap. `forge all` retains an original-resolution master for each available larger version. For existing exports, set `master` in each export entry to a high-resolution PNG, GIF or lossless-cel timing JSON. An explicit scale above the smallest available master fails with its supported size. Without an explicit list, the report selects the available default scales and the upload scale. It does not upscale small exports.

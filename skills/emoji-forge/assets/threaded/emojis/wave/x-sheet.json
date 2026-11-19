@@ -1,0 +1,8 @@
+{
+  "frames": [
+    {"panel": "rest", "ms": 430, "key_pose": "keys/low.png"},
+    {"panel": "lift", "ms": 230, "pose": "Edit the right wing halfway up so it points sideways. Leave the head and feet fixed."},
+    {"panel": "peak", "ms": 500, "key_pose": "keys/high.png"},
+    {"panel": "settle", "ms": 260, "pose": "Lower the right wing toward rest, leaving a small outward angle."}
+  ]
+}

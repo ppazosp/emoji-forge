@@ -61,4 +61,4 @@ jobs:
           test -f shaders/library.glsl
           test -f assets/lantern/pack.json
           uv run --locked forge all assets/lantern/draw.py "$RUNNER_TEMP/lantern-smoke" --draft --no-register
-          test -f "$RUNNER_TEMP/lantern-smoke/pack/draw.gif"
+          test -f "$RUNNER_TEMP/lantern-smoke/pack/emoji/64/draw.gif"

@@ -18,17 +18,23 @@ from PIL import Image
 from PIL import __version__ as pillow_version
 
 if __package__:
-    from . import common
+    from . import common, make_pack, production
     from .animation_hook import hook_spec
     from .shader_config import SHADERS, image_paths, parameter_images, resolve_effect
 else:
     import common
+    import make_pack
+    import production
     from animation_hook import hook_spec
     from shader_config import SHADERS, image_paths, parameter_images, resolve_effect
 
 
 SCRIPTS = Path(__file__).resolve().parent
 SCRIPT_COMMANDS = {
+    "import": "import_cels",
+    "report": "bundle",
+    "plan": "plan_frames",
+    "drift": "drift",
     "register": "register_frames",
     "render": "render_shader",
     "assemble": "assemble_gif",
@@ -91,9 +97,12 @@ def artifact(path):
 def new_pack(args):
     args.path.mkdir(parents=True)
     (args.path / "cels").mkdir()
-    (args.path / "style.md").write_text(
-        "# Style notes\n\nWhat visual references or ideas would you like to try together? Add sketches, links, or notes in any format.\n"
-    )
+    names = args.emoji or ["wave"]
+    if len(names) != len(set(names)) or any(
+        not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", name) for name in names
+    ):
+        raise ValueError("--emoji names must be unique lowercase file names")
+    production.scaffold(args.path, names)
     (args.path / "storyboard.md").write_text(
         "# Storyboard\n\nWhat should someone feel when they use this emoji? Sketch an idea, a sequence, a single pose, or several options to try.\n"
     )
@@ -106,7 +115,7 @@ def new_pack(args):
             "target": args.preset,
             "emojis": [
                 {
-                    "name": "wave",
+                    "name": names[0],
                     "use": "Say hello.",
                     "frames": [
                         {
@@ -192,11 +201,29 @@ def cache_key(entry, frames, dependencies, preset, args):
     return digest.hexdigest()
 
 
+def preserve_master(root, timing, rows, delays, minimum, static):
+    # Keep original-resolution art for distribution variants, with portable paths.
+    with Image.open(timing / rows[0]["file"]) as first:
+        if min(first.size) <= minimum:
+            return
+    destination = root / "master"
+    destination.mkdir()
+    saved = []
+    for index, (row, delay) in enumerate(zip(rows, delays, strict=True), 1):
+        name = "still.png" if static else f"{index:03d}.png"
+        common.read_cel(timing, row).save(destination / name)
+        saved.append({"file": name, "ms": delay})
+    if not static:
+        write_json(destination / "timing.json", {"frames": saved})
+
+
 def render_entry(entry, frames, effect, source, root, preset, args):
     name = entry["name"]
     if entry.get("static") and len(frames) != 1:
         raise ValueError("static output needs one cel")
     if entry.get("static") and not effect:
+        if not args.draft:
+            preserve_master(root, source, frames, [100], preset.size, True)
         with Image.open(frames[0]["file"]) as cel:
             png = cel.convert("RGBA").resize(
                 (preset.size, preset.size), Image.Resampling.LANCZOS
@@ -239,6 +266,16 @@ def render_entry(entry, frames, effect, source, root, preset, args):
             *channel,
         )
         final = effect_dir / "timing.json"
+    if not args.draft:
+        master_rows, master_delays = common.read_timing(final)
+        preserve_master(
+            root,
+            final.parent,
+            master_rows,
+            master_delays,
+            preset.size,
+            entry.get("static"),
+        )
     if entry.get("static"):
         frame = common.image(final.parent / common.read_timing(final)[0][0]["file"])
         png = frame.resize((preset.size, preset.size), Image.Resampling.LANCZOS)
@@ -440,6 +477,10 @@ def build_pack(args):
             }
             row["file"] = f"exports/{filename}"
             row["limits"] = vars(preset)
+            if (cached / "master").is_dir():
+                copytree(cached / "master", staging / "master" / name)
+                master_file = "still.png" if entry.get("static") else "timing.json"
+                row["master"] = f"master/{name}/{master_file}"
             registered = cached / "registered"
             if registered.is_dir():
                 copytree(registered, staging / "registered" / name)
@@ -474,7 +515,8 @@ def build_pack(args):
             "--still-ms",
             manifest.get("preview_ms", 0),
         )
-        run_script("bundle", export_manifest, staging / "pack")
+        options = ["--scales", args.scales] if args.scales else []
+        run_script("bundle", export_manifest, staging / "pack", *options)
         staging.rename(args.output)
     return {
         "target": target,
@@ -514,8 +556,13 @@ def snapshot(args):
 def assets(directory):
     if directory.is_file():
         return {common.plain_name(directory): directory.resolve()}
-    if (directory / "pack").is_dir():
+    if (directory / "exports").is_dir():
+        directory /= "exports"
+    elif (directory / "pack").is_dir():
         directory /= "pack"
+    scales = directory / "emoji"
+    if scales.is_dir():
+        directory = max(scales.iterdir(), key=lambda folder: int(folder.name))
     if not directory.is_dir():
         raise ValueError(f"version folder not found: {directory}")
     files = sorted(
@@ -636,14 +683,19 @@ def script_command(command, args, argv):
     output = args.output
     if command == "preview":
         paths = [output.with_suffix(".gif"), output.with_suffix(".png")]
-    elif command in {"register", "render"}:
+    elif command in {"import", "register", "render"}:
         paths = sorted(output.glob("*.png")) + [output / "timing.json"]
-    elif command == "bundle":
+    elif command in {"bundle", "report"}:
         zipped = args.zip or output.with_name(output.name + ".zip")
-        paths = sorted(output.iterdir()) + [zipped]
+        paths = sorted(path for path in output.rglob("*") if path.is_file()) + [zipped]
     else:
         paths = [output]
-    return {"files": [artifact(path) for path in paths]}
+    report = common.read_json(output) if command == "drift" else {}
+    if command in {"bundle", "report"}:
+        report["overview"] = str(
+            next(path for path in paths if path.stem == "overview")
+        )
+    return {"files": [artifact(path) for path in paths], **report}
 
 
 def main():
@@ -663,6 +715,11 @@ def main():
     subcommands = parser.add_subparsers(dest="command", required=True)
     new = subcommands.add_parser("new", help="scaffold a manifest and drawing briefs")
     new.add_argument("path", type=Path)
+    production.configure(subcommands)
+    make_pack.configure(subcommands)
+    new.add_argument(
+        "--emoji", action="append", help="emoji name to scaffold; repeat for a pack"
+    )
     new.add_argument("--no-manifest", action="store_true")
     new.add_argument("--preset", choices=PRESETS, default="generic")
     pipeline = subcommands.add_parser(
@@ -701,6 +758,7 @@ def main():
     pipeline.add_argument("--jobs", type=int, default=2)
     pipeline.add_argument("--cache", type=Path)
     pipeline.add_argument("--draft", action="store_true")
+    pipeline.add_argument("--scales", help="comma-separated package sizes")
     pipeline.add_argument(
         "--backend", choices=["auto", "moderngl", "webgl"], default="auto"
     )
@@ -742,6 +800,8 @@ def main():
             subcommands.add_parser(name, help=f"see forge {name} --help")
 
     handlers = {
+        **production.COMMANDS,
+        "make": lambda args: make_pack.run(args, run_script),
         "new": new_pack,
         "all": build_pack,
         "snapshot": snapshot,

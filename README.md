@@ -1,10 +1,10 @@
 # Emoji Forge
 
-Emoji Forge gives you and your agent tools to make and share custom emoji, stickers and reactions. Bring drawings or generate cels, write your own GLSL passes, or animate with a Python hook. Forge handles registration, export budgets, previews, and comparisons. You and your agent decide what to make.
+Emoji Forge gives you and your agent tools to make and share custom emoji, stickers and reactions. Draw a consistent cel sequence with your agent’s native image tool, then add any effects you want. You can also bring your own artwork or use a Python hook. Forge handles registration, export budgets, previews, and comparisons. You and your agent decide what to make.
 
-![Example pack with four named reactions: wave, coffee, hooray and hello](examples/demo/preview.gif)
+![Four native image edits threaded into a waving paper bird](skills/emoji-forge/assets/threaded/overview.gif)
 
-[Still preview](examples/demo/preview.png) · [Example ZIP](examples/demo/pack.zip) · [Example source](examples/build.py)
+[Threaded example and prompt log](skills/emoji-forge/assets/threaded/) · [Sprout example ZIP](examples/demo/pack.zip)
 
 ## Install
 
@@ -44,36 +44,34 @@ Install [uv](https://docs.astral.sh/uv/) for the CLI. From the installed skill d
 
 Raster commands use Pillow. Add `--extra gpu` to the `uv run` command for ModernGL. For WebGL, add `--extra webgl` and use installed Chrome with `--channel chrome`, or install Chromium with `uv run --extra webgl playwright install chromium` from the skill directory.
 
-## Five-command loop
+## Quick start
 
-Run these commands from the skill directory. This example uses a folder of cels and a shader you write. A pack manifest is useful when you want to reuse the same steps across several emoji.
+Run from the skill directory. Ask your agent to follow each returned prompt with its native image tool, write the image where requested, and resume until the pack is ready.
 
 ```sh
-uv run forge new my-emoji --no-manifest
-# Sketch ideas together, draw cels into my-emoji/cels, and write my-emoji/glow.frag.
-uv run --extra gpu forge all my-emoji/cels build/draft --preset slack --effect my-emoji/glow.frag --draft
-uv run forge snapshot build/draft build/review
-uv run --extra gpu forge all my-emoji/cels build/final --preset slack --effect my-emoji/glow.frag --json
-uv run forge compare build/draft build/final build/comparison
+uv run forge make "a paper bird waving hello" --project my-emoji --target slack --animated --yes --json
+uv run forge make --resume --project my-emoji --json
 ```
 
-The style and storyboard files are conversation prompts. Use them for sketches, links or whatever helps you iterate. Run any command on its own. For example, `forge fit cels/ wave.gif --preset slack` takes a folder and returns a sized GIF. The [tool reference](skills/emoji-forge/references/workflow.md) covers timing, optional manifests, Python hooks and all commands.
-
-## How the tools fit together
+For hands-on production, scaffold a pack with `forge new` and fill the bible, expression and pose sheets, asset list and storyboard together. Use `forge sheets` to review a thumbnail animatic, `forge plan` to build threaded frame prompts, and `forge import` and `forge drift` to prepare and check the generated frames. [Production and one-shot workflows](skills/emoji-forge/references/production-pipeline.md) · [Native image generation](skills/emoji-forge/references/image-generation.md)
 
 ```mermaid
 flowchart LR
-    A[Your idea] --> B[Draw, generate or script cels]
-    B --> C[Optional registration and custom shaders]
-    B --> D[Fit or export]
-    C --> D
-    D --> E[Check, preview and compare]
-    E -->|Revise| B
-    E --> F[Bundle]
+    A[Idea and references] --> B[Model, expression and pose sheets]
+    B --> C[Storyboard, animatic and exposure sheet]
+    C --> D[Key poses and threaded image edits]
+    D --> E[Import, align and inspect drift]
+    E --> F[Optional effects and target checks]
+    F --> G[One overview and multiscale bundle]
+    E -->|Review and revise| C
+    F -->|Review and revise| D
 ```
+
+`forge report` and `forge bundle` make one overview, a folder of scale variants and a matching ZIP. The overview is a PNG for an all-static pack and a GIF when any emoji is animated. Set the scales with `--scales 64,128,256,512`. Larger variants use the original-resolution cels. [Package layout](skills/emoji-forge/references/workflow.md#report-and-distribution)
 
 ## Examples
 
+- [Threaded paper bird](skills/emoji-forge/assets/threaded/) includes native image edits, a model sheet, storyboard, animatic and exposure sheet.
 - [Sprout pack](examples/demo/) shows three animated reactions and one still. Rebuild it from a checkout with `uv run --project skills/emoji-forge --extra gpu python examples/build.py build/example`.
 - [Custom animation and shader chain](skills/emoji-forge/assets/lantern/) uses a Python function to draw the sequence and two original GLSL passes. See the [shader walkthrough](skills/emoji-forge/references/shaders.md) to write your own.
 

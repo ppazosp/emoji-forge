@@ -135,8 +135,8 @@ def test_preview_strips_and_bundle_preserve_order_names_and_pixels(tmp_path, cel
     archive = tmp_path / "deliver.zip"
     call("bundle", pack, folder, f"--zip={archive}")
     with ZipFile(archive) as zipped:
-        assert zipped.namelist() == ["NAMES.md", "first.png", "second.gif"]
-        assert zipped.read("second.gif") == gif.read_bytes()
+        assert zipped.namelist() == ["NAMES.md", "emoji/32/first.png", "emoji/32/second.gif", "overview.gif"]
+        assert zipped.read("emoji/32/second.gif") == gif.read_bytes()
         assert "| 1 | `first` | A greeting |" in zipped.read("NAMES.md").decode()
 
 
@@ -193,7 +193,7 @@ def test_checker_reports_bad_assets_in_json(tmp_path, failure, hint):
 def test_scaffold_build_cache_edits_snapshot_and_comparison(tmp_path):
     project = tmp_path / "brief"
     call("new", project, "--preset", "slack")
-    assert {"style.md", "storyboard.md", "pack.json", "cels"} == {
+    assert {"style.md", "storyboard.md", "pack.json", "cels", "assets.json", "production.json", "images", "emojis", "poses.md", "expressions.md"} == {
         p.name for p in project.iterdir()
     }
     source = Image.new("RGBA", (512, 512))
@@ -527,7 +527,7 @@ def test_custom_example_runs_with_whole_sequence_hook(tmp_path):
     )
     assert result["checks"][0]["frames"] == 12
     assert result["checks"][0]["duration_ms"] == 2600
-    assert (tmp_path / "lantern/pack/lantern.gif").is_file()
+    assert (tmp_path / "lantern/pack/emoji/64/lantern.gif").is_file()
     direct = call(
         "all",
         SKILL / "assets/lantern/draw.py",

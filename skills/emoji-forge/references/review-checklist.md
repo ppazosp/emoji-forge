@@ -8,3 +8,16 @@ Start with the target checks for file dimensions, bytes and format limits. Machi
 - For a detailed handoff, record what you observed, the version and the frame numbers or timestamps for any changes you suggest. After a revision, check the affected export again.
 
 An example observation might be “Frames 5–6 at 1.10–1.38 s. The raised hand is readable on light but blends with the outline on dark at 22 px.” Name the intended result and let that guide the fix.
+
+## Review brief template
+
+Use a short brief for each hand-off. Attach the stage ZIP from `forge review-pack`.
+
+- **Bible** • Check the proposed reference views, construction and palette.
+- **Storyboard** • Check the panels, intended reaction and animatic timing.
+- **Keys** • Compare the poses to the model and expression sheets at display size.
+- **In-betweens** • Check exposures, spacing, readable holds, continuity and any drift flags.
+- **Effects** • Compare clean and treated cels and check whether the effect supports the beat.
+- **Final** • Check the platform file limits and inspect the overview, exported cels and strips.
+
+Return a verdict, the affected frame or panel IDs, an observation against the bible or storyboard, and the smallest adjustment worth trying. Record the review and snapshot before the next revision. [Production pipeline and hand-offs](production-pipeline.md)

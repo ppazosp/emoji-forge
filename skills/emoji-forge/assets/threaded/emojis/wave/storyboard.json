@@ -1,0 +1,10 @@
+{
+  "style_sheet": "../../images/model/three-quarter.png",
+  "direction": "Edit only the viewer-right wing. Keep the same palette, shoulder attachment, paper folds, eyes, beak and feet on a transparent square.",
+  "panels": [
+    {"id": "rest", "file": "raw/001.png", "beat": "Opening", "action": "Start with both wings low.", "expression": "Relaxed dot eyes", "ms": 430},
+    {"id": "lift", "file": "raw/002.png", "beat": "Raise wing", "action": "Raise the right wing to a horizontal angle.", "ms": 230},
+    {"id": "peak", "file": "raw/003.png", "beat": "Hello", "action": "Hold the right wing at the top of the wave.", "ms": 500},
+    {"id": "settle", "file": "raw/004.png", "beat": "Settle", "action": "Lower the wing to slightly above its rest angle.", "ms": 260}
+  ]
+}
