@@ -1,5 +1,9 @@
 # Emoji Forge
 
+<p align="center">
+  <img src="assets/brand/logo-256.png" width="140" alt="Tavvik holding the Emoji Forge hammer">
+</p>
+
 ![Tavvik the steel anvil in six animated reactions and a still logo](examples/mascot/tavvik/overview@2x.gif)
 
 Turn an idea, a mascot, or your own artwork into a custom emoji pack with your AI agent.
