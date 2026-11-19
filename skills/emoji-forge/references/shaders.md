@@ -1,6 +1,6 @@
 # Render a shader you write
 
-Forge runs local fragment shaders on ModernGL or headless WebGL 2. It supplies timed cels, a clock and optional image inputs. You can use the example GLSL helpers, write a full fragment program, or combine your own passes.
+Forge runs local fragment shaders on ModernGL or headless WebGL 2. It supplies timed cels, a clock and optional image inputs. Start with the action and what the effect should make visible. Design a shader for that moment, using your own uniforms, textures and passes. Borrow individual techniques when they fit, or start with a blank fragment and leave the helpers out.
 
 ## Write an effect
 
@@ -72,16 +72,19 @@ A larger resolution can help with fine lines or soft lighting. Try the default f
 
 ## Recipes and shared helpers
 
-Browse the [shader recipes](shader-recipes.md) for techniques to use, combine or adapt. The [lantern example](../assets/lantern/README.md) shows custom shaders driven by a pack manifest. You can also start with an empty fragment file and write every pass yourself.
+Use the [shader recipes](shader-recipes.md) as starting points for individual techniques. Design the effect for the emoji before choosing code. Use any technique, build from scratch when the action needs it, and skip helpers that get in the way. The [lantern example](../assets/lantern/README.md) shows fully custom shaders driven by a pack manifest.
 
-| What you want to do | Helpers in [library.glsl](../shaders/library.glsl) |
+Forge assembles [library.glsl](../shaders/library.glsl) when it loads a fragment that defines `effect`. The modules share normalized bottom-left UVs and straight alpha. The result of a pass can carry HDR color until the final output; use `forgeToneMap` or your own resolve to bring it into display range.
+
+| Technique | Helpers |
 | --- | --- |
-| Animate noise through a seamless loop | `noise`, `fbm`, `forgeLoopNoise` |
-| Draw shapes and highlights | `sdCircle`, `sdSegment`, `forgeBox`, `forgeEllipse`, `forgeFill`, `forgeRing`, `forgeGlint` |
-| Time an arc, a hold or a repeat | `forgeEase`, `forgePulse`, `forgeLoopAngle`, `forgeRotate` |
-| Give particles gravity or ramp their color | `forgeHash2`, `forgeBallistic`, `forgePalette` |
-| Sample, outline or light the cel | `forgeSample`, `forgeDilateAlpha`, `forgeOutline`, `brightPass`, `blurPass`, `over` |
-| Move or shake the view around a point | `forgeView`, `forgeShake` |
+| [Noise](../shaders/lib/noise.glsl) | Value `noise`, `fbm`, `forgeGradientNoise`, `forgeSimplexNoise`, `forgeWorley`, `forgeCurlNoise`, `forgeDomainWarp`, `forgeLoopNoise`. Gradient and simplex noise are signed. Worley returns the distances to the two nearest feature points. |
+| [Shapes and transforms](../shaders/lib/geometry.glsl) | `sdCircle`, `forgeRoundedBox`, `forgeCapsule`, `forgeUnion`, `forgeIntersection`, `forgeDifference`, `forgeSmoothUnion`, `forgePolar`, `forgeCartesian`, `forgeAspectUV`, `forgeRotate`. Signed distance is negative inside. |
+| [Timing](../shaders/lib/timing.glsl) | `forgeRange`, `forgeEase`, `forgeEaseIn`, `forgeEaseOut`, `forgeSineEase`, `forgePulse`, `forgeLoopAngle`, `forgeLoopAge`. Progress and age are normalized; angles are in radians. |
+| [Color](../shaders/lib/color.glsl) | `forgePalette`, `forgeGradient`, `forgeHSV`, `forgeRGBToHSV`, `forgeToneMap`. The HSV hue wraps from 0 to 1. |
+| [Particles](../shaders/lib/particles.glsl) | `forgeHashUint`, `forgeParticleRandom`, `forgeParticleVelocity`, `forgeBallistic`. Use integer seeds and indices for repeatable variation. |
+| [Textures and light](../shaders/lib/sampling.glsl) | `forgeSample`, `forgeMaskedCel`, `forgeOutline`, `forgeRim`, `over`, `brightPass`, `blurPass`. A mask uses its alpha channel. |
+| [Camera](../shaders/lib/camera.glsl) | `forgeView`, `forgeShake`, `forgeShakeOffset`. Apply these to a UV before sampling the source or a layer. |
 
 For a repeating energy effect, feed `progress` into `forgeLoopNoise(uv * 8.0, progress, 1.2)` to return to the initial noise field. For a single hit, start particles where the objects meet, then animate `forgeBallistic` with each particle's local age. Use `forgePalette` to cool the particles as they move. Pass an envelope of your own to `forgeShakeOffset(phase, amount)` to place recoil on a particular exposure. A short `forgePulse` can drive both the contact flash and the shake so they land together.
 

@@ -47,4 +47,4 @@ All 40 effects earned a place in the gallery. The judgments below use the export
 
 The transparent GIFs give soft light a harder outer edge than a continuous-alpha render. In the revised bloom, fire and aura, changes in shape or color carry the motion through that threshold. For new effects, place the source against the specific pose and try different timings on the same drawing. The shared compositor bounds opacity while retaining overbright color, and the shake offset can follow the timing of any contact.
 
-Rebuild the checked-in gallery with `uv run --project skills/emoji-forge --locked --extra gpu python tools/build_shader_gallery.py`. The rendering tests exercise every shader in ModernGL and Chromium WebGL 2.
+Rebuild the checked-in gallery with `uv run --project skills/emoji-forge --locked --extra gpu python tools/build_shader_gallery.py --cel assets/brand/logo.png --output gallery/shaders`. The rendering tests exercise every shader in ModernGL and Chromium WebGL 2.

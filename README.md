@@ -24,7 +24,7 @@ Turn an idea, a mascot, or your own artwork into a custom emoji pack with your A
 | ![A paper bird waves its wing](skills/emoji-forge/assets/threaded/overview.gif) | ![A lantern pulses with a glowing ring](skills/emoji-forge/assets/lantern/preview.gif) |
 | “Make a folded paper bird wave hello.” [Example](skills/emoji-forge/assets/threaded/) | “Make a lantern with a pulse of warm light.” [Shader example](skills/emoji-forge/assets/lantern/) |
 
-See also the [Sprout reaction pack](examples/demo/) and the [GPU effects gallery](gallery/shaders/).
+See also the [Sprout reaction pack](examples/demo/) and the [GPU effects gallery](docs/shader-gallery/).
 
 ## Install
 

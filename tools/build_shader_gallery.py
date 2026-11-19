@@ -1,4 +1,4 @@
-"""Render the shader catalogue and generate the small-size review sheets."""
+"""Render the shader catalogue, overview grid and small-size review sheets."""
 
 import argparse
 import json
@@ -36,14 +36,26 @@ def forge(*args):
         raise RuntimeError(result.stdout or result.stderr)
 
 
-def prepare(root):
-    with Image.open(ROOT / "assets/brand/logo.png") as logo:
-        art = logo.convert("RGBA")
-    # Leave room around the mascot for effects such as the portal and orbit.
-    art = art.resize((384, 384), Image.Resampling.LANCZOS)
+def prepare(root, destination, cel=None):
     canvas = Image.new("RGBA", (512, 512))
-    canvas.paste(art, (64, 64))
+    if cel:
+        with Image.open(cel) as source:
+            art = source.convert("RGBA")
+        art.thumbnail((384, 384), Image.Resampling.LANCZOS)
+        canvas.alpha_composite(art, ((512 - art.width) // 2, (512 - art.height) // 2))
+    else:
+        # Fixed midtones and a simple face leave room to judge both color and distortion.
+        draw = ImageDraw.Draw(canvas)
+        draw.rounded_rectangle(
+            (118, 124, 394, 388), radius=91, fill="#A9B6BB", outline="#344550", width=13
+        )
+        draw.rounded_rectangle((150, 153, 225, 173), radius=10, fill="#D6DFDF")
+        draw.ellipse((192, 229, 218, 257), fill="#344550")
+        draw.ellipse((284, 229, 310, 257), fill="#344550")
+        draw.arc((218, 256, 285, 312), start=19, end=161, fill="#344550", width=12)
     canvas.save(root / "art.png")
+    if cel is None:
+        canvas.save(destination / "fixture.png", optimize=True)
     timing = root / "timing.json"
     timing.write_text(
         json.dumps({"frames": [{"file": "art.png", "ms": EXPOSURE_MS}] * EXPOSURES}),
@@ -67,7 +79,7 @@ def build_effect(shader, timing, destination):
         encoding="utf-8",
     )
     rendered = work / name
-    forge("render", timing, config, rendered, "--backend", "moderngl")
+    forge("render", timing, config, rendered, "--backend", "moderngl", "--size", 512)
     gif = destination / f"{name}.gif"
     forge("fit", rendered / "timing.json", gif, "--preset", "slack")
     with Image.open(gif) as image:
@@ -92,8 +104,10 @@ def build_effect(shader, timing, destination):
             mark = next(remaining_marks, float("inf"))
     if elapsed != EXPOSURE_MS * EXPOSURES or len(exposures) < 2:
         raise ValueError(
-            f"{name}: expected an animated {EXPOSURES * EXPOSURE_MS} ms GIF"
+            f"{name}: expected an animated {EXPOSURE_MS * EXPOSURES} ms GIF"
         )
+    if len({frame.tobytes() for frame, _ in exposures}) < 2:
+        raise ValueError(f"{name}: no visible change at 32 px after GIF fitting")
     return name, samples
 
 
@@ -120,21 +134,52 @@ def review_sheet(items, path, background, text):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=ROOT / "gallery/shaders")
+    parser.add_argument("--output", type=Path, default=ROOT / "docs/shader-gallery")
+    parser.add_argument("--cel", type=Path, help="use an alternate test cel")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     shaders = sorted((SKILL / "shaders").glob("*.frag"))
     with TemporaryDirectory(prefix="forge-shader-gallery-") as temp:
-        timing = prepare(Path(temp))
+        timing = prepare(Path(temp), args.output, args.cel)
         with ThreadPoolExecutor(max_workers=4) as pool:
             pending = [
                 pool.submit(build_effect, shader, timing, args.output)
                 for shader in shaders
             ]
             items = [future.result() for future in pending]
+        pack = Path(temp) / "gallery.json"
+        pack.write_text(
+            json.dumps(
+                {
+                    "emojis": [
+                        {
+                            "name": name,
+                            "file": str((args.output / f"{name}.gif").resolve()),
+                        }
+                        for name, _ in items
+                    ]
+                }
+            ),
+            encoding="utf-8",
+        )
+        forge(
+            "preview",
+            pack,
+            args.output / "overview",
+            "--columns",
+            8,
+            "--tile",
+            64,
+            "--font-size",
+            11,
+            "--still-ms",
+            700,
+        )
     review_sheet(items, args.output / "dark-32.png", "#222733", "#f2f3f7")
     review_sheet(items, args.output / "light-32.png", "#f6f6f1", "#222733")
-    print(f"Rendered {len(items)} effects and two review sheets in {args.output}")
+    print(
+        f"Rendered {len(items)} effects, an overview and two review sheets in {args.output}"
+    )
 
 
 if __name__ == "__main__":

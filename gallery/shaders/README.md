@@ -1,6 +1,6 @@
 # Shader gallery
 
-The same Tavvik sticker with 40 GPU effects. Every GIF is 128×128 and rendered from 512×512 frames. Click a name to see the GLSL.
+The same Tavvik sticker with 40 GPU effects. Every GIF is 128×128 and rendered from 512×512 frames. The [neutral test gallery](../../docs/shader-gallery/) uses the same effects on a simple cel. Click a name to see the GLSL.
 
 [32 px on dark](dark-32.png) · [32 px on light](light-32.png) · [Motion review](REVIEW.md) · [Write your own effect](../../skills/emoji-forge/references/shaders.md)
 
