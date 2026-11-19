@@ -31,3 +31,5 @@ Return a verdict, the affected frame or panel IDs, an observation against the bi
 - **Consistency** • Read the lineup across all columns. Compare repeated features and props in the final exports, including stills. Confirm that the reference body mask passes the scale and anchor tolerance across the animated pack. Re-open any matching asset or integration review when a mismatch turns up.
 
 Bundle each level with `forge review-pack`. Save the verdict and the relevant lineup rows or measured outliers with the version before fixing them.
+
+For a rigid tool, add `"rigid_props": {"hammer": 2}` to the animated entry in the check manifest. Each timing row supplies `"props": {"hammer": "../rig/prop-001.png"}` relative to the timing file. Export the full posed tool's grayscale alpha mask before fingers or sparks cover it. On the cel canvas, Forge measures occupied area and the aspect ratio along the mask's principal axes. A change from exposure one beyond the declared percentage fails the check. Rotation and translation preserve both measures. Inspect the grip strip separately for slipping fingers and missed contact.

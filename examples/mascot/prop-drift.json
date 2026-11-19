@@ -13,9 +13,9 @@
         ]
       },
       "reference": "images/model/three-quarter.png",
-      "color_distance": 0.1778,
-      "mask_iou": 0.7358,
-      "hash_distance": 0.2188,
+      "color_distance": 0.1357,
+      "mask_iou": 0.7451,
+      "hash_distance": 0.1562,
       "flags": []
     },
     {
@@ -132,16 +132,16 @@
       "crop": {
         "file": "emojis/hammering/cels/001-file.png",
         "box": [
-          106,
-          117,
-          317,
-          187
+          111,
+          120,
+          327,
+          200
         ]
       },
       "reference": "images/assets/goggles/model.png",
-      "color_distance": 0.1591,
-      "mask_iou": 0.6628,
-      "hash_distance": 0.125,
+      "color_distance": 0.2269,
+      "mask_iou": 0.7421,
+      "hash_distance": 0.0469,
       "flags": []
     },
     {
@@ -258,16 +258,16 @@
       "crop": {
         "file": "emojis/hammering/cels/003-file.png",
         "box": [
-          258,
-          101,
-          446,
-          318
+          279,
+          105,
+          444,
+          305
         ]
       },
       "reference": "images/assets/hammer/model.png",
-      "color_distance": 0.1774,
-      "mask_iou": 0.5257,
-      "hash_distance": 0.3125,
+      "color_distance": 0.1601,
+      "mask_iou": 0.5628,
+      "hash_distance": 0.3438,
       "flags": []
     },
     {
@@ -276,16 +276,16 @@
       "crop": {
         "file": "emojis/hammering/cels/005-file.png",
         "box": [
-          295,
-          227,
-          474,
-          345
+          315,
+          221,
+          471,
+          326
         ]
       },
       "reference": "images/assets/hammer/model.png",
-      "color_distance": 0.1351,
-      "mask_iou": 0.2226,
-      "hash_distance": 0.5156,
+      "color_distance": 0.1698,
+      "mask_iou": 0.1799,
+      "hash_distance": 0.5,
       "flags": [
         "perceptual-hash",
         "silhouette"
@@ -315,16 +315,16 @@
       "crop": {
         "file": "emojis/hammering/cels/001-file.png",
         "box": [
-          306,
-          351,
-          456,
-          448
+          346,
+          345,
+          504,
+          446
         ]
       },
       "reference": "images/assets/workstand/model.png",
-      "color_distance": 0.2248,
-      "mask_iou": 0.8128,
-      "hash_distance": 0.3438,
+      "color_distance": 0.2232,
+      "mask_iou": 0.8193,
+      "hash_distance": 0.2031,
       "flags": []
     },
     {
@@ -333,19 +333,17 @@
       "crop": {
         "file": "emojis/hammering/cels/005-file.png",
         "box": [
-          303,
-          358,
-          468,
-          454
+          346,
+          345,
+          504,
+          446
         ]
       },
       "reference": "images/assets/workstand/model.png",
-      "color_distance": 0.2243,
-      "mask_iou": 0.4688,
-      "hash_distance": 0.3594,
-      "flags": [
-        "silhouette"
-      ]
+      "color_distance": 0.2232,
+      "mask_iou": 0.8193,
+      "hash_distance": 0.2031,
+      "flags": []
     },
     {
       "asset": "coin",
@@ -353,16 +351,16 @@
       "crop": {
         "file": "emojis/hammering/cels/001-file.png",
         "box": [
-          340,
-          321,
-          427,
-          361
+          381,
+          320,
+          467,
+          360
         ]
       },
       "reference": "images/assets/coin/model.png",
-      "color_distance": 0.4076,
-      "mask_iou": 0.5207,
-      "hash_distance": 0.5938,
+      "color_distance": 0.4233,
+      "mask_iou": 0.5288,
+      "hash_distance": 0.6094,
       "flags": [
         "perceptual-hash"
       ]
@@ -596,12 +594,13 @@
         ]
       },
       "reference": "images/assets/impact/model.png",
-      "color_distance": 0.7358,
-      "mask_iou": 0.5439,
-      "hash_distance": 0.3906,
+      "color_distance": 0.6976,
+      "mask_iou": 0.4517,
+      "hash_distance": 0.4219,
       "flags": [
         "palette",
-        "perceptual-hash"
+        "perceptual-hash",
+        "silhouette"
       ]
     },
     {
@@ -617,9 +616,9 @@
         ]
       },
       "reference": "images/assets/impact/model.png",
-      "color_distance": 0.7219,
-      "mask_iou": 0.5981,
-      "hash_distance": 0.625,
+      "color_distance": 0.7153,
+      "mask_iou": 0.5331,
+      "hash_distance": 0.5469,
       "flags": [
         "palette",
         "perceptual-hash"
@@ -707,5 +706,5 @@
       ]
     }
   ],
-  "flagged": 15
+  "flagged": 14
 }

@@ -118,10 +118,10 @@
           {
             "file": "emojis/hammering/cels/001-file.png",
             "box": [
-              106,
-              117,
-              317,
-              187
+              111,
+              120,
+              327,
+              200
             ]
           }
         ],
@@ -219,19 +219,19 @@
           {
             "file": "emojis/hammering/cels/003-file.png",
             "box": [
-              258,
-              101,
-              446,
-              318
+              279,
+              105,
+              444,
+              305
             ]
           },
           {
             "file": "emojis/hammering/cels/005-file.png",
             "box": [
-              295,
-              227,
-              474,
-              345
+              315,
+              221,
+              471,
+              326
             ]
           }
         ],
@@ -294,19 +294,19 @@
           {
             "file": "emojis/hammering/cels/001-file.png",
             "box": [
-              306,
-              351,
-              456,
-              448
+              346,
+              345,
+              504,
+              446
             ]
           },
           {
             "file": "emojis/hammering/cels/005-file.png",
             "box": [
-              303,
-              358,
-              468,
-              454
+              346,
+              345,
+              504,
+              446
             ]
           }
         ]
@@ -338,10 +338,10 @@
           {
             "file": "emojis/hammering/cels/001-file.png",
             "box": [
-              340,
-              321,
-              427,
-              361
+              381,
+              320,
+              467,
+              360
             ]
           }
         ],

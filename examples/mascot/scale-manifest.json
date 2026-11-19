@@ -12,7 +12,10 @@
       },
       "timing": "emojis/hammering/cels/timing.json",
       "body_reference": "images/model/body-mask.png",
-      "max_drift_percent": 2
+      "max_drift_percent": 2,
+      "rigid_props": {
+        "hammer": 2
+      }
     },
     {
       "name": "quench",

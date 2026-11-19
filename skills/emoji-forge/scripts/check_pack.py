@@ -53,6 +53,66 @@ def geometry_offsets(row, width, height):
     return dx, dy, dw, dh
 
 
+def prop_geometry(mask):
+    """Binary area and principal-axis aspect stay constant under rigid motion."""
+    foreground = mask.point(lambda alpha: 255 if alpha >= 128 else 0)
+    box = foreground.getbbox()
+    if box is None:
+        raise ValueError("prop mask is empty")
+    crop = foreground.crop(box)
+    points = [
+        divmod(index, crop.width) for index, alpha in enumerate(crop.tobytes()) if alpha
+    ]
+    area = len(points)
+    if area < 3:
+        raise ValueError("prop mask has too few foreground pixels")
+    cx = sum(x for x, _ in points) / area
+    cy = sum(y for _, y in points) / area
+    xx = sum((x - cx) ** 2 for x, _ in points)
+    yy = sum((y - cy) ** 2 for _, y in points)
+    xy = sum((x - cx) * (y - cy) for x, y in points)
+    spread = math.hypot(xx - yy, 2 * xy)
+    minor = xx + yy - spread
+    if minor <= 0:
+        raise ValueError("prop mask needs a two-dimensional silhouette")
+    return area, math.sqrt((xx + yy + spread) / minor)
+
+
+def check_props(timing, entry):
+    limits = entry["rigid_props"]
+    rows, _ = read_timing(timing)
+    worst = {}
+    for name, limit in limits.items():
+        if type(limit) not in (float, int) or not math.isfinite(limit) or limit < 0:
+            raise ValueError(f"{name}: expected a nonnegative percentage")
+        reference = None
+        peak = 0
+        cache = {}
+        for index, row in enumerate(rows, 1):
+            path = timing.parent / row["props"][name]
+            if path not in cache:
+                mask = image(path, "L")
+                cache[path] = mask.size, prop_geometry(mask)
+            size, values = cache[path]
+            with Image.open(timing.parent / row["file"]) as cel:
+                if cel.size != size:
+                    raise ValueError(
+                        f"exposure {index}: {name} mask and cel sizes differ"
+                    )
+            reference = reference or values
+            for metric, value, base in zip(
+                ("area", "aspect"), values, reference, strict=True
+            ):
+                delta = 100 * abs(value / base - 1)
+                if delta > limit:
+                    raise ValueError(
+                        f"exposure {index}: {name} {metric} drift {delta:.2f}% exceeds {limit}%"
+                    )
+                peak = max(peak, delta)
+        worst[name] = round(peak, 3)
+    return worst
+
+
 def check_geometry(timing, args, entry):
     rows, _ = read_timing(timing)
     measurements = []
@@ -172,6 +232,8 @@ def check_emoji(args, entry, path):
     if timing:
         timing = args.manifest.parent / timing
         body_drift["body_drift_percent"] = check_geometry(timing, args, entry)
+        if "rigid_props" in entry:
+            body_drift["prop_drift_percent"] = check_props(timing, entry)
         requested = read_timing(timing)[1]
         minimum = round(sum(requested) / 10) * 10
         maximum = max(minimum, 20 * len(requested))
@@ -183,6 +245,7 @@ def check_emoji(args, entry, path):
         args.require_masks
         or args.max_drift_percent is not None
         or "max_drift_percent" in entry
+        or "rigid_props" in entry
         or "body_reference" in entry
     ):
         raise ValueError("animated entry is missing timing with body masks")
