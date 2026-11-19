@@ -70,4 +70,19 @@ ModernGL tries native OpenGL and then EGL. On headless Ubuntu the EGL path needs
 
 A larger resolution can help with fine lines or soft lighting. Try the default full-size render and downsample, or use `--draft` to get quick feedback. For soft glows, compare a solid matte to GIF's single transparent palette index. Check both themes if the target uses them.
 
-The bundled fragments are starting material to read and remix. They cover [fire](../shaders/fire.frag), [sparkle](../shaders/sparkle.frag), [shockwave](../shaders/shockwave.frag), [beam and burn](../shaders/beam-burn.frag), [glitch](../shaders/glitch.frag), [portal](../shaders/portal.frag) and [aura](../shaders/aura.frag). The [shared library](../shaders/library.glsl) includes noise, fbm, distance fields and bloom helpers. The [custom example](../assets/lantern/README.md) uses its own animation hook and shaders.
+## Recipes and shared helpers
+
+Browse the [shader recipes](shader-recipes.md) for techniques to use, combine or adapt. The [lantern example](../assets/lantern/README.md) shows custom shaders driven by a pack manifest. You can also start with an empty fragment file and write every pass yourself.
+
+| What you want to do | Helpers in [library.glsl](../shaders/library.glsl) |
+| --- | --- |
+| Animate noise through a seamless loop | `noise`, `fbm`, `forgeLoopNoise` |
+| Draw shapes and highlights | `sdCircle`, `sdSegment`, `forgeBox`, `forgeEllipse`, `forgeFill`, `forgeRing`, `forgeGlint` |
+| Time an arc, a hold or a repeat | `forgeEase`, `forgePulse`, `forgeLoopAngle`, `forgeRotate` |
+| Give particles gravity or ramp their color | `forgeHash2`, `forgeBallistic`, `forgePalette` |
+| Sample, outline or light the cel | `forgeSample`, `forgeDilateAlpha`, `forgeOutline`, `brightPass`, `blurPass`, `over` |
+| Move or shake the view around a point | `forgeView`, `forgeShake` |
+
+For a repeating energy effect, feed `progress` into `forgeLoopNoise(uv * 8.0, progress, 1.2)` to return to the initial noise field. For a single hit, start particles where the objects meet, then animate `forgeBallistic` with each particle's local age. Use `forgePalette` to cool the particles as they move. A short `forgePulse` can drive both the contact flash and the shake so they land together.
+
+Inspect the exported GIF at its real display size. Sample the setup, peak and recovery at 32 px on light and dark backgrounds. Larger shapes, brighter contrast and a clear contact point can help a short effect survive downsampling and GIF palette fitting.

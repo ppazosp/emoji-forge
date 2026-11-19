@@ -253,7 +253,14 @@ def test_scaffold_build_cache_edits_snapshot_and_comparison(tmp_path):
     assert call("fit", "--not-an-option", status=1)["error"]
 
 
-def test_every_shader_renders_on_modern_gl(tmp_path, cels):
+@pytest.mark.parametrize("backend", ["moderngl", "webgl"])
+def test_every_shader_renders(tmp_path, cels, backend):
+    options = []
+    if backend == "webgl":
+        channel = os.getenv("FORGE_TEST_CHROME")
+        if not channel:
+            pytest.skip("set FORGE_TEST_CHROME to test WebGL")
+        options = ["--channel", channel]
     base = json.loads(cels.read_text())["frames"][0]
     save(cels, {"frames": [{**base, "ms": 420}, {**base, "ms": 580}]})
     for shader in sorted((SKILL / "shaders").glob("*.frag")):
@@ -263,15 +270,16 @@ def test_every_shader_renders_on_modern_gl(tmp_path, cels):
             shader,
             tmp_path / shader.stem,
             "--backend",
-            "moderngl",
+            backend,
             "--size",
             24,
+            *options,
         )
         assert len(result["files"]) == 3
         first, peak = [
             Image.open(result["files"][i]["path"]).convert("RGBA") for i in (0, 1)
         ]
-        assert first.getbbox() and first.getpixel((0, 0))[3] == 0
+        assert first.getbbox() and first.getpixel((0, 0))[3] == 0, shader.name
         assert first.tobytes() != peak.tobytes(), shader.name
 
 
