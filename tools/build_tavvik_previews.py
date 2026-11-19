@@ -155,14 +155,17 @@ def build_brand(pack, output):
 
 
 def build_zip(pack, overview, destination):
+    files = {
+        file.relative_to(pack).as_posix(): file
+        for file in pack.rglob("*")
+        if file.is_file()
+    }
+    files[OVERVIEW] = overview
     with ZipFile(destination, "w") as archive:
-        for file in sorted(pack.rglob("*")):
-            if file.is_file():
-                relative = file.relative_to(pack).as_posix()
-                source = overview if relative == OVERVIEW else file
-                entry = ZipInfo(relative)
-                entry.external_attr = 0o100644 << 16
-                archive.writestr(entry, source.read_bytes(), ZIP_DEFLATED)
+        for name, source in sorted(files.items()):
+            entry = ZipInfo(name)
+            entry.external_attr = 0o100644 << 16
+            archive.writestr(entry, source.read_bytes(), ZIP_DEFLATED)
 
 
 def main():
