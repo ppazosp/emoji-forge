@@ -9,11 +9,13 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageOps
 
 if __package__:
+    from . import pack_assets
     from .common import cli, output_path, read_timing
-    from .import_cels import load_cutout
+    from .import_cels import Cutout, load_cutout
 else:
+    import pack_assets
     from common import cli, output_path, read_timing
-    from import_cels import load_cutout
+    from import_cels import Cutout, load_cutout
 
 
 @dataclass
@@ -98,9 +100,18 @@ def configure(parser):
     parser.add_argument(
         "style",
         type=Path,
+        nargs="?",
         help="one style pose image or folder of separately cropped reference poses",
     )
     parser.add_argument("output", type=Path, help="JSON report")
+    parser.add_argument(
+        "--props",
+        action="store_true",
+        help="compare annotated asset crops in a production project",
+    )
+    parser.add_argument(
+        "--crops", type=Path, help="override project/lineup.json with --props"
+    )
     parser.add_argument(
         "--color", type=float, default=0.45, help="maximum colour histogram distance"
     )
@@ -115,17 +126,45 @@ def configure(parser):
     )
 
 
-def run(args):
-    if not all(0 <= value <= 1 for value in (args.color, args.iou, args.hash_distance)):
-        raise ValueError("thresholds must be between 0 and 1")
+def closest(frame, styles):
+    return min(
+        ((name, compare(frame, style)) for name, style in styles),
+        key=lambda item: score(item[1]),
+    )
+
+
+def asset_drift(args):
+    _, assets = pack_assets.read_lineup(args.cels, args.crops)
+
+    def measure(record):
+        art = pack_assets.crop(args.cels, record)
+        return describe(Cutout(art, art.getchannel("A"), None))
+
+    results = []
+    for key, row in assets.items():
+        styles = [(record["file"], measure(record)) for record in row["references"]]
+        for emoji, records in row["appearances"].items():
+            for record in records:
+                reference, metrics = closest(measure(record), styles)
+                results.append(
+                    {
+                        "asset": key,
+                        "emoji": emoji,
+                        "crop": record,
+                        "reference": reference,
+                        **metrics,
+                        "flags": sorted(issues(metrics, args)),
+                    }
+                )
+    return {"assets": results, "flagged": sum(bool(row["flags"]) for row in results)}
+
+
+def cel_drift(args):
     frames, styles = load_series(args.cels, "keep"), load_series(args.style, "auto")
     neighbors = [compare(a, b) for (_, a), (_, b) in pairwise(frames)]
     results = []
     for index, (name, frame) in enumerate(frames):
-        comparisons = [
-            (reference, compare(frame, style)) for reference, style in styles
-        ]
-        reference, style = min(comparisons, key=lambda item: score(item[1]))
+        reference, style = closest(frame, styles)
         prev = neighbors[index - 1] if index else None
         next_ = neighbors[index] if index < len(neighbors) else None
         reasons = [f"style:{item}" for item in sorted(issues(style, args))]
@@ -144,7 +183,19 @@ def run(args):
                 "flags": reasons,
             }
         )
-    report = {"flagged": sum(bool(row["flags"]) for row in results), "frames": results}
+    return {"flagged": sum(bool(row["flags"]) for row in results), "frames": results}
+
+
+def run(args):
+    if not all(0 <= value <= 1 for value in (args.color, args.iou, args.hash_distance)):
+        raise ValueError("thresholds must be between 0 and 1")
+    if args.props == bool(args.style):
+        raise ValueError(
+            "use CELS STYLE OUTPUT for cel drift or PROJECT OUTPUT --props for asset drift"
+        )
+    if args.crops and not args.props:
+        raise ValueError("--crops requires --props")
+    report = asset_drift(args) if args.props else cel_drift(args)
     output_path(args.output).write_text(
         json.dumps(report, indent=2) + "\n", encoding="utf-8"
     )

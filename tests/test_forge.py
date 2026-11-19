@@ -135,7 +135,12 @@ def test_preview_strips_and_bundle_preserve_order_names_and_pixels(tmp_path, cel
     archive = tmp_path / "deliver.zip"
     call("bundle", pack, folder, f"--zip={archive}")
     with ZipFile(archive) as zipped:
-        assert zipped.namelist() == ["NAMES.md", "emoji/32/first.png", "emoji/32/second.gif", "overview.gif"]
+        assert zipped.namelist() == [
+            "NAMES.md",
+            "emoji/32/first.png",
+            "emoji/32/second.gif",
+            "overview.gif",
+        ]
         assert zipped.read("emoji/32/second.gif") == gif.read_bytes()
         assert "| 1 | `first` | A greeting |" in zipped.read("NAMES.md").decode()
 
@@ -193,9 +198,18 @@ def test_checker_reports_bad_assets_in_json(tmp_path, failure, hint):
 def test_scaffold_build_cache_edits_snapshot_and_comparison(tmp_path):
     project = tmp_path / "brief"
     call("new", project, "--preset", "slack")
-    assert {"style.md", "storyboard.md", "pack.json", "cels", "assets.json", "production.json", "images", "emojis", "poses.md", "expressions.md"} == {
-        p.name for p in project.iterdir()
-    }
+    assert {
+        "style.md",
+        "storyboard.md",
+        "pack.json",
+        "cels",
+        "assets.json",
+        "production.json",
+        "images",
+        "emojis",
+        "poses.md",
+        "expressions.md",
+    } == {p.name for p in project.iterdir()}
     source = Image.new("RGBA", (512, 512))
     ImageDraw.Draw(source).ellipse((120, 120, 290, 300), fill="gold")
     source.save(project / "body.png")
@@ -538,3 +552,53 @@ def test_custom_example_runs_with_whole_sequence_hook(tmp_path):
         "--no-register",
     )
     assert direct["checks"][0]["frames"] == 12
+
+
+def test_check_and_register_against_model_height_and_centroid(tmp_path):
+    first = make_cel(tmp_path, 1)
+    second = make_cel(tmp_path, 2, offset=2, color="blue")
+    for field in ("body", "file"):
+        mode = "L" if field == "body" else "RGBA"
+        layer = Image.new(mode, (32, 32))
+        ImageDraw.Draw(layer).ellipse(
+            (10, 8, 24, 21), fill=255 if mode == "L" else "blue"
+        )
+        layer.save(tmp_path / second[field])
+    first.pop("face")
+    second.pop("face")
+    source = save(tmp_path / "timing.json", {"frames": [first, second, first]})
+    gif = tmp_path / "sample.gif"
+    call("assemble", source, gif, "--size", 32)
+    pack = {
+        "emojis": [
+            {
+                "name": "tap",
+                "file": gif.name,
+                "timing": source.name,
+                "body_reference": first["body"],
+                "max_drift_percent": 2,
+            }
+        ]
+    }
+    manifest = save(tmp_path / "pack.json", pack)
+    failure = call("check", manifest, "--size", 32, status=1)
+    assert "22.22% exceeds 2%" in failure["emojis"][0]["error"]
+    source = save(
+        source,
+        {
+            "frames": [
+                first,
+                {**second, "squash": {"width": 1, "height": -1, "reason": "impact"}},
+                first,
+            ]
+        },
+    )
+    aligned = tmp_path / "registered"
+    call("register", source, aligned, "--body-reference", tmp_path / first["body"])
+    timing = aligned / "timing.json"
+    rebuilt = tmp_path / "registered.gif"
+    call("assemble", timing, rebuilt, "--size", 32)
+    pack["emojis"][0].update(timing="registered/timing.json", file=rebuilt.name)
+    save(manifest, pack)
+    result = call("check", manifest, "--size", 32, "--max-drift-percent", 3)
+    assert result["emojis"][0]["body_drift_percent"] <= 3

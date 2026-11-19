@@ -102,7 +102,7 @@ def new_pack(args):
         not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", name) for name in names
     ):
         raise ValueError("--emoji names must be unique lowercase file names")
-    production.scaffold(args.path, names)
+    production.scaffold(args.path, names, args.assets)
     (args.path / "storyboard.md").write_text(
         "# Storyboard\n\nWhat should someone feel when they use this emoji? Sketch an idea, a sequence, a single pose, or several options to try.\n"
     )
@@ -649,8 +649,16 @@ def script_command(command, args, argv):
                 args.manifest,
                 *map(str, budget(args)),
                 "--json",
-                "--drift-px",
-                str(args.drift_px),
+                *(
+                    ["--drift-px", str(args.drift_px)]
+                    if args.drift_px is not None
+                    else []
+                ),
+                *(
+                    ["--max-drift-percent", str(args.max_drift_percent)]
+                    if args.max_drift_percent is not None
+                    else []
+                ),
                 *(["--seam", str(args.seam)] if args.seam is not None else []),
                 *options,
             ],
@@ -721,6 +729,11 @@ def main():
         "--emoji", action="append", help="emoji name to scaffold; repeat for a pack"
     )
     new.add_argument("--no-manifest", action="store_true")
+    new.add_argument(
+        "--assets",
+        type=Path,
+        help="seed asset inventory JSON and scaffold model and integration sheets",
+    )
     new.add_argument("--preset", choices=PRESETS, default="generic")
     pipeline = subcommands.add_parser(
         "all", help="render, check, preview and bundle a pack"
@@ -784,7 +797,12 @@ def main():
         "check", help="check encoded files and source geometry"
     )
     check.add_argument("manifest", type=Path)
-    check.add_argument("--drift-px", type=float, default=2)
+    check.add_argument("--drift-px", type=float)
+    check.add_argument(
+        "--max-drift-percent",
+        type=float,
+        help="maximum body height and centroid drift as a percentage of reference body height",
+    )
     check.add_argument("--seam", type=float, help="optional maximum seam difference")
     check.add_argument("--require-masks", action="store_true")
     add_budget(check, default=None)

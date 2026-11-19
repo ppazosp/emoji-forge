@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import math
 from pathlib import Path
 from statistics import median
 
@@ -14,7 +15,12 @@ def configure(parser):
     parser.add_argument("--size", type=int, default=128)
     parser.add_argument("--max-bytes", type=int, default=128000)
     parser.add_argument("--max-frames", type=int, default=50)
-    parser.add_argument("--drift-px", type=float, default=2)
+    parser.add_argument("--drift-px", type=float)
+    parser.add_argument(
+        "--max-drift-percent",
+        type=float,
+        help="maximum body height and XY drift relative to reference body height",
+    )
     parser.add_argument(
         "--seam", type=float, help="optional maximum mean seam difference, 0–1"
     )
@@ -23,39 +29,90 @@ def configure(parser):
     parser.add_argument("--manifest-limits", action="store_true")
 
 
-def check_geometry(timing, size, tolerance):
+def normalized_geometry(body, size):
+    if body.width != body.height:
+        raise ValueError("expected square body mask")
+    (x, y), (width, height) = mask_geometry(body)
+    return tuple(value * size / body.width for value in (x, y, width, height))
+
+
+def geometry_offsets(row, width, height):
+    dx, dy, dw = row.get("motion", [0, 0, 0])
+    dh = dw * height / width
+    if "squash" in row:
+        squash = row["squash"]
+        if not isinstance(squash, dict) or not str(squash.get("reason", "")).strip():
+            raise ValueError("whitelisted squash needs width, height, and a reason")
+        dw += squash["width"]
+        dh += squash["height"]
+    if not all(
+        type(value) in (int, float) and math.isfinite(value)
+        for value in (dx, dy, dw, dh)
+    ):
+        raise ValueError("motion and squash offsets must be finite numbers")
+    return dx, dy, dw, dh
+
+
+def check_geometry(timing, args, entry):
     rows, _ = read_timing(timing)
     measurements = []
     for index, row in enumerate(rows, 1):
         body = image(timing.parent / row["body"], "L")
-        face = image(timing.parent / row["face"], "L")
-        if (
-            body.size != face.size
-            or body.size != image(timing.parent / row["file"]).size
-        ):
+        if body.size != image(timing.parent / row["file"]).size:
             raise ValueError(f"exposure {index}: mask and cel canvas sizes differ")
-        if body.width != body.height:
-            raise ValueError(f"exposure {index}: expected square masks")
-        factor = size / body.width
-        (x, y), (width, height) = mask_geometry(body)
-        dx, dy, dw = row.get("motion", [0, 0, 0])
-        metrics = (x - dx, y - dy, width - dw, height - dw * height / width)
-        measurements.append(tuple(metric * factor for metric in metrics))
+        metrics = normalized_geometry(body, args.size)
+        offsets = geometry_offsets(row, *metrics[2:])
+        measurements.append(
+            tuple(
+                metric - offset * args.size / body.width
+                for metric, offset in zip(metrics, offsets, strict=True)
+            )
+        )
+        if "face" not in row:
+            if args.require_masks:
+                raise ValueError(f"exposure {index}: missing face mask")
+            continue
+        face = image(timing.parent / row["face"], "L")
+        if face.size != body.size:
+            raise ValueError(f"exposure {index}: mask and cel canvas sizes differ")
         body, face = [
-            layer.point(lambda channel: 255 if channel >= 128 else 0)
+            layer.point(lambda value: 255 if value >= 128 else 0)
             for layer in (body, face)
         ]
         if not face.getbbox() or ImageChops.subtract(face, body).getbbox():
             raise ValueError(f"exposure {index}: face mask is empty or leaves body")
-    centers = [median(column) for column in zip(*measurements, strict=True)]
+
+    if "body_reference" in entry:
+        model = image(args.manifest.parent / entry["body_reference"], "L")
+        baseline = normalized_geometry(model, args.size)
+    else:
+        baseline = [median(column) for column in zip(*measurements, strict=True)]
+    percent_limit = args.max_drift_percent
+    if percent_limit is None:
+        percent_limit = entry.get("max_drift_percent")
+    pixel_limit = args.drift_px
+    if pixel_limit is None and percent_limit is None:
+        pixel_limit = 2
+    for limit in (pixel_limit, percent_limit):
+        if limit is not None and (
+            type(limit) not in (int, float) or not math.isfinite(limit) or limit < 0
+        ):
+            raise ValueError("drift limits must be finite nonnegative numbers")
+    worst = 0
     for index, metrics in enumerate(measurements, 1):
-        drift = max(
-            abs(value - center) for value, center in zip(metrics, centers, strict=True)
-        )
-        if drift > tolerance:
+        dx, dy, dw, dh = (abs(a - b) for a, b in zip(metrics, baseline, strict=True))
+        pixels = max(dx, dy, dw, dh)
+        percent = 100 * max(dx, dy, dh) / baseline[3]
+        worst = max(worst, percent)
+        if percent_limit is not None and percent > percent_limit:
             raise ValueError(
-                f"exposure {index}: centroid/scale drift {drift:.2f}px exceeds {tolerance}px"
+                f"exposure {index}: body height/centroid drift {percent:.2f}% exceeds {percent_limit}% of reference height"
             )
+        if pixel_limit is not None and pixels > pixel_limit:
+            raise ValueError(
+                f"exposure {index}: centroid/scale drift {pixels:.2f}px exceeds {pixel_limit}px"
+            )
+    return round(worst, 3)
 
 
 def border_is_clear(frame, matte):
@@ -111,9 +168,10 @@ def check_emoji(args, entry, path):
             f"frames {len(timeline.frames)} → 1: seam difference {seam:.3f}"
         )
     timing = entry.get("timing")
+    body_drift = {}
     if timing:
         timing = args.manifest.parent / timing
-        check_geometry(timing, args.size, args.drift_px)
+        body_drift["body_drift_percent"] = check_geometry(timing, args, entry)
         requested = read_timing(timing)[1]
         minimum = round(sum(requested) / 10) * 10
         maximum = max(minimum, 20 * len(requested))
@@ -121,8 +179,13 @@ def check_emoji(args, entry, path):
             raise ValueError(
                 "decoded duration differs from annotated timing beyond GIF rounding"
             )
-    elif args.require_masks:
-        raise ValueError("animated entry is missing timing with body and face masks")
+    elif (
+        args.require_masks
+        or args.max_drift_percent is not None
+        or "max_drift_percent" in entry
+        or "body_reference" in entry
+    ):
+        raise ValueError("animated entry is missing timing with body masks")
     return {
         "frames": len(timeline.frames),
         "duration_ms": timeline.duration,
@@ -131,6 +194,7 @@ def check_emoji(args, entry, path):
         "loop": repeat,
         "seam": round(seam, 5),
         "geometry_checked": bool(timing),
+        **body_drift,
     }
 
 

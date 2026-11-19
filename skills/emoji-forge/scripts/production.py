@@ -1,6 +1,7 @@
 """Scaffold production artifacts, render review sheets, and track hand-offs."""
 
 import json
+from argparse import Namespace
 from datetime import UTC, datetime
 from pathlib import Path
 from shutil import copy2, make_archive
@@ -9,18 +10,20 @@ from textwrap import shorten
 from PIL import Image, ImageDraw, ImageFont
 
 if __package__:
+    from . import pack_assets
     from .common import gif_delays, image, image_files, read_json
 else:
+    import pack_assets
     from common import gif_delays, image, image_files, read_json
 
 SHEET_GROUPS = ("model", "expressions", "poses")
 STAGES = ("bible", "storyboard", "keys", "inbetweens", "effects", "final")
 REVIEW_BRIEFS = {
-    "bible": "Compare the reference poses and palette. Note any identity or construction choices that need clarification.",
+    "bible": "Compare the reference poses and palette. Check the silhouette, palette and name for resemblance to recognizable existing characters.",
     "storyboard": "Check whether the storyboard and timed thumbnail animatic communicate the idea.",
     "keys": "Compare the key drawings with the model, expression and pose sheets and the storyboard.",
-    "inbetweens": "Inspect the cels, strips and timing. Call out off-model drawings, abrupt spacing or missing holds by frame.",
-    "effects": "Compare the clean and treated frames. Note timing, readability or clipping issues.",
+    "inbetweens": "Inspect the cels, strips and timing. Call out off-model drawings, abrupt spacing, missed holds, and unintended scale or anchor changes by frame.",
+    "effects": "Compare the clean and treated frames. Check that an impact flash or burst begins on contact and clears the character as it decays.",
     "final": "Check the delivered scale, frame and byte limits, then inspect the overview and final strips at their intended size.",
 }
 STAGE_FILES = {
@@ -69,10 +72,17 @@ def save_json(path, value):
     return path
 
 
-def scaffold(root, names):
+def scaffold(root, names, asset_file=None):
     assets = {}
+    registry = pack_assets.prepare(root, names, asset_file)
+    (root / "images/assets").mkdir(parents=True, exist_ok=True)
+    (root / "images/assets/README.md").write_text(
+        "# Asset sheets\n\nDeclare props, effects and recurring design features in assets.json. "
+        "Add each asset's model views and integration drawing before planning its cels.\n",
+        encoding="utf-8",
+    )
     for group in SHEET_GROUPS:
-        (root / "images" / group).mkdir(parents=True)
+        (root / "images" / group).mkdir(parents=True, exist_ok=True)
     for name, template in TEMPLATES.items():
         (root / name).write_text(template, encoding="utf-8")
     for name in names:
@@ -87,6 +97,12 @@ def scaffold(root, names):
             emoji / "storyboard.json",
             {
                 "style_sheet": "../../images/model/three-quarter.png",
+                "asset_references": {
+                    key: [f"../../{path}" for path in paths]
+                    for key, paths in pack_assets.drawing_references(
+                        registry, name
+                    ).items()
+                },
                 "direction": "",
                 "panels": [
                     {
@@ -106,11 +122,15 @@ def scaffold(root, names):
                 "frames": [{"panel": "opening", "key_pose": "keys/01.png", "ms": 400}],
             },
         )
-        assets[name] = [
-            {"name": kind, "type": kind, "status": "todo", "file": ""}
-            for kind in ("character", "prop", "effect", "background")
-        ]
-    save_json(root / "assets.json", {"emojis": assets})
+        assets[name] = (
+            [{"asset": key} for key in pack_assets.drawing_references(registry, name)]
+            if registry
+            else [
+                {"name": kind, "type": kind, "status": "todo", "file": ""}
+                for kind in ("character", "prop", "effect", "background")
+            ]
+        )
+    save_json(root / "assets.json", {"emojis": assets, "assets": registry})
     save_json(
         root / "production.json",
         {
@@ -202,8 +222,6 @@ def timestamp():
 def review_pack(root, name, step, destination, review=None):
     shelf = root / "review" / name
     output = destination or shelf / f"{step}-{timestamp()}"
-    if output.exists() or output.with_name(output.name + ".zip").exists():
-        raise ValueError(f"choose a new review pack path: {output}")
     prefix = f"emojis/{name}/"
     docs = ["style.md", "assets.json", *STAGE_FILES[step]]
     refs = [Path(path.replace("@", prefix, 1)) for path in docs]
@@ -216,6 +234,14 @@ def review_pack(root, name, step, destination, review=None):
                     refs.append(path.relative_to(root.resolve()))
     else_dir = shelf / "sheets"
     refs.extend((else_dir / asset).relative_to(root) for asset in STAGE_SHEETS[step])
+    return archive_review(
+        root, output, refs, f"{name} / {step}", REVIEW_BRIEFS[step], review
+    )
+
+
+def archive_review(root, output, refs, title, brief, review=None):
+    if output.exists() or output.with_name(output.name + ".zip").exists():
+        raise ValueError(f"choose a new review pack path: {output}")
     sources = []
     # Gather before making the destination, so a stray source subfolder cannot include the output.
     for path in refs:
@@ -233,7 +259,7 @@ def review_pack(root, name, step, destination, review=None):
         copy2(source, target)
     note = f"\nVerdict: {review['result']}\n\n{review['notes']}\n" if review else ""
     (output / "REVIEW.md").write_text(
-        f"# {name} / {step}\n\n{REVIEW_BRIEFS[step]}\n\nReturn pass or fail, with notes and frame or panel references where useful.\n{note}",
+        f"# {title}\n\n{brief}\n\nReturn pass or fail, with notes and frame or panel references where useful.\n{note}",
         encoding="utf-8",
     )
     archive = make_archive(str(output), "zip", output)
@@ -268,11 +294,31 @@ def status(args):
 
 
 def handoff(args):
+    if args.stage in pack_assets.LEVELS:
+        if args.stage == "consistency" and (args.asset or args.emoji):
+            raise ValueError("consistency review covers the whole pack")
+        refs = pack_assets.review_sources(
+            args.project, args.stage, args.asset, args.emoji
+        )
+        if args.stage == "consistency" and not (args.project / "lineup.png").is_file():
+            pack_assets.lineup(
+                Namespace(
+                    project=args.project, output=args.project / "lineup.png", crops=None
+                )
+            )
+        output = args.out or args.project / "review" / f"{args.stage}-{timestamp()}"
+        return archive_review(
+            args.project, output, refs, args.stage, pack_assets.BRIEFS[args.stage]
+        )
     _, name = select(args.project, args.emoji)
     return review_pack(args.project, name, args.stage, args.out)
 
 
 def configure(subcommands):
+    lineup = subcommands.add_parser("lineup", help="show every asset across the pack")
+    lineup.add_argument("project", type=Path)
+    lineup.add_argument("output", type=Path)
+    lineup.add_argument("--crops", type=Path, help="override project/lineup.json")
     for name, help_ in (
         ("sheets", "render contact sheets and a thumbnail animatic"),
         ("stage", "record a stage or review"),
@@ -283,7 +329,17 @@ def configure(subcommands):
         parser.add_argument("--project", type=Path, default=Path("."))
         parser.add_argument("--emoji")
         if name in {"stage", "review-pack"}:
-            parser.add_argument("stage", choices=STAGES)
+            parser.add_argument(
+                "stage",
+                choices=STAGES + pack_assets.LEVELS
+                if name == "review-pack"
+                else STAGES,
+            )
+        if name == "review-pack":
+            parser.add_argument(
+                "--asset",
+                help="select a specific asset for an asset or integration review",
+            )
         if name in {"sheets", "review-pack"}:
             parser.add_argument("--out", type=Path)
         if name == "stage":
@@ -291,4 +347,10 @@ def configure(subcommands):
             parser.add_argument("--notes")
 
 
-COMMANDS = {"sheets": sheets, "stage": stage, "status": status, "review-pack": handoff}
+COMMANDS = {
+    "sheets": sheets,
+    "stage": stage,
+    "status": status,
+    "review-pack": handoff,
+    "lineup": pack_assets.lineup,
+}

@@ -16,9 +16,10 @@ from urllib.request import Request, urlopen
 from PIL import Image
 
 if __package__:
-    from . import common, production
+    from . import common, pack_assets, production
 else:
     import common
+    import pack_assets
     import production
 
 BEATS = (
@@ -34,11 +35,24 @@ def configure(subcommands):
     parser.add_argument("idea", nargs="?")
     parser.add_argument("--project", type=Path, default=Path("forge-project"))
     parser.add_argument("--refs", type=Path, nargs="+", default=[])
+
     parser.add_argument("--count", type=int, default=1)
+    parser.add_argument(
+        "--emoji", action="append", help="use a specific emoji name; repeat for a pack"
+    )
+    parser.add_argument(
+        "--assets", type=Path, help="seed asset inventory and references"
+    )
     parser.add_argument("--target", choices=("slack", "generic"), default="slack")
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--static", action="store_true")
     mode.add_argument("--animated", action="store_true")
+    parser.add_argument(
+        "--still",
+        action="append",
+        default=[],
+        help="name a still emoji in a mixed pack",
+    )
     parser.add_argument(
         "--yes", action="store_true", help="skip optional approval gates"
     )
@@ -68,6 +82,18 @@ def save_state(path, state):
     temp.replace(path)
 
 
+def is_static(state, name):
+    return state["static"] or name in state.get("stills", [])
+
+
+def preview_name(state):
+    return (
+        "overview.png"
+        if all(is_static(state, name) for name in state["names"])
+        else "overview.gif"
+    )
+
+
 def start(args, root):
     if not args.idea or not args.idea.strip() or args.count < 1:
         raise ValueError("provide an idea and a positive --count")
@@ -89,8 +115,15 @@ def start(args, root):
         if args.count == 1
         else [f"{slug}-{index}" for index in range(1, args.count + 1)]
     )
+    names = args.emoji or names
+    if len(names) != len(set(names)) or any(
+        not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", name) for name in names
+    ):
+        raise ValueError("--emoji names must be unique lowercase file names")
+    if not set(args.still) <= set(names):
+        raise ValueError("--still must name an emoji in the pack")
     root.mkdir(parents=True)
-    production.scaffold(root, names)
+    production.scaffold(root, names, args.assets)
     (root / "brief.md").write_text(
         f"# Pack brief\n\n{args.idea.strip()}\n", encoding="utf-8"
     )
@@ -105,8 +138,8 @@ def start(args, root):
             refs.append(path.relative_to(root).as_posix())
     for index, name in enumerate(names, 1):
         path = root / "emojis" / name
-        beats = (BEATS[0],) if args.static else BEATS
-        direction = f"{args.idea.strip()} · emoji {index} of {args.count}. Match the approved references. One transparent square cel."
+        beats = (BEATS[0],) if args.static or name in args.still else BEATS
+        direction = f"{args.idea.strip()} · {name} ({index} of {len(names)}). Match the approved references. One transparent square cel."
         panels = [
             {
                 "id": key,
@@ -120,7 +153,7 @@ def start(args, root):
         production.save_json(
             path / "storyboard.json",
             {
-                "style_sheet": "../../images/model/three-quarter.png",
+                **common.read_json(path / "storyboard.json"),
                 "direction": direction,
                 "panels": panels,
             },
@@ -151,6 +184,7 @@ def start(args, root):
         "names": names,
         "target": args.target,
         "static": args.static,
+        "stills": args.still,
         "refs": refs,
         "phase": 0,
         "gates": args.gate,
@@ -280,17 +314,44 @@ def images_for_stage(root, state, stage):
             "Edit this model into a legible rest pose reference. Keep the palette, proportions and silhouette features.",
             [model, expression],
         )
+        assets = pack_assets.inventory(root)
+        for key, asset in assets.items():
+            name = asset.get("name", key)
+            for file in asset["model"]:
+                yield task(
+                    root / file,
+                    f"Draw model views for {name}. Show its design and scale against the character bible.",
+                    [model],
+                )
+        for key, asset in assets.items():
+            name = asset.get("name", key)
+            for file in asset["integration"]:
+                yield task(
+                    root / file,
+                    f"Draw how {name} is held, worn, placed or layered. Match the asset and character references.",
+                    [model, pose, *(root / ref for ref in asset["model"])],
+                )
         return
     for name in state["names"]:
         emoji = root / "emojis" / name
         board = common.read_json(emoji / "storyboard.json")
+        asset_groups = board.get("asset_references", {})
         if stage == "storyboard":
             for panel in board["panels"]:
                 if panel.get("file"):
                     yield task(
                         emoji / panel["file"],
                         f"{board['direction']} Thumbnail panel. {panel['action']}",
-                        [model, expression, pose],
+                        [
+                            model,
+                            expression,
+                            pose,
+                            *(
+                                emoji / ref
+                                for key in panel.get("assets", asset_groups)
+                                for ref in asset_groups[key]
+                            ),
+                        ],
                     )
         elif stage == "keys":
             x_sheet = common.read_json(emoji / "x-sheet.json")
@@ -298,7 +359,18 @@ def images_for_stage(root, state, stage):
             for row in x_sheet["frames"]:
                 if row.get("key_pose"):
                     panel = panels.get(row.get("panel"), {})
-                    refs = [model, expression, pose]
+                    refs = [
+                        model,
+                        expression,
+                        pose,
+                        *(
+                            emoji / ref
+                            for key in row.get(
+                                "assets", panel.get("assets", asset_groups)
+                            )
+                            for ref in asset_groups[key]
+                        ),
+                    ]
                     if panel.get("file"):
                         refs.append(emoji / panel["file"])
                     yield task(
@@ -311,6 +383,7 @@ def images_for_stage(root, state, stage):
             for row in plan["frames"]:
                 output = emoji / row["file"]
                 refs = [emoji / ref for ref in row["references"].values() if ref]
+                refs.extend(emoji / ref for ref in row.get("asset_references", []))
                 if row["key_frame"] and not output.exists():
                     copy2(emoji / row["references"]["key_pose"], output)
                 yield task(output, row["prompt"], refs)
@@ -334,7 +407,7 @@ def run_step(root, state, stage, invoke):
             )
         elif stage == "inbetweens":
             cels = emoji / "cels"
-            use_registration = state["register"] and not state["static"]
+            use_registration = state["register"] and not is_static(state, name)
             intermediate = emoji / "imported" if use_registration else cels
             if not intermediate.exists():
                 plan = common.read_json(emoji / "plan.json")
@@ -357,11 +430,15 @@ def run_step(root, state, stage, invoke):
                     emoji / "plan.json",
                 )
             if use_registration and not cels.exists():
-                call("register", intermediate / "timing.json", cels)
+                model_mask = root / "images/model/body-mask.png"
+                options = (
+                    ["--body-reference", model_mask] if model_mask.is_file() else []
+                )
+                call("register", intermediate / "timing.json", cels, *options)
             call(
                 "drift",
                 cels / "timing.json",
-                root / "images/model",
+                root / "images/model/three-quarter.png",
                 emoji / "drift.json",
             )
             call(
@@ -380,7 +457,8 @@ def run_step(root, state, stage, invoke):
             rows, _ = common.read_timing(emoji / "cels/timing.json")
             entry = {
                 "name": name,
-                "static": state["static"],
+                "use": common.read_json(emoji / "storyboard.json").get("use", ""),
+                "static": is_static(state, name),
                 "register": False,
                 "frames": [
                     {
@@ -413,7 +491,7 @@ def run_step(root, state, stage, invoke):
                 root
                 / "result"
                 / "exports"
-                / (name + (".png" if state["static"] else ".gif"))
+                / (name + (".png" if is_static(state, name) else ".gif"))
             )
             (emoji / "effects").mkdir(exist_ok=True)
             copy2(treated, emoji / "effects" / treated.name)
@@ -427,11 +505,7 @@ def run_step(root, state, stage, invoke):
             copy2(root / "result" / "checks.json", emoji / "checks.json")
             if not (emoji / "final").is_dir():
                 copytree(emoji / "effects", emoji / "final")
-            overview = (
-                root
-                / "result/pack"
-                / ("overview.png" if state["static"] else "overview.gif")
-            )
+            overview = root / "result/pack" / preview_name(state)
             copy2(overview, emoji / "final" / overview.name)
 
 
@@ -491,7 +565,7 @@ def run(args, invoke):
         save_state(path, state)
     (root / "next-task.json").unlink(missing_ok=True)
     pack = root / "result/pack"
-    overview = pack / ("overview.png" if state["static"] else "overview.gif")
+    overview = pack / preview_name(state)
     return {
         "status": "complete",
         "project": str(root),

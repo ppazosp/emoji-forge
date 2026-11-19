@@ -333,3 +333,83 @@ frame.save(job["output"])
     assert Path(result["overview"]).suffix == ".png"
     assert (Path(result["pack"]) / "emoji/64/amber-circle.png").is_file()
     assert not (Path(result["pack"]) / "overview.gif").exists()
+
+
+def test_inventory_threads_props_and_bundles_three_review_levels(tmp_path):
+    seed = save(
+        tmp_path / "seed.json",
+        {"assets": {"hammer": {"name": "Hammer", "uses": ["tap", "logo"]}}},
+    )
+    project = tmp_path / "pack"
+    call("new", project, "--emoji", "tap", "--emoji", "logo", "--assets", seed)
+    asset = project / "images/assets/hammer"
+    assert (asset / "model.md").is_file() and (asset / "integration.md").is_file()
+    cell(asset / "model.png")
+    cell(asset / "integration.png")
+    first = project / "emojis/tap"
+    board = json.loads((first / "storyboard.json").read_text())
+    board["panels"][0]["action"] = "Tap the hammer"
+    save(first / "storyboard.json", board)
+    plan = first / "plan.json"
+    call("plan", first / "storyboard.json", plan, "--x-sheet", first / "x-sheet.json")
+    assert json.loads(plan.read_text())["frames"][0]["asset_references"] == [
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png",
+    ]
+    cell(project / "tap.png")
+    cell(project / "logo.png", color="red")
+    annotation = save(
+        project / "lineup.json",
+        {
+            "assets": {
+                "hammer": {
+                    "references": [{"file": "images/assets/hammer/model.png"}],
+                    "appearances": {
+                        "tap": [{"file": "tap.png"}],
+                        "logo": [{"file": "logo.png"}],
+                    },
+                }
+            }
+        },
+    )
+    rendered = call("lineup", project, project / "lineup.png")
+    assert rendered["assets"] == 1 and rendered["emojis"] == ["tap", "logo"]
+    report = call("drift", project, project / "prop-drift.json", "--props")
+    assert {row["emoji"]: row["flags"] for row in report["assets"]}["logo"] == [
+        "palette"
+    ]
+    for level, expected in (
+        ("asset", "images/assets/hammer/model.png"),
+        ("integration", "images/assets/hammer/integration.png"),
+        ("consistency", "lineup.png"),
+    ):
+        result = call("review-pack", level, "--project", project)
+        with ZipFile(result["archive"]) as archive:
+            assert expected in archive.namelist()
+            assert f"# {level}" in archive.read("REVIEW.md").decode()
+    rows = json.loads(annotation.read_text())
+    del rows["assets"]["hammer"]["appearances"]["logo"]
+    save(annotation, rows)
+    assert "logo" in call("lineup", project, project / "invalid.png", status=1)["error"]
+
+
+def test_make_mixed_pack_scaffolds_only_one_exposure_for_still(tmp_path):
+    project = tmp_path / "mixed"
+    result = call(
+        "make",
+        "Two drawings",
+        "--project",
+        project,
+        "--emoji",
+        "tap",
+        "--emoji",
+        "mark",
+        "--still",
+        "mark",
+    )
+    assert result["status"] == "needs-image"
+    data = json.loads((project / "make.json").read_text())
+    assert data["names"] == ["tap", "mark"] and not data["gates"]
+    for name, count in [("tap", 4), ("mark", 1)]:
+        rows = json.loads((project / "emojis" / name / "x-sheet.json").read_text())
+        assert len(rows["frames"]) == count

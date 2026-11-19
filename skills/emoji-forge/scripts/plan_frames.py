@@ -43,6 +43,14 @@ def render_plan(board, exposures, args):
     if not keys:
         raise ValueError("mark at least one exposure with a key_pose reference")
     panels = {panel["id"]: panel for panel in board.get("panels", [])}
+    references = board.get("asset_references", {})
+    known_assets = {
+        key: [
+            relative_to_plan(args.storyboard.parent / path, args.output)
+            for path in paths
+        ]
+        for key, paths in references.items()
+    }
     items = []
     for index, (row, ms) in enumerate(zip(frames, delays, strict=True), 1):
         panel = panels[row["panel"]] if row.get("panel") else {}
@@ -58,6 +66,15 @@ def render_plan(board, exposures, args):
             f"Expression: {panel['expression']}" if panel.get("expression") else "",
             board.get("direction", ""),
         ]
+        assets = row.get("assets", panel.get("assets", known_assets))
+        missing = set(assets) - known_assets.keys()
+        if missing:
+            raise ValueError(
+                f"frame {index:02d}: unknown reference assets {', '.join(sorted(missing))}"
+            )
+        files = list(
+            dict.fromkeys(path for key in assets for path in known_assets[key])
+        )
         items.append(
             {
                 "file": path,
@@ -68,6 +85,7 @@ def render_plan(board, exposures, args):
                     "key_pose": keys[nearest],
                     "style_sheet": style,
                 },
+                **({"asset_references": files} if files else {}),
                 "prompt": "\n".join(filter(None, parts)),
             }
         )
@@ -86,12 +104,16 @@ def run(args):
     else:
         blocks = ["# Frame edit plan"]
         for entry in plan["frames"]:
-            refs = "\n".join(
+            refs = [
                 f"- {label.replace('_', ' ').capitalize()}  `{path or 'none'}`"
                 for label, path in entry["references"].items()
+            ]
+            refs.extend(
+                f"- Asset  `{path}`" for path in entry.get("asset_references", [])
             )
             blocks.append(
-                f"## {entry['file']} · {entry['ms']:g} ms\n\n{entry['prompt']}\n\n{refs}"
+                f"## {entry['file']} · {entry['ms']:g} ms\n\n{entry['prompt']}\n\n"
+                + "\n".join(refs)
             )
         content = "\n\n".join(blocks)
     output_path(args.output).write_text(content + "\n", encoding="utf-8")

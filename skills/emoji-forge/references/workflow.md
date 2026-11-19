@@ -1,6 +1,6 @@
 # Forge tool reference
 
-Run `uv run forge COMMAND --help` from the skill directory. Commands accept `--json` for machine-readable results and exit nonzero on failure. Use the tools that fit the work.
+See [setup and GPU options](setup.md) to install the skill and run Forge outside its directory. Run `uv run forge COMMAND --help` from the skill directory. Commands accept `--json` for machine-readable results and exit nonzero on failure. Use the tools that fit the work.
 
 | Command | Plain input | Result |
 | --- | --- | --- |
@@ -8,6 +8,7 @@ Run `uv run forge COMMAND --help` from the skill directory. Commands accept `--j
 | `make "IDEA"` | Idea and optional references | Resumable brief-to-pack workflow with native image tasks. |
 | `sheets` | Project artwork and thumbnail panels | Contact sheets and a timed animatic. |
 | `stage`, `status`, `review-pack` | Production project | Track reviews and snapshot or bundle the stage hand-off. |
+| `lineup PROJECT OUT.png` | Inventory and annotated appearance crops | Asset-by-emoji comparison sheet. |
 | `plan BOARD OUT` | Storyboard plus X-sheet | JSON or Markdown prompts with previous cel, key and style references. |
 | `import RAW OUT` | Generated image or folder | Keyed and aligned RGBA cels, masks and timing. |
 | `drift CELS STYLE OUT` | Cels and cropped model references | Palette, silhouette and perceptual comparisons. |
@@ -46,6 +47,12 @@ Use any positive finite per-frame delay in milliseconds. For folders, `--frame-m
 
 Frame-boundary easing supports `linear`, `ease-in`, `ease-out` and `ease-in-out`. It changes exposure spacing while preserving the supplied drawings. For custom timing, supply exact durations or use a Python hook. GIF stores delays in 10 ms units. Forge encodes with a 20 ms minimum and keeps the total near the requested length when the minimum allows. It merges identical adjacent cels and can try reduced palettes with and without dithering. If a budget still cannot fit the distinct exposures, the command reports why.
 
+## Body height and anchor
+
+Use `forge register CELS OUT --body-reference model-mask.png` to match the model mask's centroid and body height on a consistent canvas. Use `forge check PACK --max-drift-percent 2` to flag deviations in height or either centroid coordinate above 2% of reference body height. Add `timing` with one body mask per exposure and `body_reference` for the model PNG to each animated export entry. With no model supplied the checker uses the sequence median. A manifest may specify its own `max_drift_percent` per emoji. `--drift-px` can also check width and absolute pixels. Keep masks on the core body so moving limbs, effects and props do not drive registration.
+
+On an exposure with intentional deformation, add `"squash": {"width": 3, "height": -2, "reason": "one-frame impact compression"}` to its timing row. Offsets are annotated in pixels on the cel canvas. Registration applies the deformation and the checker measures the residual around the intended change. Use the same timing on the review and export paths. See the [motion review checklist](review-checklist.md).
+
 ## Optional pack JSON
 
 A pack can describe repeatable inputs for `forge all`. Use inline frame rows, filenames or a folder path under `frames`, a Python `script`, or both. This example uses short poses just to show the fields.
@@ -75,7 +82,7 @@ Per-entry `target` overrides the pack default. `register: false` preserves the s
 | `slack` | 128 px | 128,000 | 50 |
 | `generic` | 256 px | 1,000,000 | 120 |
 
-`forge all` renders emoji in parallel. Choose the worker count with `--jobs`. Draft runs export at 64 px and render effects at 128 px. Each hit in the content cache covers one emoji and its inputs. Use `--cache` to point to a shared cache folder. Pass a new version folder on each run. `forge check` reads the recorded limits on an exported pack unless you supply a budget. Use `all --exports` for a folder of finished stills. This export manifest can also feed `preview` and `bundle`, or either can read the exports folder directly.
+`forge all` renders emoji in parallel. Choose the worker count with `--jobs`. Add `--draft` to export at 64 px and render effects at 128 px. Each hit in the content cache covers one emoji and its inputs. Use `--cache` to point to a shared cache folder. Pass a new version folder on each run. `forge check` reads the recorded limits on an exported pack unless you supply a budget. Use `all --exports` for a folder of finished stills. This export manifest can also feed `preview` and `bundle`, or either can read the exports folder directly.
 
 ## Python animation hooks
 

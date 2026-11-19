@@ -47,6 +47,7 @@ jobs:
         run: |
           uvx --from 'git+https://github.com/agentskills/agentskills@83021e2be457a9b6679148719c1f6074f0ad975e#subdirectory=skills-ref' skills-ref validate skills/emoji-forge
           uv run --no-project --with markdown-it-py python tools/check_skill_links.py skills/emoji-forge
+          uv run --no-project --with markdown-it-py python tools/check_skill_links.py .
           cmp LICENSE skills/emoji-forge/LICENSE
       - name: Install this checkout into an empty project
         run: |

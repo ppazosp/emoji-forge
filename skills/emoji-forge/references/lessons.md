@@ -15,3 +15,11 @@ Use these suggestions when you see the corresponding problem in your own renders
 | Glow bands or crowds the artwork. | Compare a larger render, dithering, a matte or a stronger graphic shape. |
 | Revisions get hard to compare. | Snapshot before changes so you can compare in one preview or return to a prior version. |
 | Several exports communicate the same thing. | Let the user choose whether to keep both or share one shorter-named reaction. |
+
+## What often helps on a recurring mascot
+
+- Review props across the whole pack. Two individually convincing hammers can still look like different tools. Isolate the hammer from each emoji and review the views beside the approved model at a comparable scale.
+- Look at body height and anchor as well as silhouette. A prop moving through the frame can fool whole-image alignment. Use torso masks and check every exposure against the model. Label small intentional deformation, then ease back to the baseline.
+- Vary spacing for a convincing action. A lifted pose, a fast transition or smear, a brief contact hold and a decelerating recovery can read better than equal time between drawings.
+- Tie impact effects to contact. A small bright flash, outward streaks or a ring, then cooling falling sparks can sell the hit while leaving the character visible.
+- Check for resemblance before committing to a character. Record the name and silhouette search in the bible, compare the closest candidates, and revise familiar combinations before drawing the pack.
