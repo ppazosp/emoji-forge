@@ -13,7 +13,7 @@ An example observation might be “Frames 5–6 at 1.10–1.38 s. The raised han
 
 ## Review brief template
 
-Use a short brief for each hand-off. Attach the stage ZIP from `forge review-pack`.
+Use a short brief and the stage ZIP from `forge review-pack` for each hand-off. In one-shot mode, run these as internal motion-design reviews. Share stage materials with the user when they request a checkpoint.
 
 - **Bible** • Check the proposed reference views, construction, palette, and whether the name or silhouette resembles an existing character.
 - **Storyboard** • Check the panels, intended reaction and animatic timing.
