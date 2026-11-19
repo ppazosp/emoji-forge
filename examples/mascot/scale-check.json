@@ -7,7 +7,7 @@
       "path": "result/exports/hammering.gif",
       "frames": 29,
       "duration_ms": 3600,
-      "bytes": 110890,
+      "bytes": 115789,
       "size": [
         128,
         128
@@ -15,7 +15,7 @@
       "loop": 0,
       "seam": 0.0,
       "geometry_checked": true,
-      "body_drift_percent": 0.226,
+      "body_drift_percent": 0.167,
       "ok": true
     },
     {

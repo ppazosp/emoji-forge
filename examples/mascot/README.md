@@ -2,7 +2,7 @@
 
 Tavvik is a living steel anvil with soot-smudged brass goggles, articulated mittens and one copper-banded hammer. Six reactions show life in the workshop. The still uses the same hammer as the hammering animation.
 
-[Animated overview](tavvik/overview@2x.gif) · [Download the pack](tavvik.zip) · [128 px uploads](tavvik/emoji/128/) · [Cross-pack lineup](lineup.png)
+[Animated overview](tavvik/overview@2x.gif) · [Download the pack](tavvik.zip) · [128 px uploads](tavvik/emoji/128/) · [Cross-pack lineup](lineup.png) · [Frame-by-frame hammer grip](emojis/hammering/strips/grip.png)
 
 ## Made with Emoji Forge
 

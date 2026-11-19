@@ -19,6 +19,7 @@ Use these suggestions when you see the corresponding problem in your own renders
 ## What often helps on a recurring mascot
 
 - Review props across the whole pack. Two individually convincing hammers can still look like different tools. Isolate the hammer from each emoji and review the views beside the approved model at a comparable scale.
+- Follow a held prop through the whole motion. A fist can look convincing in isolation while the prop flips between drawings. Keep its grip, hand and axes consistent as the wrist and elbow move. For a hammer strike, watch whether the handle stays in the same fist and the striking face meets the workpiece flat.
 - Look at body height and anchor as well as silhouette. A prop moving through the frame can fool whole-image alignment. Use torso masks and check every exposure against the model. Label small intentional deformation, then ease back to the baseline.
 - Vary spacing for a convincing action. A lifted pose, a fast transition or smear, a brief contact hold and a decelerating recovery can read better than equal time between drawings.
 - Tie impact effects to contact. A small bright flash, outward streaks or a ring, then cooling falling sparks can sell the hit while leaving the character visible.

@@ -34,7 +34,7 @@
         "../../images/assets/impact/model.png",
         "../../images/assets/impact/integration.png"
       ],
-      "prompt": "Frame 01/08: Hammer is low at a slight diagonal, ready over the workstand.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+      "prompt": "Frame 01/08: Ready. The working mitten wraps the same short shaft at twenty degrees above horizontal.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers. Keep the same wrist grip and a rigid perpendicular head as the shaft follows the swing. At contact the shaft is horizontal and the striking end rests flat on the coin."
     },
     {
       "file": "raw/002.png",
@@ -60,7 +60,7 @@
         "../../images/assets/impact/model.png",
         "../../images/assets/impact/integration.png"
       ],
-      "prompt": "Frame 02/08: Begin lifting. Right elbow bends and hammer rotates up to a 45 degree angle.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+      "prompt": "Frame 02/08: Anticipation. Raise the same wrist and bend the elbow. The perpendicular T tilts with the shaft.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers. Keep the same wrist grip and a rigid perpendicular head as the shaft follows the swing. At contact the shaft is horizontal and the striking end rests flat on the coin."
     },
     {
       "file": "raw/003.png",
@@ -86,7 +86,7 @@
         "../../images/assets/impact/model.png",
         "../../images/assets/impact/integration.png"
       ],
-      "prompt": "Frame 03/08: Highest pose. The hammer head is over the right corner of the goggles. A small lean back on the fixed waist.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+      "prompt": "Frame 03/08: High pose. Right elbow and wrist bring the head near the goggles. Left mitten stays down.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers. Keep the same wrist grip and a rigid perpendicular head as the shaft follows the swing. At contact the shaft is horizontal and the striking end rests flat on the coin."
     },
     {
       "file": "raw/004.png",
@@ -112,7 +112,7 @@
         "../../images/assets/impact/model.png",
         "../../images/assets/impact/integration.png"
       ],
-      "prompt": "Frame 04/08: Mid-downstroke smear. A narrow muted steel sweep follows the hammer. Hold the same core silhouette and feet.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+      "prompt": "Frame 04/08: Fast downswing on the same arc. A narrow steel smear trails the intact hammer still held by its shaft.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers. Keep the same wrist grip and a rigid perpendicular head as the shaft follows the swing. At contact the shaft is horizontal and the striking end rests flat on the coin."
     },
     {
       "file": "raw/005.png",
@@ -138,7 +138,7 @@
         "../../images/assets/impact/model.png",
         "../../images/assets/impact/integration.png"
       ],
-      "prompt": "Frame 05/08: Fast contact. The flat face lands exactly on the coin. The mitt still grips the handle.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+      "prompt": "Frame 05/08: Impact hold. The shaft runs horizontally out of the same fist and the lower striking face lands flat on the coin.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers. Keep the same wrist grip and a rigid perpendicular head as the shaft follows the swing. At contact the shaft is horizontal and the striking end rests flat on the coin."
     },
     {
       "file": "raw/006.png",
@@ -164,7 +164,7 @@
         "../../images/assets/impact/model.png",
         "../../images/assets/impact/integration.png"
       ],
-      "prompt": "Frame 06/08: Short rebound, the hammer face lifts clearly off the coin, just a few pixels at sticker size.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+      "prompt": "Frame 06/08: Rebound a short distance up the same arc. The shaft center still crosses the same closed fist.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers. Keep the same wrist grip and a rigid perpendicular head as the shaft follows the swing. At contact the shaft is horizontal and the striking end rests flat on the coin."
     },
     {
       "file": "raw/007.png",
@@ -190,7 +190,7 @@
         "../../images/assets/impact/model.png",
         "../../images/assets/impact/integration.png"
       ],
-      "prompt": "Frame 07/08: The mitten eases the hammer back to its waiting angle, clear of the coin.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+      "prompt": "Frame 07/08: Return to the opening drawing and angle.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers. Keep the same wrist grip and a rigid perpendicular head as the shaft follows the swing. At contact the shaft is horizontal and the striking end rests flat on the coin."
     },
     {
       "file": "raw/008.png",
@@ -216,7 +216,7 @@
         "../../images/assets/impact/model.png",
         "../../images/assets/impact/integration.png"
       ],
-      "prompt": "Frame 08/08: A tiny satisfied smile holding the opening hand and body positions.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+      "prompt": "Frame 08/08: Hold the opening drawing before the next strike.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers. Keep the same wrist grip and a rigid perpendicular head as the shaft follows the swing. At contact the shaft is horizontal and the striking end rests flat on the coin."
     }
   ]
 }

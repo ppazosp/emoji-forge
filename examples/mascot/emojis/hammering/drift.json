@@ -6,15 +6,15 @@
       "file": "001-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2462,
-        "mask_iou": 0.6415,
-        "hash_distance": 0.2188
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": null,
       "next": {
-        "color_distance": 0.1425,
-        "mask_iou": 0.7559,
-        "hash_distance": 0.1094
+        "color_distance": 0.0474,
+        "mask_iou": 0.8253,
+        "hash_distance": 0.0938
       },
       "flags": []
     },
@@ -23,19 +23,19 @@
       "file": "002-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1652,
-        "mask_iou": 0.5836,
-        "hash_distance": 0.2656
+        "color_distance": 0.2637,
+        "mask_iou": 0.5952,
+        "hash_distance": 0.2188
       },
       "previous": {
-        "color_distance": 0.1425,
-        "mask_iou": 0.7559,
-        "hash_distance": 0.1094
+        "color_distance": 0.0474,
+        "mask_iou": 0.8253,
+        "hash_distance": 0.0938
       },
       "next": {
-        "color_distance": 0.1059,
-        "mask_iou": 0.9019,
-        "hash_distance": 0.0312
+        "color_distance": 0.1024,
+        "mask_iou": 0.9033,
+        "hash_distance": 0.0625
       },
       "flags": []
     },
@@ -44,19 +44,19 @@
       "file": "003-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2063,
-        "mask_iou": 0.62,
-        "hash_distance": 0.2344
+        "color_distance": 0.2068,
+        "mask_iou": 0.6124,
+        "hash_distance": 0.2188
       },
       "previous": {
-        "color_distance": 0.1059,
-        "mask_iou": 0.9019,
-        "hash_distance": 0.0312
+        "color_distance": 0.1024,
+        "mask_iou": 0.9033,
+        "hash_distance": 0.0625
       },
       "next": {
-        "color_distance": 0.1042,
-        "mask_iou": 0.8698,
-        "hash_distance": 0.0312
+        "color_distance": 0.0821,
+        "mask_iou": 0.8546,
+        "hash_distance": 0.0781
       },
       "flags": []
     },
@@ -65,19 +65,19 @@
       "file": "004-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1816,
-        "mask_iou": 0.5503,
-        "hash_distance": 0.2656
+        "color_distance": 0.2455,
+        "mask_iou": 0.629,
+        "hash_distance": 0.2031
       },
       "previous": {
-        "color_distance": 0.1042,
-        "mask_iou": 0.8698,
-        "hash_distance": 0.0312
+        "color_distance": 0.0821,
+        "mask_iou": 0.8546,
+        "hash_distance": 0.0781
       },
       "next": {
-        "color_distance": 0.1307,
-        "mask_iou": 0.7902,
-        "hash_distance": 0.0781
+        "color_distance": 0.0568,
+        "mask_iou": 0.9791,
+        "hash_distance": 0.0156
       },
       "flags": []
     },
@@ -86,14 +86,14 @@
       "file": "005-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2663,
-        "mask_iou": 0.6551,
+        "color_distance": 0.2547,
+        "mask_iou": 0.6326,
         "hash_distance": 0.2188
       },
       "previous": {
-        "color_distance": 0.1307,
-        "mask_iou": 0.7902,
-        "hash_distance": 0.0781
+        "color_distance": 0.0568,
+        "mask_iou": 0.9791,
+        "hash_distance": 0.0156
       },
       "next": {
         "color_distance": 0,
@@ -107,8 +107,8 @@
       "file": "005-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2663,
-        "mask_iou": 0.6551,
+        "color_distance": 0.2547,
+        "mask_iou": 0.6326,
         "hash_distance": 0.2188
       },
       "previous": {
@@ -128,8 +128,8 @@
       "file": "005-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2663,
-        "mask_iou": 0.6551,
+        "color_distance": 0.2547,
+        "mask_iou": 0.6326,
         "hash_distance": 0.2188
       },
       "previous": {
@@ -149,8 +149,8 @@
       "file": "005-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2663,
-        "mask_iou": 0.6551,
+        "color_distance": 0.2547,
+        "mask_iou": 0.6326,
         "hash_distance": 0.2188
       },
       "previous": {
@@ -159,9 +159,9 @@
         "hash_distance": 0.0
       },
       "next": {
-        "color_distance": 0.1236,
-        "mask_iou": 0.782,
-        "hash_distance": 0.0938
+        "color_distance": 0.0707,
+        "mask_iou": 0.9869,
+        "hash_distance": 0.0312
       },
       "flags": []
     },
@@ -170,14 +170,14 @@
       "file": "006-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1861,
-        "mask_iou": 0.6408,
-        "hash_distance": 0.25
+        "color_distance": 0.2105,
+        "mask_iou": 0.6344,
+        "hash_distance": 0.2188
       },
       "previous": {
-        "color_distance": 0.1236,
-        "mask_iou": 0.782,
-        "hash_distance": 0.0938
+        "color_distance": 0.0707,
+        "mask_iou": 0.9869,
+        "hash_distance": 0.0312
       },
       "next": {
         "color_distance": 0,
@@ -191,9 +191,9 @@
       "file": "006-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1861,
-        "mask_iou": 0.6408,
-        "hash_distance": 0.25
+        "color_distance": 0.2105,
+        "mask_iou": 0.6344,
+        "hash_distance": 0.2188
       },
       "previous": {
         "color_distance": 0,
@@ -212,9 +212,9 @@
       "file": "006-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1861,
-        "mask_iou": 0.6408,
-        "hash_distance": 0.25
+        "color_distance": 0.2105,
+        "mask_iou": 0.6344,
+        "hash_distance": 0.2188
       },
       "previous": {
         "color_distance": 0,
@@ -222,9 +222,9 @@
         "hash_distance": 0.0
       },
       "next": {
-        "color_distance": 0.0739,
-        "mask_iou": 0.8634,
-        "hash_distance": 0.0156
+        "color_distance": 0.0751,
+        "mask_iou": 0.969,
+        "hash_distance": 0.0625
       },
       "flags": []
     },
@@ -233,14 +233,14 @@
       "file": "007-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2209,
-        "mask_iou": 0.6123,
-        "hash_distance": 0.2656
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": {
-        "color_distance": 0.0739,
-        "mask_iou": 0.8634,
-        "hash_distance": 0.0156
+        "color_distance": 0.0751,
+        "mask_iou": 0.969,
+        "hash_distance": 0.0625
       },
       "next": {
         "color_distance": 0,
@@ -254,9 +254,9 @@
       "file": "007-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2209,
-        "mask_iou": 0.6123,
-        "hash_distance": 0.2656
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": {
         "color_distance": 0,
@@ -275,9 +275,9 @@
       "file": "007-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2209,
-        "mask_iou": 0.6123,
-        "hash_distance": 0.2656
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": {
         "color_distance": 0,
@@ -285,9 +285,9 @@
         "hash_distance": 0.0
       },
       "next": {
-        "color_distance": 0.0576,
-        "mask_iou": 0.8921,
-        "hash_distance": 0.1094
+        "color_distance": 0,
+        "mask_iou": 1.0,
+        "hash_distance": 0.0
       },
       "flags": []
     },
@@ -296,14 +296,14 @@
       "file": "008-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2462,
-        "mask_iou": 0.6415,
-        "hash_distance": 0.2188
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": {
-        "color_distance": 0.0576,
-        "mask_iou": 0.8921,
-        "hash_distance": 0.1094
+        "color_distance": 0,
+        "mask_iou": 1.0,
+        "hash_distance": 0.0
       },
       "next": {
         "color_distance": 0,
@@ -317,9 +317,9 @@
       "file": "001-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2462,
-        "mask_iou": 0.6415,
-        "hash_distance": 0.2188
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": {
         "color_distance": 0,
@@ -327,9 +327,9 @@
         "hash_distance": 0.0
       },
       "next": {
-        "color_distance": 0.1425,
-        "mask_iou": 0.7559,
-        "hash_distance": 0.1094
+        "color_distance": 0.0474,
+        "mask_iou": 0.8253,
+        "hash_distance": 0.0938
       },
       "flags": []
     },
@@ -338,19 +338,19 @@
       "file": "002-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1652,
-        "mask_iou": 0.5836,
-        "hash_distance": 0.2656
+        "color_distance": 0.2637,
+        "mask_iou": 0.5952,
+        "hash_distance": 0.2188
       },
       "previous": {
-        "color_distance": 0.1425,
-        "mask_iou": 0.7559,
-        "hash_distance": 0.1094
+        "color_distance": 0.0474,
+        "mask_iou": 0.8253,
+        "hash_distance": 0.0938
       },
       "next": {
-        "color_distance": 0.1059,
-        "mask_iou": 0.9019,
-        "hash_distance": 0.0312
+        "color_distance": 0.1024,
+        "mask_iou": 0.9033,
+        "hash_distance": 0.0625
       },
       "flags": []
     },
@@ -359,19 +359,19 @@
       "file": "003-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2063,
-        "mask_iou": 0.62,
-        "hash_distance": 0.2344
+        "color_distance": 0.2068,
+        "mask_iou": 0.6124,
+        "hash_distance": 0.2188
       },
       "previous": {
-        "color_distance": 0.1059,
-        "mask_iou": 0.9019,
-        "hash_distance": 0.0312
+        "color_distance": 0.1024,
+        "mask_iou": 0.9033,
+        "hash_distance": 0.0625
       },
       "next": {
-        "color_distance": 0.1042,
-        "mask_iou": 0.8698,
-        "hash_distance": 0.0312
+        "color_distance": 0.0821,
+        "mask_iou": 0.8546,
+        "hash_distance": 0.0781
       },
       "flags": []
     },
@@ -380,19 +380,19 @@
       "file": "004-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1816,
-        "mask_iou": 0.5503,
-        "hash_distance": 0.2656
+        "color_distance": 0.2455,
+        "mask_iou": 0.629,
+        "hash_distance": 0.2031
       },
       "previous": {
-        "color_distance": 0.1042,
-        "mask_iou": 0.8698,
-        "hash_distance": 0.0312
+        "color_distance": 0.0821,
+        "mask_iou": 0.8546,
+        "hash_distance": 0.0781
       },
       "next": {
-        "color_distance": 0.1307,
-        "mask_iou": 0.7902,
-        "hash_distance": 0.0781
+        "color_distance": 0.0568,
+        "mask_iou": 0.9791,
+        "hash_distance": 0.0156
       },
       "flags": []
     },
@@ -401,14 +401,14 @@
       "file": "005-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2663,
-        "mask_iou": 0.6551,
+        "color_distance": 0.2547,
+        "mask_iou": 0.6326,
         "hash_distance": 0.2188
       },
       "previous": {
-        "color_distance": 0.1307,
-        "mask_iou": 0.7902,
-        "hash_distance": 0.0781
+        "color_distance": 0.0568,
+        "mask_iou": 0.9791,
+        "hash_distance": 0.0156
       },
       "next": {
         "color_distance": 0,
@@ -422,8 +422,8 @@
       "file": "005-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2663,
-        "mask_iou": 0.6551,
+        "color_distance": 0.2547,
+        "mask_iou": 0.6326,
         "hash_distance": 0.2188
       },
       "previous": {
@@ -443,8 +443,8 @@
       "file": "005-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2663,
-        "mask_iou": 0.6551,
+        "color_distance": 0.2547,
+        "mask_iou": 0.6326,
         "hash_distance": 0.2188
       },
       "previous": {
@@ -464,8 +464,8 @@
       "file": "005-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2663,
-        "mask_iou": 0.6551,
+        "color_distance": 0.2547,
+        "mask_iou": 0.6326,
         "hash_distance": 0.2188
       },
       "previous": {
@@ -474,9 +474,9 @@
         "hash_distance": 0.0
       },
       "next": {
-        "color_distance": 0.1236,
-        "mask_iou": 0.782,
-        "hash_distance": 0.0938
+        "color_distance": 0.0707,
+        "mask_iou": 0.9869,
+        "hash_distance": 0.0312
       },
       "flags": []
     },
@@ -485,14 +485,14 @@
       "file": "006-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1861,
-        "mask_iou": 0.6408,
-        "hash_distance": 0.25
+        "color_distance": 0.2105,
+        "mask_iou": 0.6344,
+        "hash_distance": 0.2188
       },
       "previous": {
-        "color_distance": 0.1236,
-        "mask_iou": 0.782,
-        "hash_distance": 0.0938
+        "color_distance": 0.0707,
+        "mask_iou": 0.9869,
+        "hash_distance": 0.0312
       },
       "next": {
         "color_distance": 0,
@@ -506,9 +506,9 @@
       "file": "006-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1861,
-        "mask_iou": 0.6408,
-        "hash_distance": 0.25
+        "color_distance": 0.2105,
+        "mask_iou": 0.6344,
+        "hash_distance": 0.2188
       },
       "previous": {
         "color_distance": 0,
@@ -527,9 +527,9 @@
       "file": "006-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.1861,
-        "mask_iou": 0.6408,
-        "hash_distance": 0.25
+        "color_distance": 0.2105,
+        "mask_iou": 0.6344,
+        "hash_distance": 0.2188
       },
       "previous": {
         "color_distance": 0,
@@ -537,9 +537,9 @@
         "hash_distance": 0.0
       },
       "next": {
-        "color_distance": 0.0739,
-        "mask_iou": 0.8634,
-        "hash_distance": 0.0156
+        "color_distance": 0.0751,
+        "mask_iou": 0.969,
+        "hash_distance": 0.0625
       },
       "flags": []
     },
@@ -548,14 +548,14 @@
       "file": "007-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2209,
-        "mask_iou": 0.6123,
-        "hash_distance": 0.2656
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": {
-        "color_distance": 0.0739,
-        "mask_iou": 0.8634,
-        "hash_distance": 0.0156
+        "color_distance": 0.0751,
+        "mask_iou": 0.969,
+        "hash_distance": 0.0625
       },
       "next": {
         "color_distance": 0,
@@ -569,9 +569,9 @@
       "file": "007-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2209,
-        "mask_iou": 0.6123,
-        "hash_distance": 0.2656
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": {
         "color_distance": 0,
@@ -590,9 +590,9 @@
       "file": "007-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2209,
-        "mask_iou": 0.6123,
-        "hash_distance": 0.2656
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": {
         "color_distance": 0,
@@ -600,9 +600,9 @@
         "hash_distance": 0.0
       },
       "next": {
-        "color_distance": 0.0576,
-        "mask_iou": 0.8921,
-        "hash_distance": 0.1094
+        "color_distance": 0,
+        "mask_iou": 1.0,
+        "hash_distance": 0.0
       },
       "flags": []
     },
@@ -611,14 +611,14 @@
       "file": "008-file.png",
       "style": {
         "file": "three-quarter.png",
-        "color_distance": 0.2462,
-        "mask_iou": 0.6415,
-        "hash_distance": 0.2188
+        "color_distance": 0.2486,
+        "mask_iou": 0.6439,
+        "hash_distance": 0.1875
       },
       "previous": {
-        "color_distance": 0.0576,
-        "mask_iou": 0.8921,
-        "hash_distance": 0.1094
+        "color_distance": 0,
+        "mask_iou": 1.0,
+        "hash_distance": 0.0
       },
       "next": null,
       "flags": []

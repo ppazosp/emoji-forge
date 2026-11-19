@@ -13,9 +13,9 @@
         ]
       },
       "reference": "images/model/three-quarter.png",
-      "color_distance": 0.1666,
-      "mask_iou": 0.7292,
-      "hash_distance": 0.1562,
+      "color_distance": 0.1778,
+      "mask_iou": 0.7358,
+      "hash_distance": 0.2188,
       "flags": []
     },
     {
@@ -139,9 +139,9 @@
         ]
       },
       "reference": "images/assets/goggles/model.png",
-      "color_distance": 0.2483,
-      "mask_iou": 0.6156,
-      "hash_distance": 0.1094,
+      "color_distance": 0.1591,
+      "mask_iou": 0.6628,
+      "hash_distance": 0.125,
       "flags": []
     },
     {
@@ -258,17 +258,38 @@
       "crop": {
         "file": "emojis/hammering/cels/003-file.png",
         "box": [
-          308,
-          118,
-          413,
-          252
+          258,
+          101,
+          446,
+          318
         ]
       },
       "reference": "images/assets/hammer/model.png",
-      "color_distance": 0.1606,
-      "mask_iou": 0.541,
-      "hash_distance": 0.2969,
+      "color_distance": 0.1774,
+      "mask_iou": 0.5257,
+      "hash_distance": 0.3125,
       "flags": []
+    },
+    {
+      "asset": "hammer",
+      "emoji": "hammering",
+      "crop": {
+        "file": "emojis/hammering/cels/005-file.png",
+        "box": [
+          295,
+          227,
+          474,
+          345
+        ]
+      },
+      "reference": "images/assets/hammer/model.png",
+      "color_distance": 0.1351,
+      "mask_iou": 0.2226,
+      "hash_distance": 0.5156,
+      "flags": [
+        "perceptual-hash",
+        "silhouette"
+      ]
     },
     {
       "asset": "hammer",
@@ -301,9 +322,9 @@
         ]
       },
       "reference": "images/assets/workstand/model.png",
-      "color_distance": 0.1525,
-      "mask_iou": 0.8168,
-      "hash_distance": 0.1094,
+      "color_distance": 0.2248,
+      "mask_iou": 0.8128,
+      "hash_distance": 0.3438,
       "flags": []
     },
     {
@@ -319,10 +340,12 @@
         ]
       },
       "reference": "images/assets/workstand/model.png",
-      "color_distance": 0.1848,
-      "mask_iou": 0.8179,
-      "hash_distance": 0.125,
-      "flags": []
+      "color_distance": 0.2243,
+      "mask_iou": 0.4688,
+      "hash_distance": 0.3594,
+      "flags": [
+        "silhouette"
+      ]
     },
     {
       "asset": "coin",
@@ -337,12 +360,11 @@
         ]
       },
       "reference": "images/assets/coin/model.png",
-      "color_distance": 0.4167,
-      "mask_iou": 0.4455,
-      "hash_distance": 0.5469,
+      "color_distance": 0.4076,
+      "mask_iou": 0.5207,
+      "hash_distance": 0.5938,
       "flags": [
-        "perceptual-hash",
-        "silhouette"
+        "perceptual-hash"
       ]
     },
     {
@@ -574,9 +596,9 @@
         ]
       },
       "reference": "images/assets/impact/model.png",
-      "color_distance": 0.7071,
-      "mask_iou": 0.6616,
-      "hash_distance": 0.6562,
+      "color_distance": 0.7358,
+      "mask_iou": 0.5439,
+      "hash_distance": 0.3906,
       "flags": [
         "palette",
         "perceptual-hash"
@@ -595,9 +617,9 @@
         ]
       },
       "reference": "images/assets/impact/model.png",
-      "color_distance": 0.6723,
-      "mask_iou": 0.5385,
-      "hash_distance": 0.5312,
+      "color_distance": 0.7219,
+      "mask_iou": 0.5981,
+      "hash_distance": 0.625,
       "flags": [
         "palette",
         "perceptual-hash"
@@ -685,5 +707,5 @@
       ]
     }
   ],
-  "flagged": 13
+  "flagged": 15
 }

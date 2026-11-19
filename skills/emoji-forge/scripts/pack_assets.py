@@ -4,7 +4,7 @@ import math
 import re
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageSequence
 
 if __package__:
     from .common import output_path, read_json
@@ -75,16 +75,19 @@ def crop(project, record):
         if "frame" in record:
             source.seek(record["frame"] - 1)
         art = source.convert("RGBA")
-    if "box" not in record:
+    return crop_region(art, record.get("box"), record["file"])
+
+
+def crop_region(art, box, label):
+    if box is None:
         return art
-    box = record["box"]
     if (
         len(box) != 4
         or not all(type(value) is int for value in box)
         or not 0 <= box[0] < box[2] <= art.width
         or not 0 <= box[1] < box[3] <= art.height
     ):
-        raise ValueError(f"{record['file']}: crop must lie inside the canvas")
+        raise ValueError(f"{label}: crop must lie inside the canvas")
     return art.crop(box)
 
 
@@ -106,8 +109,72 @@ def read_lineup(project, crops=None):
     return names, rows
 
 
+def frame_lineup(project, output, emoji, prop, row):
+    appearances = row["appearances"].get(emoji)
+    if not appearances:
+        raise ValueError(f"{prop!r} has no annotated appearances in {emoji!r}")
+    settings = row.get("frame_crops", {}).get(emoji)
+    if settings:
+        source_path = project_path(project, settings["source"])
+        box = settings["box"]
+    else:
+        scales = project / "result" / "pack" / "emoji"
+        files = [
+            file
+            for folder in scales.glob("*")
+            if folder.name.isdecimal()
+            for file in (folder / f"{emoji}.gif", folder / f"{emoji}.png")
+            if file.is_file()
+        ]
+        if not files:
+            raise ValueError(
+                f"{prop}/{emoji}: add a frame_crops source and box in lineup.json"
+            )
+        source_path = max(files, key=lambda file: int(file.parent.name))
+        box = None
+
+    with Image.open(source_path) as source:
+        width, height = crop_region(source, box, source_path.name).size
+        count = getattr(source, "n_frames", 1)
+        columns = min(count, 5)
+        rows = (count + columns - 1) // columns
+        margin, label = 8, 22
+        step_x, step_y = width + margin * 2, height + label + margin
+        canvas = Image.new("RGB", (columns * step_x, rows * step_y), "#e2e8ef")
+        font = ImageFont.load_default(size=13)
+        draw = ImageDraw.Draw(canvas)
+        time = 0
+        for index, frame in enumerate(ImageSequence.Iterator(source)):
+            x = index % columns * step_x + margin
+            y = index // columns * step_y
+            art = crop_region(frame.convert("RGBA"), box, source_path.name)
+            draw.rectangle(
+                (x, y + label, x + width - 1, y + label + height - 1), fill="#f8fafc"
+            )
+            canvas.paste(art, (x, y + label), art)
+            draw.text(
+                (x, y + 3), f"{index + 1:02} · {time} ms", fill="#162736", font=font
+            )
+            time += frame.info.get("duration", 0)
+    canvas.save(output_path(output))
+    return {
+        "file": str(output),
+        "emoji": emoji,
+        "prop": prop,
+        "frames": count,
+        "duration_ms": time,
+    }
+
+
 def lineup(args):
     names, rows = read_lineup(args.project, args.crops)
+    emoji, prop = getattr(args, "frames", None), getattr(args, "prop", None)
+    if bool(emoji) != bool(prop):
+        raise ValueError("use --frames EMOJI and --prop NAME together")
+    if emoji:
+        if emoji not in names or prop not in rows:
+            raise ValueError("choose an emoji and prop from lineup.json")
+        return frame_lineup(args.project, args.output, emoji, prop, rows[prop])
     width, height = 136, 110
     slate = "#e2e8ef"
     canvas = Image.new(

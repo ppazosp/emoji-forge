@@ -323,6 +323,12 @@ def configure(subcommands):
     lineup.add_argument("project", type=Path)
     lineup.add_argument("output", type=Path)
     lineup.add_argument("--crops", type=Path, help="override project/lineup.json")
+    lineup.add_argument(
+        "--frames", metavar="EMOJI", help="show each frame from a single emoji"
+    )
+    lineup.add_argument(
+        "--prop", metavar="NAME", help="select the prop to inspect with --frames"
+    )
     for name, help_ in (
         ("sheets", "render contact sheets and a thumbnail animatic"),
         ("stage", "record a stage or review"),

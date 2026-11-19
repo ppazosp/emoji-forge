@@ -5,3 +5,7 @@ Checked the seven columns of the [asset lineup](../lineup.png) at the final hand
 The six animation timelines pass the 2% tolerance against the same [body model mask](../images/model/body-mask.png). The worst recorded residual is 0.5% of body height. [Scale report](../scale-check.json)
 
 Reviewed timed strips and the exports at 128 and 512 px. Hammering has two strikes in 3.6 seconds, with anticipation, a 50 ms smear, a 120 ms contact hold and a stepped recovery. The contact flash precedes the shock ring and the falling streaks. Quench steam starts when the blank touches water. The bulb rises with the pointing gesture and fades as the mitten settles. All seven 128 px exports fit the Slack preset. Larger files retain clear borders and use the 512 px masters.
+
+## v0.3.1 grip check
+
+The revised [frame strip](../emojis/hammering/strips/grip.png) checks the full swing at 512 px, including both contact holds and both recoveries. The same tool design is shown in the [logo](../emojis/logo/strips/grip.png). [Other held props](grips.md)

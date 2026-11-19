@@ -38,6 +38,12 @@
           "result": "pass",
           "notes": "Passed upload checks at 128 px. 29 frame(s), 110,890 bytes. Body drift 0.226%.",
           "snapshot": "review/hammering/final-20261119T154913.572849Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Reviewed all 30 frames at 512 px. One wrist and grip carry the perpendicular head through two flat strikes. The 128 px export passed the Slack preset and body drift was 0.167%.",
+          "snapshot": "review/hammering/final-20261119T161202.209817Z.zip"
         }
       ]
     },

@@ -1,5 +1,5 @@
-# hammer · integration
+# Hammer grip and contact
 
-See the attachment or working position in the drawings. Slate square head with chamfered silver striking faces and a narrow copper band on the broad face. Short ochre shaft and a charcoal wrap. Overall length is about half the core body height. The same hammer appears in the logo. In the striking pose the flat head face meets the blank squarely.
+The same fist wraps the shaft at every pose. The hammer is a rigid T. Its head stays perpendicular to the handle and only turns as the wrist follows the swing. On impact, the shaft lies nearly horizontal and the lower end of the head lands flat on the coin.
 
-[Integration drawing](integration.png)
+[Reviewed integration sheet](integration.png) · [Full frame review](../../../emojis/hammering/strips/grip.png)

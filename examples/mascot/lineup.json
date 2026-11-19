@@ -219,10 +219,19 @@
           {
             "file": "emojis/hammering/cels/003-file.png",
             "box": [
-              308,
-              118,
-              413,
-              252
+              258,
+              101,
+              446,
+              318
+            ]
+          },
+          {
+            "file": "emojis/hammering/cels/005-file.png",
+            "box": [
+              295,
+              227,
+              474,
+              345
             ]
           }
         ],
@@ -237,6 +246,26 @@
             ]
           }
         ]
+      },
+      "frame_crops": {
+        "hammering": {
+          "source": "tavvik/emoji/512/hammering.gif",
+          "box": [
+            226,
+            70,
+            495,
+            391
+          ]
+        },
+        "logo": {
+          "source": "tavvik/emoji/512/logo.png",
+          "box": [
+            95,
+            178,
+            237,
+            413
+          ]
+        }
       }
     },
     "workstand": {
@@ -382,6 +411,17 @@
             ]
           }
         ]
+      },
+      "frame_crops": {
+        "quench": {
+          "source": "tavvik/emoji/512/quench.gif",
+          "box": [
+            258,
+            198,
+            467,
+            391
+          ]
+        }
       }
     },
     "water-pail": {
@@ -505,6 +545,17 @@
             ]
           }
         ]
+      },
+      "frame_crops": {
+        "sketch": {
+          "source": "tavvik/emoji/512/sketch.gif",
+          "box": [
+            255,
+            202,
+            395,
+            384
+          ]
+        }
       }
     },
     "crate": {

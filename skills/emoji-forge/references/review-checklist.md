@@ -4,6 +4,7 @@ Start with the target checks for file dimensions, bytes and format limits. Machi
 
 - `forge strips` shows each frame with a timestamp. Try the intended display size, the native canvas and a 4× view on light and dark backgrounds. The zoom can expose clipping, palette artefacts and stray pixels.
 - Use a body mask that excludes props and free limbs. Check scale and anchor against the model throughout the loop. Annotate small intentional squash around the hit and confirm it returns to baseline without a jump.
+- Step through held props at full resolution. Follow the same fist, grip and wrist pivot from frame to frame. Check that the handle crosses the palm, that the prop follows the hand, and that any change of angle comes from the action. A flip or separate spin reads as a broken grip. Use the [per-frame prop strip](production-pipeline.md#cross-pack-reviews) to spot discontinuities.
 - Play the animation at normal speed to see if it achieves the intended effect. Watch the seam, timing, attachments, contrast or expression when those details matter to the idea.
 - `forge snapshot` can save a baseline before a revision. `forge compare` presents versions side by side on the same clock. A comparison helps when you change an art technique or effect.
 - For a detailed handoff, record what you observed, the version and the frame numbers or timestamps for any changes you suggest. After a revision, check the affected export again.

@@ -11,3 +11,7 @@ The first registration placed the tip of the sketch easel outside the output. Th
 | Idea | The raised mitten leaves room beside the head for the glow. The final shader adds the filament and separated rays from the model sheet. |
 | Wave | The moving mitten stays attached at its shoulder hinge. Face and lens positions leave the expression clear. |
 | Logo | The charcoal outline, head chamfers, copper band and ochre grip agree with the hammering prop. The hammer partly overlaps the left silhouette. Checked at 128, 256 and 512 px. |
+
+## v0.3.1 grip check
+
+Reviewed every exported hammer frame with the fist and head in the same crop. The corrected hold keeps the shaft on the same axis through the fist and puts the striking face flat on the blank. Also checked the tongs, pencil and logo hammer. [Full review](grips.md)

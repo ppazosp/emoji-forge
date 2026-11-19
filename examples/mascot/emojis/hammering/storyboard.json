@@ -27,7 +27,7 @@
       "../../images/assets/impact/integration.png"
     ]
   },
-  "direction": "Match Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers.",
+  "direction": "Match Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers. Keep the same wrist grip and a rigid perpendicular head as the shaft follows the swing. At contact the shaft is horizontal and the striking end rests flat on the coin.",
   "panels": [
     {
       "id": "beat-1",
@@ -47,7 +47,7 @@
       "id": "beat-3",
       "file": "panels/003.png",
       "beat": "Impact",
-      "action": "The flat hammer face contacts the gold coin on the workstand. Leave open air for impact effects.",
+      "action": "Swing the closed right fist down toward the coin. The horizontal shaft points into the vertical head. The lower end makes flat contact.",
       "ms": 170
     },
     {

@@ -86,6 +86,19 @@ Create `lineup.json` at the project root. Each declared asset lists one or more 
 
 Run `forge lineup project project/lineup.png` and `forge drift project project/prop-drift.json --props`. Inspect each row for mismatched geometry, finish, grip or scale. The drift report compares colour, silhouette and appearance against the closest supplied view. Review flags against the intended pose and occlusion. Add the `forge check` output as `scale-check.json` to carry measured stability into the final bundle.
 
+For grip and pivot continuity, run `forge lineup project hammer-frames.png --frames hammering --prop hammer`. Add a shared crop window that covers the whole path of the prop and its fist so the strip includes every decoded frame at the same scale. The command uses the largest available export when no specific source and crop are supplied. The crop follows source pixel coordinates, and the labels show the start time of each exposure.
+
+```json
+"frame_crops": {
+  "hammering": {
+    "source": "result/pack/emoji/512/hammering.gif",
+    "box": [220, 80, 490, 380]
+  }
+}
+```
+
+Put `frame_crops` inside the asset's entry in `lineup.json`, beside `references` and `appearances`. Use the strip to verify the same grip and attached prop across contact, recovery and the loop seam.
+
 ## One-shot mode
 
 `forge make "a paper bird waving hello" --refs reference.png --count 1 --target slack --animated --yes --project project --json` starts a new pack. The CLI supplies an editable draft brief, model and asset scaffolds, storyboard and X-sheet, then advances until it needs an image, an optional approval, or finishes. Before generating, adjust the text notes or the storyboard to suit the idea.

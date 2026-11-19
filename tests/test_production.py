@@ -413,3 +413,49 @@ def test_make_mixed_pack_scaffolds_only_one_exposure_for_still(tmp_path):
     for name, count in [("tap", 4), ("mark", 1)]:
         rows = json.loads((project / "emojis" / name / "x-sheet.json").read_text())
         assert len(rows["frames"]) == count
+
+
+def test_lineup_frames_keeps_fixed_crop_and_decoded_timing(tmp_path):
+    seed = save(
+        tmp_path / "seed.json",
+        {"assets": {"hammer": {"name": "Hammer", "uses": ["tap"]}}},
+    )
+    project = tmp_path / "pack"
+    call("new", project, "--emoji", "tap", "--assets", seed)
+    cell(project / "first.png")
+    cell(project / "second.png", "gold")
+    with (
+        Image.open(project / "first.png") as first,
+        Image.open(project / "second.png") as second,
+    ):
+        first.save(
+            project / "tap.gif",
+            save_all=True,
+            append_images=[second],
+            duration=[120, 140],
+            loop=0,
+        )
+    save(
+        project / "lineup.json",
+        {
+            "assets": {
+                "hammer": {
+                    "references": [{"file": "first.png"}],
+                    "appearances": {"tap": [{"file": "first.png"}]},
+                    "frame_crops": {
+                        "tap": {"source": "tap.gif", "box": [30, 35, 90, 100]}
+                    },
+                }
+            }
+        },
+    )
+    output = project / "grip.png"
+    result = call("lineup", project, output, "--frames", "tap", "--prop", "hammer")
+    assert result["frames"] == 2 and result["duration_ms"] == 260
+    with Image.open(output) as strip:
+        assert strip.size == (152, 95)
+        assert strip.getpixel((20, 38)) != strip.getpixel((96, 38))
+    assert (
+        "together"
+        in call("lineup", project, output, "--frames", "tap", status=1)["error"]
+    )
