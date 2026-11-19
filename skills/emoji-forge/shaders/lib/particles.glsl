@@ -1,3 +1,8 @@
+// Velocity is in position units per second. Age is in seconds when using seconds-based velocity.
+vec2 forgeBallistic(vec2 origin, vec2 velocity, float age, float gravity) {
+    return origin + velocity * age - vec2(0.0, 0.5 * gravity * age * age);
+}
+
 // Integer hash for stable variation from a particle index and a seed.
 uint forgeHashUint(uint value) {
     value ^= value >> 16u;

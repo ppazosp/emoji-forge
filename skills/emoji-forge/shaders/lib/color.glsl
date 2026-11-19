@@ -1,3 +1,9 @@
+// Palette ramps use straight RGB, with HDR values for emission.
+vec3 forgePalette(float amount, vec3 low, vec3 middle, vec3 high) {
+    return mix(mix(low, middle, smoothstep(0.0, 0.55, amount)), high,
+               smoothstep(0.55, 1.0, amount));
+}
+
 // HSV uses normalized hue, saturation and value. Value may exceed one for emission.
 vec3 forgeHSV(vec3 hsv) {
     vec3 wheel = abs(fract(hsv.x + vec3(0.0, 2.0 / 3.0, 1.0 / 3.0)) * 6.0 - 3.0);

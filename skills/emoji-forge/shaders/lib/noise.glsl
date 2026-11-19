@@ -1,3 +1,34 @@
+// Value noise, domain warping and continuous-loop noise.
+float hash(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+float noise(vec2 p) {
+    vec2 i = floor(p), f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hash(i), hash(i + vec2(1, 0)), u.x),
+               mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), u.x), u.y);
+}
+
+float fbm(vec2 p) {
+    float accum = 0.0, gain = 0.5;
+    for (int i = 0; i < 5; i++) {
+        accum += gain * noise(p);
+        p = mat2(1.6, 1.2, -1.2, 1.6) * p + 5.0;
+        gain *= 0.5;
+    }
+    return accum;
+}
+
+vec2 forgeHash2(vec2 seed) {
+    return vec2(hash(seed), hash(seed + vec2(17.3, 8.7)));
+}
+
+float forgeLoopNoise(vec2 p, float framePhase, float travel) {
+    float angle = forgeLoopAngle(1.0, framePhase);
+    return fbm(p + travel * vec2(cos(angle), sin(angle)));
+}
+
 // Position uses noise-cell units. Gradient and simplex noise are signed.
 vec2 forgeNoiseGradient(vec2 cell) {
     float angle = TAU * hash(cell);

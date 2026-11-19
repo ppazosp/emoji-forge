@@ -262,10 +262,8 @@ def test_every_shader_renders_deterministically(tmp_path, cels, backend):
             pytest.skip("set FORGE_TEST_CHROME to test WebGL")
         options = ["--channel", channel]
     base = json.loads(cels.read_text())["frames"][0]
-    save(
-        cels,
-        {"frames": [{**base, "ms": 420}, {**base, "ms": 330}, {**base, "ms": 250}]},
-    )
+    exposures = 8
+    save(cels, {"frames": [{**base, "ms": 125}] * exposures})
     for shader in sorted((SKILL / "shaders").glob("*.frag")):
         renders = []
         for attempt in (1, 2):
@@ -287,7 +285,7 @@ def test_every_shader_renders_deterministically(tmp_path, cels, backend):
                     frame = image.convert("RGBA")
                 assert frame.getpixel((0, 0))[3] == 0, shader.name
                 frames.append(frame.tobytes())
-            assert len(frames) == 3 and len(set(frames)) > 1, shader.name
+            assert len(frames) == exposures and len(set(frames)) > 1, shader.name
             renders.append(frames)
         assert renders[0] == renders[1], shader.name
 
