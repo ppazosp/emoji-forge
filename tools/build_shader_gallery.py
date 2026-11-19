@@ -38,24 +38,12 @@ def forge(*args):
 
 def prepare(root, destination, cel=None):
     canvas = Image.new("RGBA", (512, 512))
-    if cel:
-        with Image.open(cel) as source:
-            art = source.convert("RGBA")
-        art.thumbnail((384, 384), Image.Resampling.LANCZOS)
-        canvas.alpha_composite(art, ((512 - art.width) // 2, (512 - art.height) // 2))
-    else:
-        # Fixed midtones and a simple face leave room to judge both color and distortion.
-        draw = ImageDraw.Draw(canvas)
-        draw.rounded_rectangle(
-            (118, 124, 394, 388), radius=91, fill="#A9B6BB", outline="#344550", width=13
-        )
-        draw.rounded_rectangle((150, 153, 225, 173), radius=10, fill="#D6DFDF")
-        draw.ellipse((192, 229, 218, 257), fill="#344550")
-        draw.ellipse((284, 229, 310, 257), fill="#344550")
-        draw.arc((218, 256, 285, 312), start=19, end=161, fill="#344550", width=12)
+    with Image.open(cel or ROOT / "assets/brand/logo.png") as source:
+        art = source.convert("RGBA")
+    art.thumbnail((384, 384), Image.Resampling.LANCZOS)
+    canvas.paste(art, ((512 - art.width) // 2, (512 - art.height) // 2))
     canvas.save(root / "art.png")
-    if cel is None:
-        canvas.save(destination / "fixture.png", optimize=True)
+    canvas.save(destination / "fixture.png", optimize=True)
     timing = root / "timing.json"
     timing.write_text(
         json.dumps({"frames": [{"file": "art.png", "ms": EXPOSURE_MS}] * EXPOSURES}),

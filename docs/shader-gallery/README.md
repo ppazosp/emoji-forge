@@ -1,10 +1,10 @@
 # Shader gallery
 
-Forty GPU effects on the same neutral test character. Each GIF comes from 512 px frames fitted to the Slack 128 px preset. The overview shows all effects on the same 1.6-second clock.
+Forty GPU effects on Tavvik, the hammer-wielding anvil. Each GIF comes from 512 px frames fitted to the Slack 128 px preset. The overview shows all effects on the same 1.6-second clock.
 
 ![Animated overview of all 40 shaders](overview.gif)
 
-[32 px on dark](dark-32.png) · [32 px on light](light-32.png) · [Original test cel](fixture.png) · [Write your own shader](../../skills/emoji-forge/references/shaders.md) · [Tavvik review notes](../../gallery/shaders/REVIEW.md)
+[32 px on dark](dark-32.png) · [32 px on light](light-32.png) · [Original test cel](fixture.png) · [Write your own shader](../../skills/emoji-forge/references/shaders.md) · [Motion review](REVIEW.md)
 
 Click a name to open the GLSL. Rebuild the gallery from the checkout root with `uv run --project skills/emoji-forge --locked --extra gpu python tools/build_shader_gallery.py`.
 
