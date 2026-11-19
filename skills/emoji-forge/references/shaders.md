@@ -1,6 +1,6 @@
 # Render a shader you write
 
-Forge runs local fragment shaders on ModernGL or headless WebGL 2. It supplies timed cels, a clock and optional image inputs. You can use the example GLSL helpers, write a full fragment program, or combine your own passes.
+Forge runs local fragment shaders on ModernGL or headless WebGL 2. It supplies timed cels, a clock and optional image inputs. Start with the action and what the effect should make visible. Design a shader for that moment, using your own uniforms, textures and passes. Borrow individual techniques when they fit, or start with a blank fragment and leave the helpers out.
 
 ## Write an effect
 
@@ -70,4 +70,22 @@ ModernGL tries native OpenGL and then EGL. On headless Ubuntu the EGL path needs
 
 A larger resolution can help with fine lines or soft lighting. Try the default full-size render and downsample, or use `--draft` to get quick feedback. For soft glows, compare a solid matte to GIF's single transparent palette index. Check both themes if the target uses them.
 
-The bundled fragments are starting material to read and remix. They cover [fire](../shaders/fire.frag), [sparkle](../shaders/sparkle.frag), [shockwave](../shaders/shockwave.frag), [beam and burn](../shaders/beam-burn.frag), [glitch](../shaders/glitch.frag), [portal](../shaders/portal.frag) and [aura](../shaders/aura.frag). The [shared library](../shaders/library.glsl) includes noise, fbm, distance fields and bloom helpers. The [custom example](../assets/lantern/README.md) uses its own animation hook and shaders.
+## Recipes and shared helpers
+
+Use the [shader recipes](shader-recipes.md) as starting points for individual techniques. Design the effect for the emoji before choosing code. Use any technique, build from scratch when the action needs it, and skip helpers that get in the way. The [lantern example](../assets/lantern/README.md) shows fully custom shaders driven by a pack manifest.
+
+Forge assembles [library.glsl](../shaders/library.glsl) when it loads a fragment that defines `effect`. The modules share normalized bottom-left UVs and straight alpha. The result of a pass can carry HDR color until the final output; use `forgeToneMap` or your own resolve to bring it into display range.
+
+| Technique | Helpers |
+| --- | --- |
+| [Noise](../shaders/lib/noise.glsl) | Value `noise`, `fbm`, `forgeGradientNoise`, `forgeSimplexNoise`, `forgeWorley`, `forgeCurlNoise`, `forgeDomainWarp`, `forgeLoopNoise`. Gradient and simplex noise are signed. Worley returns the distances to the two nearest feature points. |
+| [Shapes and transforms](../shaders/lib/geometry.glsl) | `sdCircle`, `forgeRoundedBox`, `forgeCapsule`, `forgeUnion`, `forgeIntersection`, `forgeDifference`, `forgeSmoothUnion`, `forgePolar`, `forgeCartesian`, `forgeAspectUV`, `forgeRotate`. Signed distance is negative inside. |
+| [Timing](../shaders/lib/timing.glsl) | `forgeRange`, `forgeEase`, `forgeEaseIn`, `forgeEaseOut`, `forgeSineEase`, `forgePulse`, `forgeLoopAngle`, `forgeLoopAge`. Progress and age are normalized; angles are in radians. |
+| [Color](../shaders/lib/color.glsl) | `forgePalette`, `forgeGradient`, `forgeHSV`, `forgeRGBToHSV`, `forgeToneMap`. The HSV hue wraps from 0 to 1. |
+| [Particles](../shaders/lib/particles.glsl) | `forgeHashUint`, `forgeParticleRandom`, `forgeParticleVelocity`, `forgeBallistic`. Use integer seeds and indices for repeatable variation. |
+| [Textures and light](../shaders/lib/sampling.glsl) | `forgeSample`, `forgeMaskedCel`, `forgeOutline`, `forgeRim`, `over`, `brightPass`, `blurPass`. A mask uses its alpha channel. |
+| [Camera](../shaders/lib/camera.glsl) | `forgeView`, `forgeShake`, `forgeShakeOffset`. Apply these to a UV before sampling the source or a layer. |
+
+For a repeating energy effect, feed `progress` into `forgeLoopNoise(uv * 8.0, progress, 1.2)` to return to the initial noise field. For a single hit, start particles where the objects meet, then animate `forgeBallistic` with each particle's local age. Use `forgePalette` to cool the particles as they move. Pass an envelope of your own to `forgeShakeOffset(phase, amount)` to place recoil on a particular exposure. A short `forgePulse` can drive both the contact flash and the shake so they land together.
+
+Inspect the exported GIF at its real display size. Sample the setup, peak and recovery at 32 px on light and dark backgrounds. Larger shapes, brighter contrast and a clear contact point can help a short effect survive downsampling and GIF palette fitting.

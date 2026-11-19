@@ -185,7 +185,8 @@ def cache_key(entry, frames, dependencies, preset, args):
         "pillow": pillow_version,
     }
     digest.update(json.dumps(config, sort_keys=True).encode())
-    files = set(SCRIPTS.glob("*.py")) | {SCRIPTS / "webgl.js", SHADERS / "library.glsl"}
+    files = set(SCRIPTS.glob("*.py")) | {SCRIPTS / "webgl.js"}
+    files.update(SHADERS.rglob("*.glsl"))
     files.update(
         Path(row[field])
         for row in frames
