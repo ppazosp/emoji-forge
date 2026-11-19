@@ -163,7 +163,7 @@ def build(output, work, args):
     write_json(manifest, {"target": "slack", "preview_ms": 1550, "emojis": entries})
     channel = ["--channel", args.channel] if args.channel else []
     subprocess.run(
-        [sys.executable, ROOT / "scripts" / "forge.py", "all", manifest, output,
+        [sys.executable, ROOT / "skills" / "emoji-forge" / "scripts" / "forge.py", "all", manifest, output,
          "--backend", args.backend, *channel, "--json"],
         check=True,
     )

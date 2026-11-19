@@ -9,7 +9,8 @@ import pytest
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
-CLI = ROOT / "scripts" / "forge.py"
+SKILL = ROOT / "skills" / "emoji-forge"
+CLI = SKILL / "scripts" / "forge.py"
 
 
 def call(*args, status=0):
@@ -241,7 +242,7 @@ def test_scaffold_build_cache_edits_snapshot_and_comparison(tmp_path):
 def test_every_shader_renders_on_modern_gl(tmp_path, cels):
     base = json.loads(cels.read_text())["frames"][0]
     save(cels, {"frames": [{**base, "ms": 420}, {**base, "ms": 580}]})
-    for shader in sorted((ROOT / "shaders").glob("*.frag")):
+    for shader in sorted((SKILL / "shaders").glob("*.frag")):
         result = call(
             "render",
             cels,
@@ -269,7 +270,7 @@ def test_headless_webgl_fallback_renders(tmp_path, cels):
     result = call(
         "render",
         cels,
-        ROOT / "shaders/sparkle.frag",
+        SKILL / "shaders/sparkle.frag",
         tmp_path / "webgl",
         "--backend",
         "webgl",
@@ -515,7 +516,7 @@ def animate(frame, ctx):
 def test_custom_example_runs_with_whole_sequence_hook(tmp_path):
     result = call(
         "all",
-        ROOT / "examples/custom/pack.json",
+        SKILL / "assets/lantern/pack.json",
         tmp_path / "lantern",
         "--allow-scripts",
         "--cache",
@@ -529,7 +530,7 @@ def test_custom_example_runs_with_whole_sequence_hook(tmp_path):
     assert (tmp_path / "lantern/pack/lantern.gif").is_file()
     direct = call(
         "all",
-        ROOT / "examples/custom/draw.py",
+        SKILL / "assets/lantern/draw.py",
         tmp_path / "direct",
         "--cache",
         tmp_path / "cache",

@@ -1,0 +1,16 @@
+{
+  "name": "emoji-forge",
+  "owner": {
+    "name": "ppazosp"
+  },
+  "plugins": [
+    {
+      "name": "emoji-forge",
+      "source": "./",
+      "description": "Create custom emoji and stickers with frame, shader, and export tools."
+    }
+  ],
+  "metadata": {
+    "description": "The Emoji Forge skill for creating and exporting custom reactions."
+  }
+}

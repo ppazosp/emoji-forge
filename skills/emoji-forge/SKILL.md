@@ -1,11 +1,13 @@
 ---
 name: emoji-forge
-description: Collaborate on custom emoji, stickers, reactions, and animated GIF emoji. Use the forge tools to register cels, run bespoke shaders and Python animation hooks, fit exports, check files, and create previews and bundles.
+description: Create or edit custom emoji, reaction stickers, static PNGs, or animated GIFs. Use when a user wants to draw, animate, add GLSL effects, or prepare an emoji pack for sharing.
+license: MIT
+compatibility: Uses uv and Python 3.11 or later. GPU effects can use ModernGL or Playwright Chromium.
 ---
 
 # Emoji Forge
 
-Run `uv run forge --help` from this skill folder. Use individual commands on files and folders or `forge all` with an optional repeatable pack manifest. The [tool reference](references/workflow.md) covers both paths, including timing and Python hooks.
+Run `uv run forge --help` from this skill folder, or pass its path with `uv run --project SKILL_DIR forge` from the working folder. Use individual commands on files and folders or `forge all` with an optional repeatable pack manifest. The [tool reference](references/workflow.md) covers both paths, including timing and Python hooks.
 
 Explore ideas with the user. Sketch or discuss a storyboard when it helps, try poses or graphic treatments, and adapt to their feedback. Bring any cels or generate your own. Write shaders for the idea at hand using the [custom effect walkthrough](references/shaders.md). The bundled shaders are examples you can remix.
 

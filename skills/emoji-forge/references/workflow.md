@@ -1,6 +1,6 @@
 # Forge tool reference
 
-Run `uv run forge COMMAND --help` from the checkout. Commands accept `--json` for machine-readable results and exit nonzero on failure. Use the tools that fit the work.
+Run `uv run forge COMMAND --help` from the skill directory. Commands accept `--json` for machine-readable results and exit nonzero on failure. Use the tools that fit the work.
 
 | Command | Plain input | Result |
 | --- | --- | --- |
@@ -92,4 +92,4 @@ Use `forge all PACK OUT --allow-scripts` for a manifest with trusted local Pytho
 - Each frame is a Python dictionary with a Pillow `image`, optional `body` and `face` mask images, and timing or custom parameter metadata. Return `ms` to specify the cel's hold. Without returned holds, Forge uses the supplied timing spec or the default.
 - Context includes `name`, suggested canvas `size`, `draft`, `project_dir`, `source_dir` and the hook's `params`. List any additional files your hook reads in `deps` so a change invalidates the cache. Use a new cache if behavior depends on external state.
 
-See the [custom animation example](../examples/custom/README.md) for a hook and two bespoke passes working together.
+See the [custom animation example](../assets/lantern/README.md) for a hook and two bespoke passes working together.

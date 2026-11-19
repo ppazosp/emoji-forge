@@ -1,0 +1,10 @@
+{
+  "name": "emoji-forge",
+  "version": "0.1.0",
+  "description": "Create custom emoji and stickers with frame, shader, and export tools.",
+  "repository": "https://github.com/ppazosp/emoji-forge",
+  "license": "MIT",
+  "author": {
+    "name": "Pablo Pazos and Jorge Hermo"
+  }
+}
