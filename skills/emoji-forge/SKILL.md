@@ -11,7 +11,13 @@ Run `uv run forge --help` from this skill folder, or pass its path with `uv run 
 
 Explore ideas with the user. Sketch or discuss a storyboard when it helps, try poses or graphic treatments, and adapt to their feedback. If the harness has native image generation and editing, such as Codex's built-in image tool or an image MCP, use it for characters, poses, expressions, props and in-betweens. For character packs, sketch a distinctive model and check its name and silhouette for resemblance to existing characters. Model the parts that recur, then thread each cel through the previous frame, nearest key, and relevant character, asset and integration sheets. [Frame-edit workflow](references/image-generation.md)
 
-Use `forge new`, `sheets`, `stage` and `review-pack` for [production scaffolds and reviewer hand-offs](references/production-pipeline.md). For one-shot work, run `forge make "idea" --yes --json`. Fulfill each native image task, then run `forge make --resume --json` with the same project until the overview and ZIP are ready. Ask only at an optional approval gate. If there is no native tool, use a user-provided image API, hand-made art or a Python drawing hook.
+Use `forge new`, `sheets`, `stage` and `review-pack` for [production scaffolds and reviewer hand-offs](references/production-pipeline.md). If there is no native image tool, use a user-provided image API, hand-made art or a Python drawing hook.
+
+## One-shot requests
+
+Treat `make <idea>` after the skill name, or an equivalent request for a finished pack, as a one-shot request. Run `forge make "<idea>" --project <pack-dir> --json` yourself. Use a project directory in the user's workspace. Carry over their references, count, target and still or animated preference. Pass `--yes` when they ask to skip approvals. Optional review gates are off by default.
+
+When the result is `needs-image`, create the requested file with the available image tool and run `forge make --resume --project <pack-dir> --json`. Repeat until the result includes an overview and ZIP. On follow-ups about an unfinished pack, resume the same project using its saved `make.json`. Ask for approval only on `needs-review`, then resume with `--approve` when the user approves. Share the overview and ZIP when the run completes. See the [one-shot workflow](references/production-pipeline.md#one-shot-mode) for the full hand-off.
 
 Write shaders for the idea at hand using the [custom effect walkthrough](references/shaders.md). The bundled shaders are examples you can remix.
 
