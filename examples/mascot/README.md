@@ -20,3 +20,5 @@ To rebuild the two previews and ZIP from the source masters, run from the checko
 ```sh
 uv run --project skills/emoji-forge forge report examples/mascot/result/pack.json build/tavvik --scales 64,128,256,512 --2x
 ```
+
+The hammering cels use the front view from the hammer sheet as one rigid layer. The shoulder carries the elbow, the elbow carries the wrist, and the wrist rotates the tool about one point inside the wrap. The mitten covers that point in every pose. Rebuild the cels and their full-tool masks with `python examples/mascot/emojis/hammering/rig/compose.py` using Pillow, then render the shot with its existing timing and effect files. Run `forge check examples/mascot/scale-manifest.json` to check the prop measurements for every exposure.
