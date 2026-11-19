@@ -9,7 +9,7 @@ uv run --with pillow python scripts/assemble_gif.py work/fx/timing.json exports/
   --size 128 --max-bytes 128000 --matte '#20252f'
 ```
 
-ModernGL tries native standalone OpenGL and EGL. In auto mode, context unavailability falls back to headless Chromium WebGL 2. Install a Playwright browser with `uv run --with playwright playwright install chromium`, or pass `--channel chrome` to use an installed Chrome. To diagnose a backend, pass `--backend moderngl` or `--backend webgl`. WebGL requires floating-point render targets and can use Chromium's software compositor on hosts without a supported GPU. Both paths run the same GLSL effect and five passes. A shader compile failure is reported on the selected backend.
+ModernGL tries native standalone OpenGL and EGL. On headless Ubuntu, install `libegl1`, `libegl-mesa0`, `libgl1` and `libgl1-mesa-dri` for the EGL path. In auto mode, context unavailability falls back to headless Chromium WebGL 2. Install a Playwright browser with `uv run --with playwright playwright install chromium`, or pass `--channel chrome` to use an installed Chrome. To diagnose a backend, pass `--backend moderngl` or `--backend webgl`. WebGL requires floating-point render targets and can use Chromium's software compositor on hosts without a supported GPU. Both paths run the same GLSL effect and five passes. A shader compile failure is reported on the selected backend.
 
 ## Shader contract
 
