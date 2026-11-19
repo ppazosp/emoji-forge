@@ -1,0 +1,54 @@
+{
+  "style_sheet": "../../images/model/three-quarter.png",
+  "asset_references": {
+    "anvil-body": [
+      "../../images/model/three-quarter.png",
+      "../../images/assets/anvil-body/model.png",
+      "../../images/poses/rest.png"
+    ],
+    "goggles": [
+      "../../images/assets/goggles/model.png",
+      "../../images/assets/goggles/integration.png"
+    ],
+    "coin": [
+      "../../images/assets/coin/model.png",
+      "../../images/assets/coin/integration-ship.png"
+    ],
+    "crate": [
+      "../../images/assets/crate/model.png",
+      "../../images/assets/crate/integration.png"
+    ]
+  },
+  "direction": "Match Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers.",
+  "panels": [
+    {
+      "id": "beat-1",
+      "file": "panels/001.png",
+      "beat": "Ready",
+      "action": "Hold a gold disc above the open cedar crate.",
+      "ms": 330
+    },
+    {
+      "id": "beat-2",
+      "file": "panels/002.png",
+      "beat": "Drop",
+      "action": "Lower the disc through the opening.",
+      "ms": 240
+    },
+    {
+      "id": "beat-3",
+      "file": "panels/003.png",
+      "beat": "Shut",
+      "action": "The gold disc is inside. Close the lid with the mitten.",
+      "ms": 250
+    },
+    {
+      "id": "beat-4",
+      "file": "panels/004.png",
+      "beat": "Reset",
+      "action": "The lid bounces ajar as the mitten releases.",
+      "ms": 510
+    }
+  ],
+  "use": "Send a finished piece to someone."
+}

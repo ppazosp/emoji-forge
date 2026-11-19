@@ -182,7 +182,11 @@ def sheets(args):
     output.mkdir(parents=True, exist_ok=True)
     written = []
     for group in SHEET_GROUPS:
-        sources = image_files(args.project / "images" / group)
+        sources = [
+            path
+            for path in image_files(args.project / "images" / group)
+            if path.name != "body-mask.png"
+        ]
         if sources:
             target = output / f"{group}.png"
             grid([tile(path.stem, path) for path in sources]).save(target)

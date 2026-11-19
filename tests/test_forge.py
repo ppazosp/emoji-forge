@@ -602,3 +602,10 @@ def test_check_and_register_against_model_height_and_centroid(tmp_path):
     save(manifest, pack)
     result = call("check", manifest, "--size", 32, "--max-drift-percent", 3)
     assert result["emojis"][0]["body_drift_percent"] <= 3
+    smaller = tmp_path / "small-model.png"
+    with Image.open(tmp_path / first["body"]) as mask:
+        mask.resize((16, 16), Image.Resampling.NEAREST).save(smaller)
+    variant = call(
+        "register", source, tmp_path / "alternate", "--body-reference", smaller
+    )
+    assert variant["files"][0]["size"] == [32, 32]

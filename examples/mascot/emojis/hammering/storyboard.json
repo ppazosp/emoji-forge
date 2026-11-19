@@ -1,0 +1,62 @@
+{
+  "style_sheet": "../../images/model/three-quarter.png",
+  "asset_references": {
+    "anvil-body": [
+      "../../images/model/three-quarter.png",
+      "../../images/assets/anvil-body/model.png",
+      "../../images/poses/rest.png"
+    ],
+    "goggles": [
+      "../../images/assets/goggles/model.png",
+      "../../images/assets/goggles/integration.png"
+    ],
+    "hammer": [
+      "../../images/assets/hammer/model.png",
+      "../../images/assets/hammer/integration.png"
+    ],
+    "workstand": [
+      "../../images/assets/workstand/model.png",
+      "../../images/assets/workstand/integration.png"
+    ],
+    "coin": [
+      "../../images/assets/coin/model.png",
+      "../../images/assets/coin/integration.png"
+    ],
+    "impact": [
+      "../../images/assets/impact/model.png",
+      "../../images/assets/impact/integration.png"
+    ]
+  },
+  "direction": "Match Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers.",
+  "panels": [
+    {
+      "id": "beat-1",
+      "file": "panels/001.png",
+      "beat": "Ready",
+      "action": "The small square steel hammer rests above the workstand, coin on it. Tavvik looks down at the coin.",
+      "ms": 970
+    },
+    {
+      "id": "beat-2",
+      "file": "panels/002.png",
+      "beat": "Windup",
+      "action": "The mitten lifts the same hammer high with a slight lean back, feet on the baseline.",
+      "ms": 370
+    },
+    {
+      "id": "beat-3",
+      "file": "panels/003.png",
+      "beat": "Impact",
+      "action": "The flat hammer face contacts the gold coin on the workstand. Leave open air for impact effects.",
+      "ms": 170
+    },
+    {
+      "id": "beat-4",
+      "file": "panels/004.png",
+      "beat": "Recovery",
+      "action": "The hammer bounces back slightly, then settles into the waiting pose.",
+      "ms": 290
+    }
+  ],
+  "use": "Working on something or celebrating a build."
+}

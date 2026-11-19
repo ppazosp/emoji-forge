@@ -1,0 +1,47 @@
+{
+  "frames": [
+    {
+      "panel": "beat-1",
+      "pose": "Hammer is low at a slight diagonal, ready over the workstand.",
+      "ms": 390,
+      "key_pose": "keys/001.png"
+    },
+    {
+      "panel": "beat-2",
+      "pose": "Begin lifting. Right elbow bends and hammer rotates up to a 45 degree angle.",
+      "ms": 190
+    },
+    {
+      "panel": "beat-2",
+      "pose": "Highest pose. The hammer head is over the right corner of the goggles. A small lean back on the fixed waist.",
+      "ms": 180,
+      "key_pose": "keys/003.png"
+    },
+    {
+      "panel": "beat-3",
+      "pose": "Mid-downstroke smear. A narrow muted steel sweep follows the hammer. Hold the same core silhouette and feet.",
+      "ms": 50
+    },
+    {
+      "panel": "beat-3",
+      "pose": "Fast contact. The flat face lands exactly on the coin. The mitt still grips the handle.",
+      "ms": 120,
+      "key_pose": "keys/005.png"
+    },
+    {
+      "panel": "beat-4",
+      "pose": "Short rebound, the hammer face lifts clearly off the coin, just a few pixels at sticker size.",
+      "ms": 120
+    },
+    {
+      "panel": "beat-4",
+      "pose": "The mitten eases the hammer back to its waiting angle, clear of the coin.",
+      "ms": 170
+    },
+    {
+      "panel": "beat-1",
+      "pose": "A tiny satisfied smile holding the opening hand and body positions.",
+      "ms": 580
+    }
+  ]
+}

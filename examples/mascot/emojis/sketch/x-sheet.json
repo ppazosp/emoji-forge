@@ -1,0 +1,36 @@
+{
+  "frames": [
+    {
+      "panel": "beat-1",
+      "pose": "Pencil point just above the right edge of a blank sheet.",
+      "ms": 350,
+      "key_pose": "keys/001.png"
+    },
+    {
+      "panel": "beat-2",
+      "pose": "The pencil tip taps the blank paper and starts a small mark.",
+      "ms": 120
+    },
+    {
+      "panel": "beat-2",
+      "pose": "Follow the pencil a little lower. The paper now has two small dark dots.",
+      "ms": 140
+    },
+    {
+      "panel": "beat-3",
+      "pose": "Pencil just below the finished smiley. Hold the happy reveal.",
+      "ms": 340,
+      "key_pose": "keys/004.png"
+    },
+    {
+      "panel": "beat-4",
+      "pose": "Lift pencil farther away while the finished image remains visible.",
+      "ms": 200
+    },
+    {
+      "panel": "beat-1",
+      "pose": "A fresh blank sheet. The pencil is raised toward the start.",
+      "ms": 240
+    }
+  ]
+}

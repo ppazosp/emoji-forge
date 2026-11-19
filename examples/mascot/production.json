@@ -1,0 +1,291 @@
+{
+  "emojis": {
+    "hammering": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "The steel anvil, brass-and-teal goggles and graphite outline are visible at 32 px. Reviewed the name and silhouette.",
+          "snapshot": "review/hammering/bible-20261119T153100.427238Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "Anticipation and two contact beats have room on the right.",
+          "snapshot": "review/hammering/storyboard-20261119T153508.090422Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "Ready, high and flat contact keys retain the copper-banded hammer.",
+          "snapshot": "review/hammering/keys-20261119T153710.566172Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "A 50 ms smear joins high pose to contact. Easing and mask registration hold the body on the baseline.",
+          "snapshot": "review/hammering/inbetweens-20261119T154522.293001Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "White glint, shock ring and cooling sparks start at the flat hammer-to-coin contact.",
+          "snapshot": "review/hammering/effects-20261119T154911.874613Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Passed upload checks at 128 px. 29 frame(s), 110,890 bytes. Body drift 0.226%.",
+          "snapshot": "review/hammering/final-20261119T154913.572849Z.zip"
+        }
+      ]
+    },
+    "quench": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "The steel anvil, brass-and-teal goggles and graphite outline are visible at 32 px. Reviewed the name and silhouette.",
+          "snapshot": "review/quench/bible-20261119T153100.435775Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "Four storyboard beats clearly show lowering, dipping and lifting the disc.",
+          "snapshot": "review/quench/storyboard-20261119T153508.125585Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "Tongs close on the disc and its lower edge passes through the waterline.",
+          "snapshot": "review/quench/keys-20261119T153710.601109Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "Intermediate drawings vary lowering and lifting without global scaling.",
+          "snapshot": "review/quench/inbetweens-20261119T154522.462434Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "Blue-white steam rises at the waterline and leaves Tavvik's face visible.",
+          "snapshot": "review/quench/effects-20261119T154912.041486Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Passed upload checks at 128 px. 13 frame(s), 83,223 bytes. Body drift 0.083%.",
+          "snapshot": "review/quench/final-20261119T154913.786617Z.zip"
+        }
+      ]
+    },
+    "sketch": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "The steel anvil, brass-and-teal goggles and graphite outline are visible at 32 px. Reviewed the name and silhouette.",
+          "snapshot": "review/sketch/bible-20261119T153100.442551Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "The blank sheet, partial mark and smiley reveal make the pencil action clear.",
+          "snapshot": "review/sketch/storyboard-20261119T153508.157541Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "The pencil touches the same plane in the opening and final boards.",
+          "snapshot": "review/sketch/keys-20261119T153710.627928Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "The core remains locked. Reframed the scene after catching the easel clipping.",
+          "snapshot": "review/sketch/inbetweens-20261119T154522.562532Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "The sketch reads through the mark and smile rather than a separate layer.",
+          "snapshot": "review/sketch/effects-20261119T154912.162883Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Passed upload checks at 128 px. 6 frame(s), 44,321 bytes. Body drift 0.122%.",
+          "snapshot": "review/sketch/final-20261119T154913.932919Z.zip"
+        }
+      ]
+    },
+    "ship": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "The steel anvil, brass-and-teal goggles and graphite outline are visible at 32 px. Reviewed the name and silhouette.",
+          "snapshot": "review/ship/bible-20261119T153100.449512Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "The lid has a clear open, drop and close order.",
+          "snapshot": "review/ship/storyboard-20261119T153508.189337Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "The copper hinge and lid preserve the same crate footprint.",
+          "snapshot": "review/ship/keys-20261119T153710.657066Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "Intermediate drawings show the coin crossing the rim and the lid opening after the hand releases.",
+          "snapshot": "review/ship/inbetweens-20261119T154522.660699Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "The lid and held pose supply the visual accent.",
+          "snapshot": "review/ship/effects-20261119T154912.244721Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Passed upload checks at 128 px. 6 frame(s), 37,843 bytes. Body drift 0.117%.",
+          "snapshot": "review/ship/final-20261119T154914.063907Z.zip"
+        }
+      ]
+    },
+    "idea": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "The steel anvil, brass-and-teal goggles and graphite outline are visible at 32 px. Reviewed the name and silhouette.",
+          "snapshot": "review/idea/bible-20261119T153100.456131Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "The gesture leaves room to the upper right for the bulb.",
+          "snapshot": "review/idea/storyboard-20261119T153508.219905Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "The mitten rises while the body and boots stay on the same anchor.",
+          "snapshot": "review/idea/keys-20261119T153710.687340Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "The eyes and mouth change across the turn without moving the body.",
+          "snapshot": "review/idea/inbetweens-20261119T154522.753485Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "Added the filament and separated rays after checking the bulb against its sheet.",
+          "snapshot": "review/idea/effects-20261119T154912.320078Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Passed upload checks at 128 px. 10 frame(s), 51,451 bytes. Body drift 0.168%.",
+          "snapshot": "review/idea/final-20261119T154914.189052Z.zip"
+        }
+      ]
+    },
+    "wave": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "The steel anvil, brass-and-teal goggles and graphite outline are visible at 32 px. Reviewed the name and silhouette.",
+          "snapshot": "review/wave/bible-20261119T153100.462777Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "The moving hand reads outside the cheek at sticker size.",
+          "snapshot": "review/wave/storyboard-20261119T153508.250778Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "Raised and tucked mittens share the same shoulder hinge.",
+          "snapshot": "review/wave/keys-20261119T153710.717388Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "Outward and inward poses have graduated timing and the body stays anchored.",
+          "snapshot": "review/wave/inbetweens-20261119T154522.844701Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "The hand and smile remain clear on both backgrounds.",
+          "snapshot": "review/wave/effects-20261119T154912.394254Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Passed upload checks at 128 px. 6 frame(s), 29,756 bytes. Body drift 0.500%.",
+          "snapshot": "review/wave/final-20261119T154914.316748Z.zip"
+        }
+      ]
+    },
+    "logo": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "The steel anvil, brass-and-teal goggles and graphite outline are visible at 32 px. Reviewed the name and silhouette.",
+          "snapshot": "review/logo/bible-20261119T153100.470585Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "The hammer and anvil silhouette are visible at sticker size.",
+          "snapshot": "review/logo/storyboard-20261119T153508.282566Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "The logo shares the same copper band, chamfers and short wrapped shaft as hammering.",
+          "snapshot": "review/logo/keys-20261119T153710.746397Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "The still has even padding and an opaque closed ink contour.",
+          "snapshot": "review/logo/inbetweens-20261119T154522.926590Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "Checked the logo and hammer at 128, 256 and 512 px.",
+          "snapshot": "review/logo/effects-20261119T154912.455327Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Passed upload checks at 128 px. 1 frame(s), 18,517 bytes.",
+          "snapshot": "review/logo/final-20261119T154914.431266Z.zip"
+        }
+      ]
+    }
+  }
+}

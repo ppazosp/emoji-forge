@@ -1,0 +1,346 @@
+[
+  {
+    "phase": "model",
+    "name": "Tavvik",
+    "outputs": [
+      "images/model/three-quarter.png"
+    ],
+    "references": [],
+    "prompt": "Design an ORIGINAL mascot named Tavvik for a forge-themed open source emoji making tool. DRAW A SINGLE STATIC MODEL reference cel, full body, transparent square canvas, target attractive iconic design at 32px. The character's entire body is literally a stout smooth rounded steel-grey blacksmith anvil in 3/4 view, with a tapered horn pointing screen LEFT, broad flat top, bevelled block with a simple smiling face on its large front plane, softly pinched waist, and a broad pedestal. Two little shod feet under the pedestal, two stubby articulated arms with outlined grey mitten hands; no extra fingers. A pair of worn dark soot-smudged industrial goggles with chunky brass rims and dark teal blue lenses rests ON the flat top, eyes are entirely beneath the goggles on the anvil face. Distinctive contrasting graphite keyline and muted warm copper screws accent; stylish bold 2D cartoon sticker artwork, a few flat shading panels, almost no texture. Large cobalt steel grey main color, lighter upper bevel, no orange character or fire shapes. Character centred at x=50%, ground baseline y=81%, height about 63% of canvas, looks slightly right, relaxed, both palms down. Show this single pose only. Leave generous clear alpha padding all around. No hammer, no props, no writing, no backdrop, no shadows, no fog, no sparks, no gradient outside the character. Sweet peaceful small closed smile with two clear eyes.",
+    "seed": null
+  },
+  {
+    "phase": "storyboard",
+    "name": "hammering",
+    "outputs": [
+      "emojis/hammering/panels/001.png",
+      "emojis/hammering/panels/002.png",
+      "emojis/hammering/panels/003.png",
+      "emojis/hammering/panels/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/hammer/model.png",
+      "images/assets/hammer/integration.png"
+    ],
+    "prompt": "Draw illustrator's pencil THUMBNAILS for the EXACT uploaded original character Tavvik, a steel anvil, horn pointing LEFT, bronze goggles, short hands and feet. Make an exact 2×2 grid with four separate equally sized square panels, reading left to right then top to bottom. Story beats: hammer low over coin on workstand; hammer raised diagonally high; hammer face touches coin; hammer lifts on rebound, shop grin. Use reference 2 for the prop models, reference 3 for real integration and contact. Keep the core anvil silhouette and size constant from panel to panel, feet on one baseline, and the props where shown. Stylized graphite and muted teal pencil on warm paper. Generous margins, no extra scenes, no lettering or arrows.",
+    "seed": null
+  },
+  {
+    "phase": "keys",
+    "name": "hammering",
+    "outputs": [
+      "emojis/hammering/keys/001.png",
+      "emojis/hammering/keys/003.png",
+      "emojis/hammering/keys/005.png",
+      "emojis/logo/keys/001.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/hammer/model.png",
+      "images/assets/hammer/integration.png",
+      "review/hammering/sheets/storyboard.png",
+      "emojis/logo/panels/001.png"
+    ],
+    "prompt": "Draw final key cels for original workshop mascot Tavvik. Exactly a 2x2 production atlas with four separate square transparent cels. TOP LEFT (ready): Tavvik stands on a constant baseline on the left and holds the hammer just above an ochre coin on a small low slate steel square stand, head slightly diagonal. TOP RIGHT (windup): same body and same coin atop the stand on the right, hammer lifts over the right edge of the goggles. BOTTOM LEFT (contact): same body and grounded feet, hammer head flat clean contact with the coin, workstand has not moved. BOTTOM RIGHT (logo): center the same character in this fourth square, friendly neutral smile. It holds exactly the same hammer upright in one mitten low beside its right cheek, with the head and the copper band fully visible. The silhouette and hammer proportions stay identical to the other three panels. No coin or workstand in the LOGO. Resolve the style and the physical design exactly from first three uploaded references. The character is a naturally short rounded steel-gray anvil, with broad flat bevel, single horn facing screen LEFT, narrow waist above a wide pedestal, two stubby boots, brass-rimmed teal goggles perched on the flat top, and a pair of dark inset cartoon eyes on the FRONT steel below the goggles. Clean thick graphite contour and flat indigo grey. Keep the body width and height numerically identical across all cels, with boots anchored on one baseline. Follow repeat prop construction: in hammer pictures the horizontal rectangular dark slate head has END chamfers on the steel and one thin COPPER vertical stripe on its wide face plus a short WARM OCHRE rectangular wrapped handle. It reads even at 32px. Use the pencil reference for gesture only. Leave generous clear alpha margins in each cell and clear gaps between cels, with no overlap across atlas divisions. Transparent ground, no shadows, no borders, no text, no sparks, no atmospheric effects.",
+    "seed": null
+  },
+  {
+    "phase": "inbetweens",
+    "name": "hammering",
+    "outputs": [
+      "emojis/hammering/raw/002.png",
+      "emojis/hammering/raw/004.png",
+      "emojis/hammering/raw/006.png",
+      "emojis/hammering/raw/007.png"
+    ],
+    "references": [
+      "emojis/hammering/keys/001.png",
+      "emojis/hammering/keys/003.png",
+      "emojis/hammering/keys/005.png",
+      "images/assets/hammer/integration.png",
+      "images/model/three-quarter.png"
+    ],
+    "prompt": "Make four tightly threaded drawn cels by EDITING the exact uploaded three approved key cels of Tavvik hammering. Production 2x2 atlas, equal square cells with body in exactly same screen position and same body height in every cell, same workstand and coin, clear transparent gutters, no borders or lines. Steel blue-grey stout living anvil with copper rim teal goggles, horn points left. Use ref 4 for exact copper-banded square steel hammer appearance and fitting grip, ref 5 for body. Top left: middle of slow anticipation after ref 1, hammer angles up halfway toward ref 2, one copper band, eyes look at coin. Top right: fast downstroke just before ref 3, a narrow curved slate motion smear follows same hammer head, hands stay on handle and no contact yet. Bottom left: first rebound after ref 3, head bounces just clear of coin, feet grounded. Bottom right: controlled recovery, hammer eases to the slightly tilted waiting angle of ref 1, small satisfied smile. All four drawings must match physical palette, construction and design and same character position and size EXACTLY. No spark or glow. Use transparent background and four evenly spaced images, one in each precise square, no floor, text, guides or shadows.",
+    "seed": null
+  },
+  {
+    "phase": "storyboard",
+    "name": "quench",
+    "outputs": [
+      "emojis/quench/panels/001.png",
+      "emojis/quench/panels/002.png",
+      "emojis/quench/panels/003.png",
+      "emojis/quench/panels/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/water-pail/model.png",
+      "images/assets/water-pail/integration.png"
+    ],
+    "prompt": "Draw illustrator's pencil THUMBNAILS for the EXACT uploaded original character Tavvik, a steel anvil, horn pointing LEFT, bronze goggles, short hands and feet. Make an exact 2×2 grid with four separate equally sized square panels, reading left to right then top to bottom. Story beats: tongs hold a gold disc above the grey-blue water pail; tongs lower; disc dips into water; disc clears the rim, satisfied smile. Use reference 2 for the prop models, reference 3 for real integration and contact. Keep the core anvil silhouette and size constant from panel to panel, feet on one baseline, and the props where shown. Stylized graphite and muted teal pencil on warm paper. Generous margins, no extra scenes, no lettering or arrows.",
+    "seed": null
+  },
+  {
+    "phase": "keys",
+    "name": "quench",
+    "outputs": [
+      "emojis/quench/keys/001.png",
+      "emojis/quench/keys/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/water-pail/model.png",
+      "images/assets/water-pail/integration.png",
+      "emojis/quench/panels/001.png",
+      "emojis/quench/panels/003.png"
+    ],
+    "prompt": "Make TWO transparent key cels for Tavvik in a 2:1 production atlas, equal left and right transparent square art only. Draw at exactly the same angle, scale and body position as the anchor reference in BOTH cells. This is a rounded slate-grey living anvil with a single pointed horn to screen LEFT, wide flat lip, pinched waist, broad pedestal, stubby boots, and the soot-brass teal goggles worn on top, dark eyes below. Fixed grounded boots, same dimensioned body, same height, stationary props. In the first square: Tavvik holds the gold disc in the two iron tongs at shoulder height, well above the short steel-blue pail. A small calm smile. In the second square: Tongs are angled down and the gold coin is partly submerged below the silver rim. Eyes focus on the contact. Clear room above the pail for steam added later. Use prop model and integration references 2 and 3 faithfully. Use ref 1 for final flat studio sticker art, bold graphite contour and palette. Draw from refs 4 and 5 to match the poses but leave out the paper and frame borders. Place character left and working prop near its body at frame right, with broad margins in EACH cel. No effects, shadows, text or backgrounds. Exactly two drawings, clear air in the gap separating them.",
+    "seed": null
+  },
+  {
+    "phase": "inbetweens",
+    "name": "quench",
+    "outputs": [
+      "emojis/quench/raw/002.png",
+      "emojis/quench/raw/003.png",
+      "emojis/quench/raw/005.png",
+      "emojis/quench/raw/006.png"
+    ],
+    "references": [
+      "emojis/quench/keys/001.png",
+      "emojis/quench/keys/004.png",
+      "images/model/three-quarter.png",
+      "images/assets/water-pail/model.png",
+      "images/assets/water-pail/integration.png"
+    ],
+    "prompt": "Edit the two EXISTING transparent animation key drawings (reference 1 opening, reference 2 action) into exactly four intermediate native sticker cels for this reaction. The anvil model in reference 3 defines the same steel shape. The prop model and integration drawings in refs 4 and 5 establish its contact and proportions. REQUIRED output is a square 2×2 transparent atlas, four equally spaced separate square drawings with clear padding in each. Draw each directly as a variation of the closest key cel, with almost no changes except articulated arm, expression and prop state. TOP LEFT (frame 02, just after reference 1): Tongs are descending a little, coin at mid-height, clearly above rim. TOP RIGHT (frame 03, just before reference 2): Tongs and held coin have just reached the silver rim, pivot rotates clockwise a little, before dipping. BOTTOM LEFT (frame 05, just after reference 2): Coin is just above the water again, short proud smile. BOTTOM RIGHT (frame 06, just before the wrap to reference 1): Coin has lifted partway toward the opening height, and eyes return to the initial gaze. Keep left-facing anvil horn, exact body height, width, pose location and grounded feet fixed from the existing reference drawings, and the goggles on top. Keep every prop's size and ground position exactly the same in all four cells. Use thick crisp cartoon ink and the same steel gray palette. No backgrounds, no text or panel borders, no shadow, no spark, no steam or glow.",
+    "seed": null
+  },
+  {
+    "phase": "storyboard",
+    "name": "sketch",
+    "outputs": [
+      "emojis/sketch/panels/001.png",
+      "emojis/sketch/panels/002.png",
+      "emojis/sketch/panels/003.png",
+      "emojis/sketch/panels/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/easel/model.png",
+      "images/assets/easel/integration.png"
+    ],
+    "prompt": "Draw illustrator's pencil THUMBNAILS for the EXACT uploaded original character Tavvik, a steel anvil, horn pointing LEFT, bronze goggles, short hands and feet. Make an exact 2×2 grid with four separate equally sized square panels, reading left to right then top to bottom. Story beats: pencil held ready over blank paper on little easel; one broad curved line; friendly smiley complete; pencil lifts, a fresh sheet comes forward. Use reference 2 for the prop models, reference 3 for real integration and contact. Keep the core anvil silhouette and size constant from panel to panel, feet on one baseline, and the props where shown. Stylized graphite and muted teal pencil on warm paper. Generous margins, no extra scenes, no lettering or arrows.",
+    "seed": null
+  },
+  {
+    "phase": "keys",
+    "name": "sketch",
+    "outputs": [
+      "emojis/sketch/keys/001.png",
+      "emojis/sketch/keys/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/easel/model.png",
+      "images/assets/easel/integration.png",
+      "emojis/sketch/panels/001.png",
+      "emojis/sketch/panels/003.png"
+    ],
+    "prompt": "Make TWO transparent key cels for Tavvik in a 2:1 production atlas, equal left and right transparent square art only. Draw at exactly the same angle, scale and body position as the anchor reference in BOTH cells. This is a rounded slate-grey living anvil with a single pointed horn to screen LEFT, wide flat lip, pinched waist, broad pedestal, stubby boots, and the soot-brass teal goggles worn on top, dark eyes below. Fixed grounded boots, same dimensioned body, same height, stationary props. In the first square: Hold a walnut charcoal pencil over the top left of a small clean cream board on a maple easel to the right. The board is blank. In the second square: Pose with pencil tip by the lower edge of the same board and a very large simple smiley drawn on it. Small joyful smile on Tavvik. Use prop model and integration references 2 and 3 faithfully. Use ref 1 for final flat studio sticker art, bold graphite contour and palette. Draw from refs 4 and 5 to match the poses but leave out the paper and frame borders. Place character left and working prop near its body at frame right, with broad margins in EACH cel. No effects, shadows, text or backgrounds. Exactly two drawings, clear air in the gap separating them.",
+    "seed": null
+  },
+  {
+    "phase": "inbetweens",
+    "name": "sketch",
+    "outputs": [
+      "emojis/sketch/raw/002.png",
+      "emojis/sketch/raw/003.png",
+      "emojis/sketch/raw/005.png",
+      "emojis/sketch/raw/006.png"
+    ],
+    "references": [
+      "emojis/sketch/keys/001.png",
+      "emojis/sketch/keys/004.png",
+      "images/model/three-quarter.png",
+      "images/assets/easel/model.png",
+      "images/assets/easel/integration.png"
+    ],
+    "prompt": "Edit the two EXISTING transparent animation key drawings (reference 1 opening, reference 2 action) into exactly four intermediate native sticker cels for this reaction. The anvil model in reference 3 defines the same steel shape. The prop model and integration drawings in refs 4 and 5 establish its contact and proportions. REQUIRED output is a square 2×2 transparent atlas, four equally spaced separate square drawings with clear padding in each. Draw each directly as a variation of the closest key cel, with almost no changes except articulated arm, expression and prop state. TOP LEFT (frame 02, just after reference 1): Pencil tip contacts upper edge of board, one small charcoal dot. TOP RIGHT (frame 03, just before reference 2): Pencil starts one broad upward curved charcoal mark, only the smile line visible so far. BOTTOM LEFT (frame 05, just after reference 2): Pencil lifts just clear of the finished face drawn on the board, small pleased grin. BOTTOM RIGHT (frame 06, just before the wrap to reference 1): Pencil is already raised toward new blank paper, about the same pose as existing opening key. Keep left-facing anvil horn, exact body height, width, pose location and grounded feet fixed from the existing reference drawings, and the goggles on top. Keep every prop's size and ground position exactly the same in all four cells. Use thick crisp cartoon ink and the same steel gray palette. No backgrounds, no text or panel borders, no shadow, no spark, no steam or glow.",
+    "seed": null
+  },
+  {
+    "phase": "storyboard",
+    "name": "ship",
+    "outputs": [
+      "emojis/ship/panels/001.png",
+      "emojis/ship/panels/002.png",
+      "emojis/ship/panels/003.png",
+      "emojis/ship/panels/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/crate/model.png",
+      "images/assets/crate/integration.png"
+    ],
+    "prompt": "Draw illustrator's pencil THUMBNAILS for the EXACT uploaded original character Tavvik, a steel anvil, horn pointing LEFT, bronze goggles, short hands and feet. Make an exact 2×2 grid with four separate equally sized square panels, reading left to right then top to bottom. Story beats: hold gold disc above open cedar crate; disc moves into the opening; lid shuts as mitten presses; mitten lifts and lid bounces open. Use reference 2 for the prop models, reference 3 for real integration and contact. Keep the core anvil silhouette and size constant from panel to panel, feet on one baseline, and the props where shown. Stylized graphite and muted teal pencil on warm paper. Generous margins, no extra scenes, no lettering or arrows.",
+    "seed": null
+  },
+  {
+    "phase": "keys",
+    "name": "ship",
+    "outputs": [
+      "emojis/ship/keys/001.png",
+      "emojis/ship/keys/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/crate/model.png",
+      "images/assets/crate/integration.png",
+      "emojis/ship/panels/001.png",
+      "emojis/ship/panels/003.png"
+    ],
+    "prompt": "Make TWO transparent key cels for Tavvik in a 2:1 production atlas, equal left and right transparent square art only. Draw at exactly the same angle, scale and body position as the anchor reference in BOTH cells. This is a rounded slate-grey living anvil with a single pointed horn to screen LEFT, wide flat lip, pinched waist, broad pedestal, stubby boots, and the soot-brass teal goggles worn on top, dark eyes below. Fixed grounded boots, same dimensioned body, same height, stationary props. In the first square: The gold disc is held in one mitten above the open lid of a small cedar crate with copper hinges on the right. In the second square: Same body and same wood crate, lid pressed flat shut by the right mitten. Gold disc is inside hidden. Proud grin. Use prop model and integration references 2 and 3 faithfully. Use ref 1 for final flat studio sticker art, bold graphite contour and palette. Draw from refs 4 and 5 to match the poses but leave out the paper and frame borders. Place character left and working prop near its body at frame right, with broad margins in EACH cel. No effects, shadows, text or backgrounds. Exactly two drawings, clear air in the gap separating them.",
+    "seed": null
+  },
+  {
+    "phase": "inbetweens",
+    "name": "ship",
+    "outputs": [
+      "emojis/ship/raw/002.png",
+      "emojis/ship/raw/003.png",
+      "emojis/ship/raw/005.png",
+      "emojis/ship/raw/006.png"
+    ],
+    "references": [
+      "emojis/ship/keys/001.png",
+      "emojis/ship/keys/004.png",
+      "images/model/three-quarter.png",
+      "images/assets/crate/model.png",
+      "images/assets/crate/integration.png"
+    ],
+    "prompt": "Edit the two EXISTING transparent animation key drawings (reference 1 opening, reference 2 action) into exactly four intermediate native sticker cels for this reaction. The anvil model in reference 3 defines the same steel shape. The prop model and integration drawings in refs 4 and 5 establish its contact and proportions. REQUIRED output is a square 2×2 transparent atlas, four equally spaced separate square drawings with clear padding in each. Draw each directly as a variation of the closest key cel, with almost no changes except articulated arm, expression and prop state. TOP LEFT (frame 02, just after reference 1): Lower the gold disc halfway toward the upright open crate lid. TOP RIGHT (frame 03, just before reference 2): The gold disc is halfway obscured by the front of the opening, same logical disc size. BOTTOM LEFT (frame 05, just after reference 2): Lid bounces barely ajar, around 15 degrees, as the mitten lifts. Coin fully hidden. BOTTOM RIGHT (frame 06, just before the wrap to reference 1): Lid open around 55 degrees, same crate size, and mitten rises toward next gold disc. Coin fully hidden. Keep left-facing anvil horn, exact body height, width, pose location and grounded feet fixed from the existing reference drawings, and the goggles on top. Keep every prop's size and ground position exactly the same in all four cells. Use thick crisp cartoon ink and the same steel gray palette. No backgrounds, no text or panel borders, no shadow, no spark, no steam or glow.",
+    "seed": null
+  },
+  {
+    "phase": "storyboard",
+    "name": "idea",
+    "outputs": [
+      "emojis/idea/panels/001.png",
+      "emojis/idea/panels/002.png",
+      "emojis/idea/panels/003.png",
+      "emojis/idea/panels/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/bulb/model.png",
+      "images/assets/bulb/integration.png"
+    ],
+    "prompt": "Draw illustrator's pencil THUMBNAILS for the EXACT uploaded original character Tavvik, a steel anvil, horn pointing LEFT, bronze goggles, short hands and feet. Make an exact 2×2 grid with four separate equally sized square panels, reading left to right then top to bottom. Story beats: think at rest; look up and lift a mitten; open grin and point upward; mitten eases back down. Leave upper-right space for a bulb to be added later. Use reference 2 for the prop models, reference 3 for real integration and contact. Keep the core anvil silhouette and size constant from panel to panel, feet on one baseline, and the props where shown. Stylized graphite and muted teal pencil on warm paper. Generous margins, no extra scenes, no lettering or arrows.",
+    "seed": null
+  },
+  {
+    "phase": "keys",
+    "name": "idea",
+    "outputs": [
+      "emojis/idea/keys/001.png",
+      "emojis/idea/keys/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/bulb/model.png",
+      "images/assets/bulb/integration.png",
+      "emojis/idea/panels/001.png",
+      "emojis/idea/panels/003.png"
+    ],
+    "prompt": "Draw final key cels for original workshop mascot Tavvik. Exactly two same-size transparent cel drawings horizontally, wide 2:1 image. LEFT: Tavvik, low relaxed mittens, thinking brows and little mouth, turns gaze slightly toward the empty right side. RIGHT: same body in exact same position, its right mitten lifts in a clear friendly 'aha' gesture angled up and right, open smile, eyes looking up. Leave empty space to the upper right of both cels for a future effect. The bulb from the reference is for composition only. Do not paint a bulb or any accent marks. Resolve the style and the physical design exactly from first three uploaded references. The character is a naturally short rounded steel-gray anvil, with broad flat bevel, single horn facing screen LEFT, narrow waist above a wide pedestal, two stubby boots, brass-rimmed teal goggles perched on the flat top, and a pair of dark inset cartoon eyes on the FRONT steel below the goggles. Clean thick graphite contour and flat indigo grey. Keep the body width and height numerically identical across all cels, with boots anchored on one baseline. Follow repeat prop construction: in hammer pictures the horizontal rectangular dark slate head has END chamfers on the steel and one thin COPPER vertical stripe on its wide face plus a short WARM OCHRE rectangular wrapped handle. It reads even at 32px. Use the pencil reference for gesture only. Leave generous clear alpha margins in each cell and clear gaps between cels, with no overlap across atlas divisions. Transparent ground, no shadows, no borders, no text, no sparks, no atmospheric effects.",
+    "seed": null
+  },
+  {
+    "phase": "inbetweens",
+    "name": "idea",
+    "outputs": [
+      "emojis/idea/raw/002.png",
+      "emojis/idea/raw/003.png",
+      "emojis/idea/raw/005.png",
+      "emojis/idea/raw/006.png"
+    ],
+    "references": [
+      "emojis/idea/keys/001.png",
+      "emojis/idea/keys/004.png",
+      "images/model/three-quarter.png",
+      "images/assets/bulb/model.png",
+      "images/assets/bulb/integration.png"
+    ],
+    "prompt": "Native image edit, reference-based four clean transparent animated cels for exact steel-grey Tavvik anvil character. Preserve physical appearance of the refs absolutely: shape, width and height of anvil body and horn pointing LEFT, graphite outlines, steel blue-grey palette, brass teal goggles on top, all eyes below goggles, feet and their baseline. Same set position. Reference images include neighbouring key cels, isolated prop model, integration with character, and character model. Transfer ONLY the movement described. Create a precise 2x2 production atlas containing four isolated equal-sized transparent square cels, with deliberate 12% margins in each square. Read order top left, top right, bottom left, bottom right: Frame 2: Eyes begin to turn up, right mitten stays at rib level, mouth soft closed. Frame 3: Right mitten halfway up above steel face edge, eyes look upper right, partly open smile. Frame 5: Lower the mitten a little after the high point with a pleased smile. Frame 6: Lower the same mitten almost to rest and look forward.. For an impact only draw motion smear if specifically asked. Keep the one gold disc on the existing compact steel workstand in exactly the same location throughout hammering, keep goggles stationary. No visual effects or bulb, sparks, glow, text, backgrounds, shadows or panel border. One drawing per cell, clean alpha and gutters.",
+    "seed": null
+  },
+  {
+    "phase": "storyboard",
+    "name": "wave",
+    "outputs": [
+      "emojis/wave/panels/001.png",
+      "emojis/wave/panels/002.png",
+      "emojis/wave/panels/003.png",
+      "emojis/wave/panels/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/goggles/model.png",
+      "images/assets/goggles/integration.png"
+    ],
+    "prompt": "Draw illustrator's pencil THUMBNAILS for the EXACT uploaded original character Tavvik, a steel anvil, horn pointing LEFT, bronze goggles, short hands and feet. Make an exact 2×2 grid with four separate equally sized square panels, reading left to right then top to bottom. Story beats: one mitten lifted to shoulder; wave outward and upward; wave inward by cheek, grin; lower it slightly, softer smile. Use reference 2 for the prop models, reference 3 for real integration and contact. Keep the core anvil silhouette and size constant from panel to panel, feet on one baseline, and the props where shown. Stylized graphite and muted teal pencil on warm paper. Generous margins, no extra scenes, no lettering or arrows.",
+    "seed": null
+  },
+  {
+    "phase": "keys",
+    "name": "wave",
+    "outputs": [
+      "emojis/wave/keys/001.png",
+      "emojis/wave/keys/004.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/goggles/model.png",
+      "images/assets/goggles/integration.png",
+      "emojis/wave/panels/001.png",
+      "emojis/wave/panels/003.png"
+    ],
+    "prompt": "Draw final key cels for original workshop mascot Tavvik. Exactly two same-size transparent cels horizontally, wide 2:1 image. LEFT: Tavvik smiles softly with its right mitten raised to the front of shoulder at mid height. RIGHT: body, boots and its hinge shoulder are in exactly the same place. Bring the same raised mitten inward to the right edge of the cheek and grin. Hand remains attached at all times, same rounded mitten, make the pose change by moving the arm only. Resolve the style and the physical design exactly from first three uploaded references. The character is a naturally short rounded steel-gray anvil, with broad flat bevel, single horn facing screen LEFT, narrow waist above a wide pedestal, two stubby boots, brass-rimmed teal goggles perched on the flat top, and a pair of dark inset cartoon eyes on the FRONT steel below the goggles. Clean thick graphite contour and flat indigo grey. Keep the body width and height numerically identical across all cels, with boots anchored on one baseline. Follow repeat prop construction: in hammer pictures the horizontal rectangular dark slate head has END chamfers on the steel and one thin COPPER vertical stripe on its wide face plus a short WARM OCHRE rectangular wrapped handle. It reads even at 32px. Use the pencil reference for gesture only. Leave generous clear alpha margins in each cell and clear gaps between cels, with no overlap across atlas divisions. Transparent ground, no shadows, no borders, no text, no sparks, no atmospheric effects.",
+    "seed": null
+  },
+  {
+    "phase": "inbetweens",
+    "name": "wave",
+    "outputs": [
+      "emojis/wave/raw/002.png",
+      "emojis/wave/raw/003.png",
+      "emojis/wave/raw/005.png",
+      "emojis/wave/raw/006.png"
+    ],
+    "references": [
+      "emojis/wave/keys/001.png",
+      "emojis/wave/keys/004.png",
+      "images/model/three-quarter.png",
+      "images/assets/goggles/model.png",
+      "images/assets/goggles/integration.png"
+    ],
+    "prompt": "Native image edit, reference-based four clean transparent animated cels for exact steel-grey Tavvik anvil character. Preserve physical appearance of the refs absolutely: shape, width and height of anvil body and horn pointing LEFT, graphite outlines, steel blue-grey palette, brass teal goggles on top, all eyes below goggles, feet and their baseline. Same set position. Reference images include neighbouring key cels, isolated prop model, integration with character, and character model. Transfer ONLY the movement described. Create a precise 2x2 production atlas containing four isolated equal-sized transparent square cels, with deliberate 12% margins in each square. Read order top left, top right, bottom left, bottom right: Frame 2: Tilt the existing raised mitten a little outward and lift slightly. Frame 3: Lift outward highest, the raised mitten waves past corner of anvil, no extra fingers. Frame 5: From the inward key move the same mitten toward the outward edge again, slightly lower. Frame 6: Bring the mitten back nearly to the open pose at shoulder height, smile relaxes.. For an impact only draw motion smear if specifically asked. Keep the one gold disc on the existing compact steel workstand in exactly the same location throughout hammering, keep goggles stationary. No visual effects or bulb, sparks, glow, text, backgrounds, shadows or panel border. One drawing per cell, clean alpha and gutters.",
+    "seed": null
+  },
+  {
+    "phase": "storyboard",
+    "name": "logo",
+    "outputs": [
+      "emojis/logo/panels/001.png"
+    ],
+    "references": [
+      "images/model/three-quarter.png",
+      "images/assets/hammer/model.png",
+      "images/assets/hammer/integration.png"
+    ],
+    "prompt": "Draw illustrator's pencil THUMBNAILS for the EXACT uploaded original character Tavvik, a steel anvil, horn pointing LEFT, bronze goggles, short hands and feet. One centered square thumbnail. Story beats: a friendly little anvil with the exact reference hammer held against its right side, clear simple logo composition. Use reference 2 for the prop models, reference 3 for real integration and contact. Keep the core anvil silhouette and size constant from panel to panel, feet on one baseline, and the props where shown. Stylized graphite and muted teal pencil on warm paper. Generous margins, no extra scenes, no lettering or arrows.",
+    "seed": null
+  }
+]

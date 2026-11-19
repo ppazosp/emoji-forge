@@ -1,0 +1,113 @@
+{
+  "ok": true,
+  "command": "check",
+  "emojis": [
+    {
+      "name": "hammering",
+      "path": "result/exports/hammering.gif",
+      "frames": 29,
+      "duration_ms": 3600,
+      "bytes": 110890,
+      "size": [
+        128,
+        128
+      ],
+      "loop": 0,
+      "seam": 0.0,
+      "geometry_checked": true,
+      "body_drift_percent": 0.226,
+      "ok": true
+    },
+    {
+      "name": "quench",
+      "path": "result/exports/quench.gif",
+      "frames": 13,
+      "duration_ms": 1360,
+      "bytes": 83223,
+      "size": [
+        128,
+        128
+      ],
+      "loop": 0,
+      "seam": 0.06162,
+      "geometry_checked": true,
+      "body_drift_percent": 0.083,
+      "ok": true
+    },
+    {
+      "name": "sketch",
+      "path": "result/exports/sketch.gif",
+      "frames": 6,
+      "duration_ms": 1390,
+      "bytes": 44321,
+      "size": [
+        128,
+        128
+      ],
+      "loop": 0,
+      "seam": 0.03705,
+      "geometry_checked": true,
+      "body_drift_percent": 0.122,
+      "ok": true
+    },
+    {
+      "name": "ship",
+      "path": "result/exports/ship.gif",
+      "frames": 6,
+      "duration_ms": 1330,
+      "bytes": 37843,
+      "size": [
+        128,
+        128
+      ],
+      "loop": 0,
+      "seam": 0.0574,
+      "geometry_checked": true,
+      "body_drift_percent": 0.117,
+      "ok": true
+    },
+    {
+      "name": "idea",
+      "path": "result/exports/idea.gif",
+      "frames": 10,
+      "duration_ms": 1580,
+      "bytes": 51451,
+      "size": [
+        128,
+        128
+      ],
+      "loop": 0,
+      "seam": 0.01645,
+      "geometry_checked": true,
+      "body_drift_percent": 0.168,
+      "ok": true
+    },
+    {
+      "name": "wave",
+      "path": "result/exports/wave.gif",
+      "frames": 6,
+      "duration_ms": 1240,
+      "bytes": 29756,
+      "size": [
+        128,
+        128
+      ],
+      "loop": 0,
+      "seam": 0.01424,
+      "geometry_checked": true,
+      "body_drift_percent": 0.5,
+      "ok": true
+    },
+    {
+      "name": "logo",
+      "path": "result/exports/logo.png",
+      "frames": 1,
+      "bytes": 18517,
+      "size": [
+        128,
+        128
+      ],
+      "ok": true
+    }
+  ]
+}

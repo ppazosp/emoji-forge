@@ -1,0 +1,689 @@
+{
+  "assets": [
+    {
+      "asset": "anvil-body",
+      "emoji": "hammering",
+      "crop": {
+        "file": "emojis/hammering/cels/001-file.png",
+        "box": [
+          8,
+          98,
+          354,
+          453
+        ]
+      },
+      "reference": "images/model/three-quarter.png",
+      "color_distance": 0.1666,
+      "mask_iou": 0.7292,
+      "hash_distance": 0.1562,
+      "flags": []
+    },
+    {
+      "asset": "anvil-body",
+      "emoji": "quench",
+      "crop": {
+        "file": "emojis/quench/cels/001-file.png",
+        "box": [
+          8,
+          98,
+          354,
+          453
+        ]
+      },
+      "reference": "images/model/three-quarter.png",
+      "color_distance": 0.1117,
+      "mask_iou": 0.7149,
+      "hash_distance": 0.1562,
+      "flags": []
+    },
+    {
+      "asset": "anvil-body",
+      "emoji": "sketch",
+      "crop": {
+        "file": "emojis/sketch/cels/001-file.png",
+        "box": [
+          8,
+          98,
+          354,
+          453
+        ]
+      },
+      "reference": "images/model/three-quarter.png",
+      "color_distance": 0.1721,
+      "mask_iou": 0.7111,
+      "hash_distance": 0.1875,
+      "flags": []
+    },
+    {
+      "asset": "anvil-body",
+      "emoji": "ship",
+      "crop": {
+        "file": "emojis/ship/cels/001-file.png",
+        "box": [
+          8,
+          98,
+          354,
+          453
+        ]
+      },
+      "reference": "images/model/three-quarter.png",
+      "color_distance": 0.2195,
+      "mask_iou": 0.6743,
+      "hash_distance": 0.1719,
+      "flags": []
+    },
+    {
+      "asset": "anvil-body",
+      "emoji": "idea",
+      "crop": {
+        "file": "emojis/idea/cels/001-file.png",
+        "box": [
+          8,
+          98,
+          354,
+          453
+        ]
+      },
+      "reference": "images/model/three-quarter.png",
+      "color_distance": 0.1552,
+      "mask_iou": 0.7783,
+      "hash_distance": 0.1406,
+      "flags": []
+    },
+    {
+      "asset": "anvil-body",
+      "emoji": "wave",
+      "crop": {
+        "file": "emojis/wave/cels/001-file.png",
+        "box": [
+          8,
+          98,
+          354,
+          453
+        ]
+      },
+      "reference": "images/model/three-quarter.png",
+      "color_distance": 0.1046,
+      "mask_iou": 0.7947,
+      "hash_distance": 0.0938,
+      "flags": []
+    },
+    {
+      "asset": "anvil-body",
+      "emoji": "logo",
+      "crop": {
+        "file": "emojis/logo/cels/001.png",
+        "box": [
+          43,
+          62,
+          463,
+          468
+        ]
+      },
+      "reference": "images/model/three-quarter.png",
+      "color_distance": 0.1633,
+      "mask_iou": 0.7821,
+      "hash_distance": 0.1562,
+      "flags": []
+    },
+    {
+      "asset": "goggles",
+      "emoji": "hammering",
+      "crop": {
+        "file": "emojis/hammering/cels/001-file.png",
+        "box": [
+          106,
+          117,
+          317,
+          187
+        ]
+      },
+      "reference": "images/assets/goggles/model.png",
+      "color_distance": 0.2483,
+      "mask_iou": 0.6156,
+      "hash_distance": 0.1094,
+      "flags": []
+    },
+    {
+      "asset": "goggles",
+      "emoji": "quench",
+      "crop": {
+        "file": "emojis/quench/cels/001-file.png",
+        "box": [
+          106,
+          117,
+          317,
+          187
+        ]
+      },
+      "reference": "images/assets/goggles/model.png",
+      "color_distance": 0.1009,
+      "mask_iou": 0.6216,
+      "hash_distance": 0.1094,
+      "flags": []
+    },
+    {
+      "asset": "goggles",
+      "emoji": "sketch",
+      "crop": {
+        "file": "emojis/sketch/cels/001-file.png",
+        "box": [
+          106,
+          117,
+          317,
+          187
+        ]
+      },
+      "reference": "images/assets/goggles/model.png",
+      "color_distance": 0.1805,
+      "mask_iou": 0.7348,
+      "hash_distance": 0.1094,
+      "flags": []
+    },
+    {
+      "asset": "goggles",
+      "emoji": "ship",
+      "crop": {
+        "file": "emojis/ship/cels/001-file.png",
+        "box": [
+          106,
+          117,
+          317,
+          187
+        ]
+      },
+      "reference": "images/assets/goggles/model.png",
+      "color_distance": 0.1193,
+      "mask_iou": 0.6295,
+      "hash_distance": 0.0781,
+      "flags": []
+    },
+    {
+      "asset": "goggles",
+      "emoji": "idea",
+      "crop": {
+        "file": "emojis/idea/cels/001-file.png",
+        "box": [
+          106,
+          117,
+          317,
+          187
+        ]
+      },
+      "reference": "images/assets/goggles/model.png",
+      "color_distance": 0.1267,
+      "mask_iou": 0.6179,
+      "hash_distance": 0.1094,
+      "flags": []
+    },
+    {
+      "asset": "goggles",
+      "emoji": "wave",
+      "crop": {
+        "file": "emojis/wave/cels/001-file.png",
+        "box": [
+          106,
+          117,
+          317,
+          187
+        ]
+      },
+      "reference": "images/assets/goggles/model.png",
+      "color_distance": 0.201,
+      "mask_iou": 0.6547,
+      "hash_distance": 0.1094,
+      "flags": []
+    },
+    {
+      "asset": "goggles",
+      "emoji": "logo",
+      "crop": {
+        "file": "emojis/logo/cels/001.png",
+        "box": [
+          136,
+          58,
+          415,
+          174
+        ]
+      },
+      "reference": "images/assets/goggles/model.png",
+      "color_distance": 0.371,
+      "mask_iou": 0.726,
+      "hash_distance": 0.1094,
+      "flags": []
+    },
+    {
+      "asset": "hammer",
+      "emoji": "hammering",
+      "crop": {
+        "file": "emojis/hammering/cels/003-file.png",
+        "box": [
+          308,
+          118,
+          413,
+          252
+        ]
+      },
+      "reference": "images/assets/hammer/model.png",
+      "color_distance": 0.1606,
+      "mask_iou": 0.541,
+      "hash_distance": 0.2969,
+      "flags": []
+    },
+    {
+      "asset": "hammer",
+      "emoji": "logo",
+      "crop": {
+        "file": "emojis/logo/cels/001.png",
+        "box": [
+          99,
+          193,
+          236,
+          406
+        ]
+      },
+      "reference": "images/assets/hammer/model.png",
+      "color_distance": 0.2531,
+      "mask_iou": 0.6252,
+      "hash_distance": 0.2344,
+      "flags": []
+    },
+    {
+      "asset": "workstand",
+      "emoji": "hammering",
+      "crop": {
+        "file": "emojis/hammering/cels/001-file.png",
+        "box": [
+          306,
+          351,
+          456,
+          448
+        ]
+      },
+      "reference": "images/assets/workstand/model.png",
+      "color_distance": 0.1525,
+      "mask_iou": 0.8168,
+      "hash_distance": 0.1094,
+      "flags": []
+    },
+    {
+      "asset": "workstand",
+      "emoji": "hammering",
+      "crop": {
+        "file": "emojis/hammering/cels/005-file.png",
+        "box": [
+          303,
+          358,
+          468,
+          454
+        ]
+      },
+      "reference": "images/assets/workstand/model.png",
+      "color_distance": 0.1848,
+      "mask_iou": 0.8179,
+      "hash_distance": 0.125,
+      "flags": []
+    },
+    {
+      "asset": "coin",
+      "emoji": "hammering",
+      "crop": {
+        "file": "emojis/hammering/cels/001-file.png",
+        "box": [
+          340,
+          321,
+          427,
+          361
+        ]
+      },
+      "reference": "images/assets/coin/model.png",
+      "color_distance": 0.4167,
+      "mask_iou": 0.4455,
+      "hash_distance": 0.5469,
+      "flags": [
+        "perceptual-hash",
+        "silhouette"
+      ]
+    },
+    {
+      "asset": "coin",
+      "emoji": "quench",
+      "crop": {
+        "file": "emojis/quench/cels/001-file.png",
+        "box": [
+          385,
+          216,
+          461,
+          286
+        ]
+      },
+      "reference": "images/assets/coin/model.png",
+      "color_distance": 0.3659,
+      "mask_iou": 0.7409,
+      "hash_distance": 0.3906,
+      "flags": [
+        "perceptual-hash"
+      ]
+    },
+    {
+      "asset": "coin",
+      "emoji": "ship",
+      "crop": {
+        "file": "emojis/ship/cels/001-file.png",
+        "box": [
+          281,
+          250,
+          358,
+          321
+        ]
+      },
+      "reference": "images/assets/coin/model.png",
+      "color_distance": 0.4587,
+      "mask_iou": 0.7287,
+      "hash_distance": 0.2344,
+      "flags": [
+        "palette"
+      ]
+    },
+    {
+      "asset": "tongs",
+      "emoji": "quench",
+      "crop": {
+        "file": "emojis/quench/cels/001-file.png",
+        "box": [
+          304,
+          193,
+          434,
+          269
+        ]
+      },
+      "reference": "images/assets/tongs/model.png",
+      "color_distance": 0.2807,
+      "mask_iou": 0.2276,
+      "hash_distance": 0.4375,
+      "flags": [
+        "perceptual-hash",
+        "silhouette"
+      ]
+    },
+    {
+      "asset": "tongs",
+      "emoji": "quench",
+      "crop": {
+        "file": "emojis/quench/cels/004-file.png",
+        "box": [
+          310,
+          251,
+          421,
+          365
+        ]
+      },
+      "reference": "images/assets/tongs/model.png",
+      "color_distance": 0.2979,
+      "mask_iou": 0.2685,
+      "hash_distance": 0.4375,
+      "flags": [
+        "perceptual-hash",
+        "silhouette"
+      ]
+    },
+    {
+      "asset": "water-pail",
+      "emoji": "quench",
+      "crop": {
+        "file": "emojis/quench/cels/004-file.png",
+        "box": [
+          329,
+          307,
+          472,
+          457
+        ]
+      },
+      "reference": "images/assets/water-pail/model.png",
+      "color_distance": 0.2666,
+      "mask_iou": 0.7701,
+      "hash_distance": 0.25,
+      "flags": []
+    },
+    {
+      "asset": "easel",
+      "emoji": "sketch",
+      "crop": {
+        "file": "emojis/sketch/cels/001-file.png",
+        "box": [
+          325,
+          150,
+          500,
+          450
+        ]
+      },
+      "reference": "images/assets/easel/model.png",
+      "color_distance": 0.1689,
+      "mask_iou": 0.7672,
+      "hash_distance": 0.1406,
+      "flags": []
+    },
+    {
+      "asset": "easel",
+      "emoji": "sketch",
+      "crop": {
+        "file": "emojis/sketch/cels/004-file.png",
+        "box": [
+          329,
+          145,
+          501,
+          454
+        ]
+      },
+      "reference": "images/assets/easel/model.png",
+      "color_distance": 0.2503,
+      "mask_iou": 0.6855,
+      "hash_distance": 0.1406,
+      "flags": []
+    },
+    {
+      "asset": "pencil",
+      "emoji": "sketch",
+      "crop": {
+        "file": "emojis/sketch/cels/001-file.png",
+        "box": [
+          286,
+          226,
+          354,
+          291
+        ]
+      },
+      "reference": "images/assets/pencil/model.png",
+      "color_distance": 0.5234,
+      "mask_iou": 0.3746,
+      "hash_distance": 0.4688,
+      "flags": [
+        "palette",
+        "perceptual-hash",
+        "silhouette"
+      ]
+    },
+    {
+      "asset": "pencil",
+      "emoji": "sketch",
+      "crop": {
+        "file": "emojis/sketch/cels/004-file.png",
+        "box": [
+          287,
+          267,
+          369,
+          337
+        ]
+      },
+      "reference": "images/assets/pencil/model.png",
+      "color_distance": 0.5179,
+      "mask_iou": 0.3008,
+      "hash_distance": 0.4219,
+      "flags": [
+        "palette",
+        "perceptual-hash",
+        "silhouette"
+      ]
+    },
+    {
+      "asset": "crate",
+      "emoji": "ship",
+      "crop": {
+        "file": "emojis/ship/cels/001-file.png",
+        "box": [
+          285,
+          238,
+          447,
+          466
+        ]
+      },
+      "reference": "images/assets/crate/model.png",
+      "color_distance": 0.1925,
+      "mask_iou": 0.7307,
+      "hash_distance": 0.25,
+      "flags": []
+    },
+    {
+      "asset": "crate",
+      "emoji": "ship",
+      "crop": {
+        "file": "emojis/ship/cels/004-file.png",
+        "box": [
+          278,
+          287,
+          444,
+          453
+        ]
+      },
+      "reference": "images/assets/crate/model.png",
+      "color_distance": 0.2863,
+      "mask_iou": 0.8502,
+      "hash_distance": 0.2656,
+      "flags": []
+    },
+    {
+      "asset": "impact",
+      "emoji": "hammering",
+      "crop": {
+        "file": "result/master/hammering/005.png",
+        "box": [
+          326,
+          266,
+          464,
+          384
+        ]
+      },
+      "reference": "images/assets/impact/model.png",
+      "color_distance": 0.7071,
+      "mask_iou": 0.6616,
+      "hash_distance": 0.6562,
+      "flags": [
+        "palette",
+        "perceptual-hash"
+      ]
+    },
+    {
+      "asset": "impact",
+      "emoji": "hammering",
+      "crop": {
+        "file": "result/master/hammering/007.png",
+        "box": [
+          304,
+          233,
+          501,
+          386
+        ]
+      },
+      "reference": "images/assets/impact/model.png",
+      "color_distance": 0.6723,
+      "mask_iou": 0.5385,
+      "hash_distance": 0.5312,
+      "flags": [
+        "palette",
+        "perceptual-hash"
+      ]
+    },
+    {
+      "asset": "steam",
+      "emoji": "quench",
+      "crop": {
+        "file": "result/master/quench/005.png",
+        "box": [
+          340,
+          238,
+          478,
+          392
+        ]
+      },
+      "reference": "images/assets/steam/model.png",
+      "color_distance": 0.5171,
+      "mask_iou": 0.5684,
+      "hash_distance": 0.3438,
+      "flags": [
+        "palette"
+      ]
+    },
+    {
+      "asset": "steam",
+      "emoji": "quench",
+      "crop": {
+        "file": "result/master/quench/008.png",
+        "box": [
+          342,
+          222,
+          485,
+          382
+        ]
+      },
+      "reference": "images/assets/steam/model.png",
+      "color_distance": 0.4798,
+      "mask_iou": 0.576,
+      "hash_distance": 0.3125,
+      "flags": [
+        "palette"
+      ]
+    },
+    {
+      "asset": "bulb",
+      "emoji": "idea",
+      "crop": {
+        "file": "result/master/idea/006.png",
+        "box": [
+          345,
+          71,
+          467,
+          202
+        ]
+      },
+      "reference": "images/assets/bulb/model.png",
+      "color_distance": 0.7226,
+      "mask_iou": 0.7136,
+      "hash_distance": 0.1406,
+      "flags": [
+        "palette"
+      ]
+    },
+    {
+      "asset": "bulb",
+      "emoji": "idea",
+      "crop": {
+        "file": "result/master/idea/009.png",
+        "box": [
+          345,
+          71,
+          467,
+          202
+        ]
+      },
+      "reference": "images/assets/bulb/model.png",
+      "color_distance": 0.6619,
+      "mask_iou": 0.4778,
+      "hash_distance": 0.25,
+      "flags": [
+        "palette",
+        "silhouette"
+      ]
+    }
+  ],
+  "flagged": 13
+}

@@ -1,0 +1,82 @@
+{
+  "target": "slack",
+  "emojis": [
+    {
+      "name": "hammering",
+      "use": "Working on something or celebrating a build.",
+      "file": "exports/hammering.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/hammering/timing.json"
+    },
+    {
+      "name": "quench",
+      "use": "Cool down or mark something done.",
+      "file": "exports/quench.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/quench/timing.json"
+    },
+    {
+      "name": "sketch",
+      "use": "Suggest an idea or sketch a plan.",
+      "file": "exports/sketch.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/sketch/timing.json"
+    },
+    {
+      "name": "ship",
+      "use": "Send a finished piece to someone.",
+      "file": "exports/ship.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/ship/timing.json"
+    },
+    {
+      "name": "idea",
+      "use": "Share a lightbulb moment.",
+      "file": "exports/idea.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/idea/timing.json"
+    },
+    {
+      "name": "wave",
+      "use": "Say a warm hello.",
+      "file": "exports/wave.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/wave/timing.json"
+    },
+    {
+      "name": "logo",
+      "use": "Mark an emoji made with Forge.",
+      "file": "exports/logo.png",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/logo/still.png"
+    }
+  ]
+}

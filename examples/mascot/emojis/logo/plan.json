@@ -1,0 +1,27 @@
+{
+  "durations_ms": [
+    400
+  ],
+  "frames": [
+    {
+      "file": "raw/001.png",
+      "ms": 400,
+      "key_frame": true,
+      "references": {
+        "previous_frame": null,
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png",
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png"
+      ],
+      "prompt": "Frame 01/01: Centered steel anvil logo with a smile. The hammer shows the slate square head, chamfered silver faces, copper band and short wrapped ochre handle.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    }
+  ]
+}

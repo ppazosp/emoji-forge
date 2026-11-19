@@ -1,0 +1,434 @@
+{
+  "target": "slack",
+  "emojis": [
+    {
+      "name": "hammering",
+      "use": "Working on something or celebrating a build.",
+      "static": false,
+      "register": false,
+      "frames": [
+        {
+          "ms": 390,
+          "file": "emojis/hammering/cels/001-file.png",
+          "body": "emojis/hammering/cels/001-body.png"
+        },
+        {
+          "ms": 190,
+          "file": "emojis/hammering/cels/002-file.png",
+          "body": "emojis/hammering/cels/002-body.png"
+        },
+        {
+          "ms": 180,
+          "file": "emojis/hammering/cels/003-file.png",
+          "body": "emojis/hammering/cels/003-body.png"
+        },
+        {
+          "ms": 50,
+          "file": "emojis/hammering/cels/004-file.png",
+          "body": "emojis/hammering/cels/004-body.png"
+        },
+        {
+          "ms": 30,
+          "file": "emojis/hammering/cels/005-file.png",
+          "body": "emojis/hammering/cels/005-body.png"
+        },
+        {
+          "ms": 30,
+          "file": "emojis/hammering/cels/005-file.png",
+          "body": "emojis/hammering/cels/005-body.png"
+        },
+        {
+          "ms": 30,
+          "file": "emojis/hammering/cels/005-file.png",
+          "body": "emojis/hammering/cels/005-body.png"
+        },
+        {
+          "ms": 30,
+          "file": "emojis/hammering/cels/005-file.png",
+          "body": "emojis/hammering/cels/005-body.png"
+        },
+        {
+          "ms": 40,
+          "file": "emojis/hammering/cels/006-file.png",
+          "body": "emojis/hammering/cels/006-body.png"
+        },
+        {
+          "ms": 40,
+          "file": "emojis/hammering/cels/006-file.png",
+          "body": "emojis/hammering/cels/006-body.png"
+        },
+        {
+          "ms": 40,
+          "file": "emojis/hammering/cels/006-file.png",
+          "body": "emojis/hammering/cels/006-body.png"
+        },
+        {
+          "ms": 50,
+          "file": "emojis/hammering/cels/007-file.png",
+          "body": "emojis/hammering/cels/007-body.png"
+        },
+        {
+          "ms": 50,
+          "file": "emojis/hammering/cels/007-file.png",
+          "body": "emojis/hammering/cels/007-body.png"
+        },
+        {
+          "ms": 70,
+          "file": "emojis/hammering/cels/007-file.png",
+          "body": "emojis/hammering/cels/007-body.png"
+        },
+        {
+          "ms": 580,
+          "file": "emojis/hammering/cels/008-file.png",
+          "body": "emojis/hammering/cels/008-body.png"
+        },
+        {
+          "ms": 390,
+          "file": "emojis/hammering/cels/001-file.png",
+          "body": "emojis/hammering/cels/001-body.png"
+        },
+        {
+          "ms": 190,
+          "file": "emojis/hammering/cels/002-file.png",
+          "body": "emojis/hammering/cels/002-body.png"
+        },
+        {
+          "ms": 180,
+          "file": "emojis/hammering/cels/003-file.png",
+          "body": "emojis/hammering/cels/003-body.png"
+        },
+        {
+          "ms": 50,
+          "file": "emojis/hammering/cels/004-file.png",
+          "body": "emojis/hammering/cels/004-body.png"
+        },
+        {
+          "ms": 30,
+          "file": "emojis/hammering/cels/005-file.png",
+          "body": "emojis/hammering/cels/005-body.png"
+        },
+        {
+          "ms": 30,
+          "file": "emojis/hammering/cels/005-file.png",
+          "body": "emojis/hammering/cels/005-body.png"
+        },
+        {
+          "ms": 30,
+          "file": "emojis/hammering/cels/005-file.png",
+          "body": "emojis/hammering/cels/005-body.png"
+        },
+        {
+          "ms": 30,
+          "file": "emojis/hammering/cels/005-file.png",
+          "body": "emojis/hammering/cels/005-body.png"
+        },
+        {
+          "ms": 40,
+          "file": "emojis/hammering/cels/006-file.png",
+          "body": "emojis/hammering/cels/006-body.png"
+        },
+        {
+          "ms": 40,
+          "file": "emojis/hammering/cels/006-file.png",
+          "body": "emojis/hammering/cels/006-body.png"
+        },
+        {
+          "ms": 40,
+          "file": "emojis/hammering/cels/006-file.png",
+          "body": "emojis/hammering/cels/006-body.png"
+        },
+        {
+          "ms": 50,
+          "file": "emojis/hammering/cels/007-file.png",
+          "body": "emojis/hammering/cels/007-body.png"
+        },
+        {
+          "ms": 50,
+          "file": "emojis/hammering/cels/007-file.png",
+          "body": "emojis/hammering/cels/007-body.png"
+        },
+        {
+          "ms": 70,
+          "file": "emojis/hammering/cels/007-file.png",
+          "body": "emojis/hammering/cels/007-body.png"
+        },
+        {
+          "ms": 580,
+          "file": "emojis/hammering/cels/008-file.png",
+          "body": "emojis/hammering/cels/008-body.png"
+        }
+      ],
+      "effect": "emojis/hammering/effect.json"
+    },
+    {
+      "name": "quench",
+      "use": "Cool down or mark something done.",
+      "static": false,
+      "register": false,
+      "frames": [
+        {
+          "ms": 380,
+          "file": "emojis/quench/cels/001-file.png",
+          "body": "emojis/quench/cels/001-body.png"
+        },
+        {
+          "ms": 150,
+          "file": "emojis/quench/cels/002-file.png",
+          "body": "emojis/quench/cels/002-body.png"
+        },
+        {
+          "ms": 100,
+          "file": "emojis/quench/cels/003-file.png",
+          "body": "emojis/quench/cels/003-body.png"
+        },
+        {
+          "ms": 60,
+          "file": "emojis/quench/cels/004-file.png",
+          "body": "emojis/quench/cels/004-body.png"
+        },
+        {
+          "ms": 60,
+          "file": "emojis/quench/cels/004-file.png",
+          "body": "emojis/quench/cels/004-body.png"
+        },
+        {
+          "ms": 60,
+          "file": "emojis/quench/cels/004-file.png",
+          "body": "emojis/quench/cels/004-body.png"
+        },
+        {
+          "ms": 60,
+          "file": "emojis/quench/cels/004-file.png",
+          "body": "emojis/quench/cels/004-body.png"
+        },
+        {
+          "ms": 50,
+          "file": "emojis/quench/cels/005-file.png",
+          "body": "emojis/quench/cels/005-body.png"
+        },
+        {
+          "ms": 50,
+          "file": "emojis/quench/cels/005-file.png",
+          "body": "emojis/quench/cels/005-body.png"
+        },
+        {
+          "ms": 50,
+          "file": "emojis/quench/cels/005-file.png",
+          "body": "emojis/quench/cels/005-body.png"
+        },
+        {
+          "ms": 80,
+          "file": "emojis/quench/cels/006-file.png",
+          "body": "emojis/quench/cels/006-body.png"
+        },
+        {
+          "ms": 90,
+          "file": "emojis/quench/cels/006-file.png",
+          "body": "emojis/quench/cels/006-body.png"
+        },
+        {
+          "ms": 170,
+          "file": "emojis/quench/cels/006-file.png",
+          "body": "emojis/quench/cels/006-body.png"
+        }
+      ],
+      "effect": "emojis/quench/effect.json"
+    },
+    {
+      "name": "sketch",
+      "use": "Suggest an idea or sketch a plan.",
+      "static": false,
+      "register": false,
+      "frames": [
+        {
+          "ms": 350,
+          "file": "emojis/sketch/cels/001-file.png",
+          "body": "emojis/sketch/cels/001-body.png"
+        },
+        {
+          "ms": 120,
+          "file": "emojis/sketch/cels/002-file.png",
+          "body": "emojis/sketch/cels/002-body.png"
+        },
+        {
+          "ms": 140,
+          "file": "emojis/sketch/cels/003-file.png",
+          "body": "emojis/sketch/cels/003-body.png"
+        },
+        {
+          "ms": 340,
+          "file": "emojis/sketch/cels/004-file.png",
+          "body": "emojis/sketch/cels/004-body.png"
+        },
+        {
+          "ms": 200,
+          "file": "emojis/sketch/cels/005-file.png",
+          "body": "emojis/sketch/cels/005-body.png"
+        },
+        {
+          "ms": 240,
+          "file": "emojis/sketch/cels/006-file.png",
+          "body": "emojis/sketch/cels/006-body.png"
+        }
+      ]
+    },
+    {
+      "name": "ship",
+      "use": "Send a finished piece to someone.",
+      "static": false,
+      "register": false,
+      "frames": [
+        {
+          "ms": 330,
+          "file": "emojis/ship/cels/001-file.png",
+          "body": "emojis/ship/cels/001-body.png"
+        },
+        {
+          "ms": 150,
+          "file": "emojis/ship/cels/002-file.png",
+          "body": "emojis/ship/cels/002-body.png"
+        },
+        {
+          "ms": 90,
+          "file": "emojis/ship/cels/003-file.png",
+          "body": "emojis/ship/cels/003-body.png"
+        },
+        {
+          "ms": 250,
+          "file": "emojis/ship/cels/004-file.png",
+          "body": "emojis/ship/cels/004-body.png"
+        },
+        {
+          "ms": 150,
+          "file": "emojis/ship/cels/005-file.png",
+          "body": "emojis/ship/cels/005-body.png"
+        },
+        {
+          "ms": 360,
+          "file": "emojis/ship/cels/006-file.png",
+          "body": "emojis/ship/cels/006-body.png"
+        }
+      ]
+    },
+    {
+      "name": "idea",
+      "use": "Share a lightbulb moment.",
+      "static": false,
+      "register": false,
+      "frames": [
+        {
+          "ms": 400,
+          "file": "emojis/idea/cels/001-file.png",
+          "body": "emojis/idea/cels/001-body.png"
+        },
+        {
+          "ms": 160,
+          "file": "emojis/idea/cels/002-file.png",
+          "body": "emojis/idea/cels/002-body.png"
+        },
+        {
+          "ms": 140,
+          "file": "emojis/idea/cels/003-file.png",
+          "body": "emojis/idea/cels/003-body.png"
+        },
+        {
+          "ms": 60,
+          "file": "emojis/idea/cels/004-file.png",
+          "body": "emojis/idea/cels/004-body.png"
+        },
+        {
+          "ms": 90,
+          "file": "emojis/idea/cels/004-file.png",
+          "body": "emojis/idea/cels/004-body.png"
+        },
+        {
+          "ms": 110,
+          "file": "emojis/idea/cels/004-file.png",
+          "body": "emojis/idea/cels/004-body.png"
+        },
+        {
+          "ms": 170,
+          "file": "emojis/idea/cels/004-file.png",
+          "body": "emojis/idea/cels/004-body.png"
+        },
+        {
+          "ms": 60,
+          "file": "emojis/idea/cels/005-file.png",
+          "body": "emojis/idea/cels/005-body.png"
+        },
+        {
+          "ms": 60,
+          "file": "emojis/idea/cels/005-file.png",
+          "body": "emojis/idea/cels/005-body.png"
+        },
+        {
+          "ms": 60,
+          "file": "emojis/idea/cels/005-file.png",
+          "body": "emojis/idea/cels/005-body.png"
+        },
+        {
+          "ms": 90,
+          "file": "emojis/idea/cels/006-file.png",
+          "body": "emojis/idea/cels/006-body.png"
+        },
+        {
+          "ms": 180,
+          "file": "emojis/idea/cels/006-file.png",
+          "body": "emojis/idea/cels/006-body.png"
+        }
+      ],
+      "effect": "emojis/idea/effect.json"
+    },
+    {
+      "name": "wave",
+      "use": "Say a warm hello.",
+      "static": false,
+      "register": false,
+      "frames": [
+        {
+          "ms": 360,
+          "file": "emojis/wave/cels/001-file.png",
+          "body": "emojis/wave/cels/001-body.png"
+        },
+        {
+          "ms": 135,
+          "file": "emojis/wave/cels/002-file.png",
+          "body": "emojis/wave/cels/002-body.png"
+        },
+        {
+          "ms": 150,
+          "file": "emojis/wave/cels/003-file.png",
+          "body": "emojis/wave/cels/003-body.png"
+        },
+        {
+          "ms": 190,
+          "file": "emojis/wave/cels/004-file.png",
+          "body": "emojis/wave/cels/004-body.png"
+        },
+        {
+          "ms": 145,
+          "file": "emojis/wave/cels/005-file.png",
+          "body": "emojis/wave/cels/005-body.png"
+        },
+        {
+          "ms": 260,
+          "file": "emojis/wave/cels/006-file.png",
+          "body": "emojis/wave/cels/006-body.png"
+        }
+      ]
+    },
+    {
+      "name": "logo",
+      "use": "Mark an emoji made with Forge.",
+      "static": true,
+      "register": false,
+      "frames": [
+        {
+          "ms": 400,
+          "file": "emojis/logo/cels/001.png",
+          "body": "emojis/logo/cels/001-body.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,9 +1,0 @@
-{
-  "shader": "effect.frag",
-  "params": {
-    "anchor": [
-      0.77,
-      0.72
-    ]
-  }
-}

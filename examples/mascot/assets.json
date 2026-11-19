@@ -1,0 +1,304 @@
+{
+  "emojis": {
+    "hammering": [
+      {
+        "asset": "anvil-body"
+      },
+      {
+        "asset": "goggles"
+      },
+      {
+        "asset": "hammer"
+      },
+      {
+        "asset": "workstand"
+      },
+      {
+        "asset": "coin"
+      },
+      {
+        "asset": "impact"
+      }
+    ],
+    "quench": [
+      {
+        "asset": "anvil-body"
+      },
+      {
+        "asset": "goggles"
+      },
+      {
+        "asset": "coin"
+      },
+      {
+        "asset": "tongs"
+      },
+      {
+        "asset": "water-pail"
+      },
+      {
+        "asset": "steam"
+      }
+    ],
+    "sketch": [
+      {
+        "asset": "anvil-body"
+      },
+      {
+        "asset": "goggles"
+      },
+      {
+        "asset": "easel"
+      },
+      {
+        "asset": "pencil"
+      }
+    ],
+    "ship": [
+      {
+        "asset": "anvil-body"
+      },
+      {
+        "asset": "goggles"
+      },
+      {
+        "asset": "coin"
+      },
+      {
+        "asset": "crate"
+      }
+    ],
+    "idea": [
+      {
+        "asset": "anvil-body"
+      },
+      {
+        "asset": "goggles"
+      },
+      {
+        "asset": "bulb"
+      }
+    ],
+    "wave": [
+      {
+        "asset": "anvil-body"
+      },
+      {
+        "asset": "goggles"
+      }
+    ],
+    "logo": [
+      {
+        "asset": "anvil-body"
+      },
+      {
+        "asset": "goggles"
+      },
+      {
+        "asset": "hammer"
+      }
+    ]
+  },
+  "assets": {
+    "anvil-body": {
+      "name": "Tavvik's steel anvil body",
+      "type": "character",
+      "uses": [
+        "hammering",
+        "quench",
+        "sketch",
+        "ship",
+        "idea",
+        "wave",
+        "logo"
+      ],
+      "model": [
+        "images/model/three-quarter.png",
+        "images/assets/anvil-body/model.png"
+      ],
+      "integration": [
+        "images/poses/rest.png"
+      ],
+      "status": "approved"
+    },
+    "goggles": {
+      "name": "Brass and teal workshop goggles",
+      "type": "prop",
+      "uses": [
+        "hammering",
+        "quench",
+        "sketch",
+        "ship",
+        "idea",
+        "wave",
+        "logo"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/goggles/model.png"
+      ],
+      "integration": [
+        "images/assets/goggles/integration.png"
+      ]
+    },
+    "hammer": {
+      "name": "Copper-banded steel hammer",
+      "type": "prop",
+      "uses": [
+        "hammering",
+        "logo"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/hammer/model.png"
+      ],
+      "integration": [
+        "images/assets/hammer/integration.png"
+      ]
+    },
+    "workstand": {
+      "name": "Rounded steel workstand",
+      "type": "prop",
+      "uses": [
+        "hammering"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/workstand/model.png"
+      ],
+      "integration": [
+        "images/assets/workstand/integration.png"
+      ]
+    },
+    "coin": {
+      "name": "Golden emoji blank",
+      "type": "prop",
+      "uses": [
+        "hammering",
+        "quench",
+        "ship"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/coin/model.png"
+      ],
+      "integration": [
+        "images/assets/coin/integration.png",
+        "images/assets/coin/integration-quench.png",
+        "images/assets/coin/integration-ship.png"
+      ]
+    },
+    "tongs": {
+      "name": "Copper-riveted iron tongs",
+      "type": "prop",
+      "uses": [
+        "quench"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/tongs/model.png"
+      ],
+      "integration": [
+        "images/assets/tongs/integration.png"
+      ]
+    },
+    "water-pail": {
+      "name": "Steel-blue water pail",
+      "type": "prop",
+      "uses": [
+        "quench"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/water-pail/model.png"
+      ],
+      "integration": [
+        "images/assets/water-pail/integration.png"
+      ]
+    },
+    "easel": {
+      "name": "Maple easel with cream board",
+      "type": "prop",
+      "uses": [
+        "sketch"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/easel/model.png"
+      ],
+      "integration": [
+        "images/assets/easel/integration.png"
+      ]
+    },
+    "pencil": {
+      "name": "Short walnut pencil",
+      "type": "prop",
+      "uses": [
+        "sketch"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/pencil/model.png"
+      ],
+      "integration": [
+        "images/assets/pencil/integration.png"
+      ]
+    },
+    "crate": {
+      "name": "Copper-clasped cedar crate",
+      "type": "prop",
+      "uses": [
+        "ship"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/crate/model.png"
+      ],
+      "integration": [
+        "images/assets/crate/integration.png"
+      ]
+    },
+    "impact": {
+      "name": "Contact flash, sparks and shock ring",
+      "type": "effect",
+      "uses": [
+        "hammering"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/impact/model.png"
+      ],
+      "integration": [
+        "images/assets/impact/integration.png"
+      ]
+    },
+    "steam": {
+      "name": "Blue-white quench steam",
+      "type": "effect",
+      "uses": [
+        "quench"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/steam/model.png"
+      ],
+      "integration": [
+        "images/assets/steam/integration.png"
+      ]
+    },
+    "bulb": {
+      "name": "Outlined bulb and warm glow",
+      "type": "effect",
+      "uses": [
+        "idea"
+      ],
+      "status": "approved",
+      "model": [
+        "images/assets/bulb/model.png"
+      ],
+      "integration": [
+        "images/assets/bulb/integration.png"
+      ]
+    }
+  }
+}

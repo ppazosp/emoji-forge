@@ -1,0 +1,93 @@
+{
+  "target": "slack",
+  "emojis": [
+    {
+      "name": "hammering",
+      "use": "Working on something or celebrating a build.",
+      "file": "result/exports/hammering.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "timing": "emojis/hammering/cels/timing.json",
+      "body_reference": "images/model/body-mask.png",
+      "max_drift_percent": 2
+    },
+    {
+      "name": "quench",
+      "use": "Cool down or mark something done.",
+      "file": "result/exports/quench.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "timing": "emojis/quench/cels/timing.json",
+      "body_reference": "images/model/body-mask.png",
+      "max_drift_percent": 2
+    },
+    {
+      "name": "sketch",
+      "use": "Suggest an idea or sketch a plan.",
+      "file": "result/exports/sketch.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "timing": "emojis/sketch/cels/timing.json",
+      "body_reference": "images/model/body-mask.png",
+      "max_drift_percent": 2
+    },
+    {
+      "name": "ship",
+      "use": "Send a finished piece to someone.",
+      "file": "result/exports/ship.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "timing": "emojis/ship/cels/timing.json",
+      "body_reference": "images/model/body-mask.png",
+      "max_drift_percent": 2
+    },
+    {
+      "name": "idea",
+      "use": "Share a lightbulb moment.",
+      "file": "result/exports/idea.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "timing": "emojis/idea/cels/timing.json",
+      "body_reference": "images/model/body-mask.png",
+      "max_drift_percent": 2
+    },
+    {
+      "name": "wave",
+      "use": "Say a warm hello.",
+      "file": "result/exports/wave.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "timing": "emojis/wave/cels/timing.json",
+      "body_reference": "images/model/body-mask.png",
+      "max_drift_percent": 2
+    },
+    {
+      "name": "logo",
+      "use": "Mark an emoji made with Forge.",
+      "file": "result/exports/logo.png",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      }
+    }
+  ]
+}

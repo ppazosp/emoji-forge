@@ -1,0 +1,50 @@
+{
+  "style_sheet": "../../images/model/three-quarter.png",
+  "asset_references": {
+    "anvil-body": [
+      "../../images/model/three-quarter.png",
+      "../../images/assets/anvil-body/model.png",
+      "../../images/poses/rest.png"
+    ],
+    "goggles": [
+      "../../images/assets/goggles/model.png",
+      "../../images/assets/goggles/integration.png"
+    ],
+    "bulb": [
+      "../../images/assets/bulb/model.png",
+      "../../images/assets/bulb/integration.png"
+    ]
+  },
+  "direction": "Match Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers.",
+  "panels": [
+    {
+      "id": "beat-1",
+      "file": "panels/001.png",
+      "beat": "Think",
+      "action": "Look down and rest a mitten near the body.",
+      "ms": 670
+    },
+    {
+      "id": "beat-2",
+      "file": "panels/002.png",
+      "beat": "Notice",
+      "action": "Look up as the right mitten begins to rise.",
+      "ms": 300
+    },
+    {
+      "id": "beat-3",
+      "file": "panels/003.png",
+      "beat": "Aha",
+      "action": "Open the smile and gesture up. Leave space for the bulb above the mitten.",
+      "ms": 430
+    },
+    {
+      "id": "beat-4",
+      "file": "panels/004.png",
+      "beat": "Ease",
+      "action": "Lower the mitten and look back at the viewer.",
+      "ms": 180
+    }
+  ],
+  "use": "Share a lightbulb moment."
+}

@@ -1,0 +1,34 @@
+{
+  "frames": [
+    {
+      "file": "raw/001.png",
+      "body": "masks/001.png",
+      "ms": 330
+    },
+    {
+      "file": "raw/002.png",
+      "body": "masks/002.png",
+      "ms": 150
+    },
+    {
+      "file": "raw/003.png",
+      "body": "masks/003.png",
+      "ms": 90
+    },
+    {
+      "file": "raw/004.png",
+      "body": "masks/004.png",
+      "ms": 250
+    },
+    {
+      "file": "raw/005.png",
+      "body": "masks/005.png",
+      "ms": 150
+    },
+    {
+      "file": "raw/006.png",
+      "body": "masks/006.png",
+      "ms": 360
+    }
+  ]
+}

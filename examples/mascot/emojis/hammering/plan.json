@@ -1,0 +1,222 @@
+{
+  "durations_ms": [
+    390,
+    190,
+    180,
+    50,
+    120,
+    120,
+    170,
+    580
+  ],
+  "frames": [
+    {
+      "file": "raw/001.png",
+      "ms": 390,
+      "key_frame": true,
+      "references": {
+        "previous_frame": null,
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png",
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png",
+        "../../images/assets/workstand/model.png",
+        "../../images/assets/workstand/integration.png",
+        "../../images/assets/coin/model.png",
+        "../../images/assets/coin/integration.png",
+        "../../images/assets/impact/model.png",
+        "../../images/assets/impact/integration.png"
+      ],
+      "prompt": "Frame 01/08: Hammer is low at a slight diagonal, ready over the workstand.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/002.png",
+      "ms": 190,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/001.png",
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png",
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png",
+        "../../images/assets/workstand/model.png",
+        "../../images/assets/workstand/integration.png",
+        "../../images/assets/coin/model.png",
+        "../../images/assets/coin/integration.png",
+        "../../images/assets/impact/model.png",
+        "../../images/assets/impact/integration.png"
+      ],
+      "prompt": "Frame 02/08: Begin lifting. Right elbow bends and hammer rotates up to a 45 degree angle.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/003.png",
+      "ms": 180,
+      "key_frame": true,
+      "references": {
+        "previous_frame": "raw/002.png",
+        "key_pose": "keys/003.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png",
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png",
+        "../../images/assets/workstand/model.png",
+        "../../images/assets/workstand/integration.png",
+        "../../images/assets/coin/model.png",
+        "../../images/assets/coin/integration.png",
+        "../../images/assets/impact/model.png",
+        "../../images/assets/impact/integration.png"
+      ],
+      "prompt": "Frame 03/08: Highest pose. The hammer head is over the right corner of the goggles. A small lean back on the fixed waist.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/004.png",
+      "ms": 50,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/003.png",
+        "key_pose": "keys/003.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png",
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png",
+        "../../images/assets/workstand/model.png",
+        "../../images/assets/workstand/integration.png",
+        "../../images/assets/coin/model.png",
+        "../../images/assets/coin/integration.png",
+        "../../images/assets/impact/model.png",
+        "../../images/assets/impact/integration.png"
+      ],
+      "prompt": "Frame 04/08: Mid-downstroke smear. A narrow muted steel sweep follows the hammer. Hold the same core silhouette and feet.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/005.png",
+      "ms": 120,
+      "key_frame": true,
+      "references": {
+        "previous_frame": "raw/004.png",
+        "key_pose": "keys/005.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png",
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png",
+        "../../images/assets/workstand/model.png",
+        "../../images/assets/workstand/integration.png",
+        "../../images/assets/coin/model.png",
+        "../../images/assets/coin/integration.png",
+        "../../images/assets/impact/model.png",
+        "../../images/assets/impact/integration.png"
+      ],
+      "prompt": "Frame 05/08: Fast contact. The flat face lands exactly on the coin. The mitt still grips the handle.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/006.png",
+      "ms": 120,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/005.png",
+        "key_pose": "keys/005.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png",
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png",
+        "../../images/assets/workstand/model.png",
+        "../../images/assets/workstand/integration.png",
+        "../../images/assets/coin/model.png",
+        "../../images/assets/coin/integration.png",
+        "../../images/assets/impact/model.png",
+        "../../images/assets/impact/integration.png"
+      ],
+      "prompt": "Frame 06/08: Short rebound, the hammer face lifts clearly off the coin, just a few pixels at sticker size.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/007.png",
+      "ms": 170,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/006.png",
+        "key_pose": "keys/005.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png",
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png",
+        "../../images/assets/workstand/model.png",
+        "../../images/assets/workstand/integration.png",
+        "../../images/assets/coin/model.png",
+        "../../images/assets/coin/integration.png",
+        "../../images/assets/impact/model.png",
+        "../../images/assets/impact/integration.png"
+      ],
+      "prompt": "Frame 07/08: The mitten eases the hammer back to its waiting angle, clear of the coin.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/008.png",
+      "ms": 580,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/007.png",
+        "key_pose": "keys/005.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png",
+        "../../images/assets/hammer/model.png",
+        "../../images/assets/hammer/integration.png",
+        "../../images/assets/workstand/model.png",
+        "../../images/assets/workstand/integration.png",
+        "../../images/assets/coin/model.png",
+        "../../images/assets/coin/integration.png",
+        "../../images/assets/impact/model.png",
+        "../../images/assets/impact/integration.png"
+      ],
+      "prompt": "Frame 08/08: A tiny satisfied smile holding the opening hand and body positions.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    }
+  ]
+}

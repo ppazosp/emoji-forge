@@ -1,0 +1,36 @@
+{
+  "frames": [
+    {
+      "panel": "beat-1",
+      "pose": "Right mitten near shoulder, calm small smile.",
+      "ms": 360,
+      "key_pose": "keys/001.png"
+    },
+    {
+      "panel": "beat-2",
+      "pose": "The short arm lifts the mitten diagonally right.",
+      "ms": 135
+    },
+    {
+      "panel": "beat-2",
+      "pose": "Hold the mitten highest and farthest outward.",
+      "ms": 150
+    },
+    {
+      "panel": "beat-3",
+      "pose": "Wave the same mitten inward near the front face, no overlap with eyes.",
+      "ms": 190,
+      "key_pose": "keys/004.png"
+    },
+    {
+      "panel": "beat-2",
+      "pose": "Move the raised mitten back outward but slightly lower.",
+      "ms": 145
+    },
+    {
+      "panel": "beat-4",
+      "pose": "Lower the same mitten to shoulder level and smile softly.",
+      "ms": 260
+    }
+  ]
+}

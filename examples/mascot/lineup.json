@@ -1,0 +1,660 @@
+{
+  "assets": {
+    "anvil-body": {
+      "references": [
+        {
+          "file": "images/model/three-quarter.png",
+          "box": [
+            46,
+            132,
+            719,
+            726
+          ]
+        }
+      ],
+      "appearances": {
+        "hammering": [
+          {
+            "file": "emojis/hammering/cels/001-file.png",
+            "box": [
+              8,
+              98,
+              354,
+              453
+            ]
+          }
+        ],
+        "quench": [
+          {
+            "file": "emojis/quench/cels/001-file.png",
+            "box": [
+              8,
+              98,
+              354,
+              453
+            ]
+          }
+        ],
+        "sketch": [
+          {
+            "file": "emojis/sketch/cels/001-file.png",
+            "box": [
+              8,
+              98,
+              354,
+              453
+            ]
+          }
+        ],
+        "ship": [
+          {
+            "file": "emojis/ship/cels/001-file.png",
+            "box": [
+              8,
+              98,
+              354,
+              453
+            ]
+          }
+        ],
+        "idea": [
+          {
+            "file": "emojis/idea/cels/001-file.png",
+            "box": [
+              8,
+              98,
+              354,
+              453
+            ]
+          }
+        ],
+        "wave": [
+          {
+            "file": "emojis/wave/cels/001-file.png",
+            "box": [
+              8,
+              98,
+              354,
+              453
+            ]
+          }
+        ],
+        "logo": [
+          {
+            "file": "emojis/logo/cels/001.png",
+            "box": [
+              43,
+              62,
+              463,
+              468
+            ]
+          }
+        ]
+      }
+    },
+    "goggles": {
+      "references": [
+        {
+          "file": "images/assets/goggles/model.png",
+          "box": [
+            19,
+            122,
+            440,
+            310
+          ]
+        },
+        {
+          "file": "images/assets/goggles/model.png",
+          "box": [
+            880,
+            117,
+            1302,
+            311
+          ]
+        }
+      ],
+      "appearances": {
+        "hammering": [
+          {
+            "file": "emojis/hammering/cels/001-file.png",
+            "box": [
+              106,
+              117,
+              317,
+              187
+            ]
+          }
+        ],
+        "quench": [
+          {
+            "file": "emojis/quench/cels/001-file.png",
+            "box": [
+              106,
+              117,
+              317,
+              187
+            ]
+          }
+        ],
+        "sketch": [
+          {
+            "file": "emojis/sketch/cels/001-file.png",
+            "box": [
+              106,
+              117,
+              317,
+              187
+            ]
+          }
+        ],
+        "ship": [
+          {
+            "file": "emojis/ship/cels/001-file.png",
+            "box": [
+              106,
+              117,
+              317,
+              187
+            ]
+          }
+        ],
+        "idea": [
+          {
+            "file": "emojis/idea/cels/001-file.png",
+            "box": [
+              106,
+              117,
+              317,
+              187
+            ]
+          }
+        ],
+        "wave": [
+          {
+            "file": "emojis/wave/cels/001-file.png",
+            "box": [
+              106,
+              117,
+              317,
+              187
+            ]
+          }
+        ],
+        "logo": [
+          {
+            "file": "emojis/logo/cels/001.png",
+            "box": [
+              136,
+              58,
+              415,
+              174
+            ]
+          }
+        ]
+      }
+    },
+    "hammer": {
+      "references": [
+        {
+          "file": "images/assets/hammer/model.png",
+          "box": [
+            123,
+            73,
+            336,
+            388
+          ]
+        },
+        {
+          "file": "images/assets/hammer/model.png",
+          "box": [
+            993,
+            70,
+            1200,
+            390
+          ]
+        }
+      ],
+      "appearances": {
+        "hammering": [
+          {
+            "file": "emojis/hammering/cels/003-file.png",
+            "box": [
+              308,
+              118,
+              413,
+              252
+            ]
+          }
+        ],
+        "logo": [
+          {
+            "file": "emojis/logo/cels/001.png",
+            "box": [
+              99,
+              193,
+              236,
+              406
+            ]
+          }
+        ]
+      }
+    },
+    "workstand": {
+      "references": [
+        {
+          "file": "images/assets/workstand/model.png",
+          "box": [
+            61,
+            113,
+            409,
+            381
+          ]
+        },
+        {
+          "file": "images/assets/workstand/model.png",
+          "box": [
+            848,
+            97,
+            1191,
+            392
+          ]
+        }
+      ],
+      "appearances": {
+        "hammering": [
+          {
+            "file": "emojis/hammering/cels/001-file.png",
+            "box": [
+              306,
+              351,
+              456,
+              448
+            ]
+          },
+          {
+            "file": "emojis/hammering/cels/005-file.png",
+            "box": [
+              303,
+              358,
+              468,
+              454
+            ]
+          }
+        ]
+      }
+    },
+    "coin": {
+      "references": [
+        {
+          "file": "images/assets/coin/model.png",
+          "box": [
+            69,
+            45,
+            398,
+            376
+          ]
+        },
+        {
+          "file": "images/assets/coin/model.png",
+          "box": [
+            861,
+            42,
+            1176,
+            380
+          ]
+        }
+      ],
+      "appearances": {
+        "hammering": [
+          {
+            "file": "emojis/hammering/cels/001-file.png",
+            "box": [
+              340,
+              321,
+              427,
+              361
+            ]
+          }
+        ],
+        "quench": [
+          {
+            "file": "emojis/quench/cels/001-file.png",
+            "box": [
+              385,
+              216,
+              461,
+              286
+            ]
+          }
+        ],
+        "ship": [
+          {
+            "file": "emojis/ship/cels/001-file.png",
+            "box": [
+              281,
+              250,
+              358,
+              321
+            ]
+          }
+        ]
+      }
+    },
+    "tongs": {
+      "references": [
+        {
+          "file": "images/assets/tongs/model.png",
+          "box": [
+            107,
+            25,
+            364,
+            360
+          ]
+        },
+        {
+          "file": "images/assets/tongs/model.png",
+          "box": [
+            896,
+            25,
+            1138,
+            368
+          ]
+        }
+      ],
+      "appearances": {
+        "quench": [
+          {
+            "file": "emojis/quench/cels/001-file.png",
+            "box": [
+              304,
+              193,
+              434,
+              269
+            ]
+          },
+          {
+            "file": "emojis/quench/cels/004-file.png",
+            "box": [
+              310,
+              251,
+              421,
+              365
+            ]
+          }
+        ]
+      }
+    },
+    "water-pail": {
+      "references": [
+        {
+          "file": "images/assets/water-pail/model.png",
+          "box": [
+            78,
+            51,
+            361,
+            391
+          ]
+        },
+        {
+          "file": "images/assets/water-pail/model.png",
+          "box": [
+            964,
+            49,
+            1242,
+            391
+          ]
+        }
+      ],
+      "appearances": {
+        "quench": [
+          {
+            "file": "emojis/quench/cels/004-file.png",
+            "box": [
+              329,
+              307,
+              472,
+              457
+            ]
+          }
+        ]
+      }
+    },
+    "easel": {
+      "references": [
+        {
+          "file": "images/assets/easel/model.png",
+          "box": [
+            100,
+            76,
+            371,
+            440
+          ]
+        },
+        {
+          "file": "images/assets/easel/model.png",
+          "box": [
+            920,
+            76,
+            1227,
+            440
+          ]
+        }
+      ],
+      "appearances": {
+        "sketch": [
+          {
+            "file": "emojis/sketch/cels/001-file.png",
+            "box": [
+              325,
+              150,
+              500,
+              450
+            ]
+          },
+          {
+            "file": "emojis/sketch/cels/004-file.png",
+            "box": [
+              329,
+              145,
+              501,
+              454
+            ]
+          }
+        ]
+      }
+    },
+    "pencil": {
+      "references": [
+        {
+          "file": "images/assets/pencil/model.png",
+          "box": [
+            62,
+            111,
+            408,
+            250
+          ]
+        },
+        {
+          "file": "images/assets/pencil/model.png",
+          "box": [
+            909,
+            69,
+            1234,
+            268
+          ]
+        }
+      ],
+      "appearances": {
+        "sketch": [
+          {
+            "file": "emojis/sketch/cels/001-file.png",
+            "box": [
+              286,
+              226,
+              354,
+              291
+            ]
+          },
+          {
+            "file": "emojis/sketch/cels/004-file.png",
+            "box": [
+              287,
+              267,
+              369,
+              337
+            ]
+          }
+        ]
+      }
+    },
+    "crate": {
+      "references": [
+        {
+          "file": "images/assets/crate/model.png",
+          "box": [
+            82,
+            110,
+            358,
+            373
+          ]
+        },
+        {
+          "file": "images/assets/crate/model.png",
+          "box": [
+            963,
+            40,
+            1272,
+            404
+          ]
+        }
+      ],
+      "appearances": {
+        "ship": [
+          {
+            "file": "emojis/ship/cels/001-file.png",
+            "box": [
+              285,
+              238,
+              447,
+              466
+            ]
+          },
+          {
+            "file": "emojis/ship/cels/004-file.png",
+            "box": [
+              278,
+              287,
+              444,
+              453
+            ]
+          }
+        ]
+      }
+    },
+    "impact": {
+      "references": [
+        {
+          "file": "images/assets/impact/model.png",
+          "box": [
+            512,
+            12,
+            797,
+            274
+          ]
+        }
+      ],
+      "appearances": {
+        "hammering": [
+          {
+            "file": "result/master/hammering/005.png",
+            "box": [
+              326,
+              266,
+              464,
+              384
+            ]
+          },
+          {
+            "file": "result/master/hammering/007.png",
+            "box": [
+              304,
+              233,
+              501,
+              386
+            ]
+          }
+        ]
+      }
+    },
+    "steam": {
+      "references": [
+        {
+          "file": "images/assets/steam/model.png",
+          "box": [
+            522,
+            15,
+            793,
+            260
+          ]
+        }
+      ],
+      "appearances": {
+        "quench": [
+          {
+            "file": "result/master/quench/005.png",
+            "box": [
+              340,
+              238,
+              478,
+              392
+            ]
+          },
+          {
+            "file": "result/master/quench/008.png",
+            "box": [
+              342,
+              222,
+              485,
+              382
+            ]
+          }
+        ]
+      }
+    },
+    "bulb": {
+      "references": [
+        {
+          "file": "images/assets/bulb/model.png",
+          "box": [
+            534,
+            17,
+            785,
+            246
+          ]
+        }
+      ],
+      "appearances": {
+        "idea": [
+          {
+            "file": "result/master/idea/006.png",
+            "box": [
+              345,
+              71,
+              467,
+              202
+            ]
+          },
+          {
+            "file": "result/master/idea/009.png",
+            "box": [
+              345,
+              71,
+              467,
+              202
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

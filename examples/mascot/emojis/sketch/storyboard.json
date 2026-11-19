@@ -1,0 +1,54 @@
+{
+  "style_sheet": "../../images/model/three-quarter.png",
+  "asset_references": {
+    "anvil-body": [
+      "../../images/model/three-quarter.png",
+      "../../images/assets/anvil-body/model.png",
+      "../../images/poses/rest.png"
+    ],
+    "goggles": [
+      "../../images/assets/goggles/model.png",
+      "../../images/assets/goggles/integration.png"
+    ],
+    "easel": [
+      "../../images/assets/easel/model.png",
+      "../../images/assets/easel/integration.png"
+    ],
+    "pencil": [
+      "../../images/assets/pencil/model.png",
+      "../../images/assets/pencil/integration.png"
+    ]
+  },
+  "direction": "Match Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers.",
+  "panels": [
+    {
+      "id": "beat-1",
+      "file": "panels/001.png",
+      "beat": "Ready",
+      "action": "Tavvik hovers the walnut pencil above the board on the easel.",
+      "ms": 590
+    },
+    {
+      "id": "beat-2",
+      "file": "panels/002.png",
+      "beat": "Mark",
+      "action": "The pencil begins a single broad curved mark on the board.",
+      "ms": 260
+    },
+    {
+      "id": "beat-3",
+      "file": "panels/003.png",
+      "beat": "Reveal",
+      "action": "Draw a large simple smiley, lower the pencil and look pleased.",
+      "ms": 340
+    },
+    {
+      "id": "beat-4",
+      "file": "panels/004.png",
+      "beat": "Reset",
+      "action": "The pencil clears the board as the new sheet comes forward.",
+      "ms": 200
+    }
+  ],
+  "use": "Suggest an idea or sketch a plan."
+}

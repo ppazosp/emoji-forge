@@ -1,0 +1,36 @@
+{
+  "frames": [
+    {
+      "panel": "beat-1",
+      "pose": "Open hinged lid and disc poised at the shoulder.",
+      "ms": 330,
+      "key_pose": "keys/001.png"
+    },
+    {
+      "panel": "beat-2",
+      "pose": "The disc approaches the upper rim, still in the hand.",
+      "ms": 150
+    },
+    {
+      "panel": "beat-2",
+      "pose": "The disc overlaps the near rim and is nearly inside.",
+      "ms": 90
+    },
+    {
+      "panel": "beat-3",
+      "pose": "The same mitten closes the flat lid. The disc is hidden.",
+      "ms": 250,
+      "key_pose": "keys/004.png"
+    },
+    {
+      "panel": "beat-4",
+      "pose": "Lift the mitten. Give the lid a little release.",
+      "ms": 150
+    },
+    {
+      "panel": "beat-4",
+      "pose": "The lid opens nearly upright, returning to the next send.",
+      "ms": 360
+    }
+  ]
+}

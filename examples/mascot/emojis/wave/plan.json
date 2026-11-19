@@ -1,0 +1,120 @@
+{
+  "durations_ms": [
+    360,
+    135,
+    150,
+    190,
+    145,
+    260
+  ],
+  "frames": [
+    {
+      "file": "raw/001.png",
+      "ms": 360,
+      "key_frame": true,
+      "references": {
+        "previous_frame": null,
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png"
+      ],
+      "prompt": "Frame 01/06: Right mitten near shoulder, calm small smile.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/002.png",
+      "ms": 135,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/001.png",
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png"
+      ],
+      "prompt": "Frame 02/06: The short arm lifts the mitten diagonally right.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/003.png",
+      "ms": 150,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/002.png",
+        "key_pose": "keys/004.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png"
+      ],
+      "prompt": "Frame 03/06: Hold the mitten highest and farthest outward.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/004.png",
+      "ms": 190,
+      "key_frame": true,
+      "references": {
+        "previous_frame": "raw/003.png",
+        "key_pose": "keys/004.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png"
+      ],
+      "prompt": "Frame 04/06: Wave the same mitten inward near the front face, no overlap with eyes.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/005.png",
+      "ms": 145,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/004.png",
+        "key_pose": "keys/004.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png"
+      ],
+      "prompt": "Frame 05/06: Move the raised mitten back outward but slightly lower.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    },
+    {
+      "file": "raw/006.png",
+      "ms": 260,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/005.png",
+        "key_pose": "keys/004.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "asset_references": [
+        "../../images/model/three-quarter.png",
+        "../../images/assets/anvil-body/model.png",
+        "../../images/poses/rest.png",
+        "../../images/assets/goggles/model.png",
+        "../../images/assets/goggles/integration.png"
+      ],
+      "prompt": "Frame 06/06: Lower the same mitten to shoulder level and smile softly.\nMatch Tavvik's short steel-grey anvil body, horn pointing left, narrow waist, broad pedestal and little boots. Keep the inset dark eyes, soot-smudged brass and teal goggles, graphite keyline, and outlined grey mittens. Work at fixed camera, height, anchor and baseline. Keep the prop sizes, finish and grips from the approved sheets. Flat shaded transparent 2D sticker cels without text. Leave effects to separate GPU layers."
+    }
+  ]
+}

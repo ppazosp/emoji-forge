@@ -1,0 +1,69 @@
+{
+  "frames": [
+    {
+      "ms": 380,
+      "file": "001-file.png",
+      "body": "001-body.png"
+    },
+    {
+      "ms": 150,
+      "file": "002-file.png",
+      "body": "002-body.png"
+    },
+    {
+      "ms": 100,
+      "file": "003-file.png",
+      "body": "003-body.png"
+    },
+    {
+      "ms": 60,
+      "file": "004-file.png",
+      "body": "004-body.png"
+    },
+    {
+      "ms": 60,
+      "file": "004-file.png",
+      "body": "004-body.png"
+    },
+    {
+      "ms": 60,
+      "file": "004-file.png",
+      "body": "004-body.png"
+    },
+    {
+      "ms": 60,
+      "file": "004-file.png",
+      "body": "004-body.png"
+    },
+    {
+      "ms": 50,
+      "file": "005-file.png",
+      "body": "005-body.png"
+    },
+    {
+      "ms": 50,
+      "file": "005-file.png",
+      "body": "005-body.png"
+    },
+    {
+      "ms": 50,
+      "file": "005-file.png",
+      "body": "005-body.png"
+    },
+    {
+      "ms": 80,
+      "file": "006-file.png",
+      "body": "006-body.png"
+    },
+    {
+      "ms": 90,
+      "file": "006-file.png",
+      "body": "006-body.png"
+    },
+    {
+      "ms": 170,
+      "file": "006-file.png",
+      "body": "006-body.png"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "frames": [
+    {
+      "ms": 360,
+      "file": "001.png",
+      "body": "001-body.png"
+    },
+    {
+      "ms": 135,
+      "file": "002.png",
+      "body": "002-body.png"
+    },
+    {
+      "ms": 150,
+      "file": "003.png",
+      "body": "003-body.png"
+    },
+    {
+      "ms": 190,
+      "file": "004.png",
+      "body": "004-body.png"
+    },
+    {
+      "ms": 145,
+      "file": "005.png",
+      "body": "005-body.png"
+    },
+    {
+      "ms": 260,
+      "file": "006.png",
+      "body": "006-body.png"
+    }
+  ]
+}

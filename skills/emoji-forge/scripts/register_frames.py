@@ -61,13 +61,14 @@ def register(args):
         raise ValueError("invalid reference exposure or output size")
     root = args.timing.parent
     reference = rows[args.reference - 1]
-    reference_mask = (
-        image(args.body_reference, "L")
-        if args.body_reference
-        else body_mask(reference, root)
-    )
-    (target_x, target_y), (width, height) = mask_geometry(reference_mask)
+    reference_mask = body_mask(reference, root)
     size = (args.size, args.size) if args.size else reference_mask.size
+    if args.body_reference:
+        model = image(args.body_reference, "L")
+        if model.width != model.height or size[0] != size[1]:
+            raise ValueError("external model registration uses square canvases")
+        reference_mask = model.resize(size, Image.Resampling.NEAREST)
+    (target_x, target_y), (width, height) = mask_geometry(reference_mask)
     target_x += (size[0] - reference_mask.width) / 2
     target_y += (size[1] - reference_mask.height) / 2
 
