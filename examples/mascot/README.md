@@ -15,10 +15,11 @@ Tavvik is a living steel anvil with soot-smudged brass goggles, articulated mitt
 - **Three reviews.** Read the [asset review](review/asset.md), [integration review](review/integration.md), and [pack consistency review](review/consistency.md), or open the [stage records](production.json). The [scale check](scale-check.json) measures body height and centroid against the same model mask.
 - **Final exports.** Every animated reaction is a GIF and the logo is a PNG at 64, 128, 256 and 512 px. The larger variants come from the 512 px masters. [Names and usage](tavvik/NAMES.md) · [Social preview](branding/social-preview.png)
 
-To rebuild the two previews and ZIP from the source masters, run from the checkout root:
+The 1200 px GIF in the README also serves as the release overview. It uses the 256 px files at native size. The transparent release logo and 1280×640 social card use the 512 px masters. Run the following from the checkout root to rebuild the release files.
 
 ```sh
-uv run --project skills/emoji-forge forge report examples/mascot/result/pack.json build/tavvik --scales 64,128,256,512 --2x
+uv run --project skills/emoji-forge forge report examples/mascot/result/pack.json build/tavvik --scales 64,128,256,512
+uv run --project skills/emoji-forge python tools/build_tavvik_previews.py --pack build/tavvik --brand build/brand
 ```
 
 The hammering cels use the front view from the hammer sheet as one rigid layer. The shoulder carries the elbow, the elbow carries the wrist, and the wrist rotates the tool about one point inside the wrap. The mitten covers that point in every pose. Rebuild the cels and their full-tool masks with `python examples/mascot/emojis/hammering/rig/compose.py` using Pillow, then render the shot with its existing timing and effect files. Run `forge check examples/mascot/scale-manifest.json` to check the prop measurements for every exposure.
