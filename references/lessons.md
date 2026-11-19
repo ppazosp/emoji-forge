@@ -1,16 +1,17 @@
-# Failure patterns
+# Craft notes from iteration
 
-| What you see | What to change |
+Use these suggestions when you see the corresponding problem in your own renders.
+
+| What you notice | Something to try |
 | --- | --- |
-| The character looks like a different drawing in every cel. | Lock palette, texture, ink width and anatomy against real references. Register the body mask. Correct hands, feet and silhouette in the drawings. |
-| A “cool” variant has a different jaw or body. | Bring back the reference proportions. Carry the attitude with lids, posture, smile and timing. |
-| The pose only jiggles or blinks. | Give it a verb. Draw anticipation, the action and a distinct recovery with an expression arc. |
-| Eyes and hands melt between poses. | Remove optical flow or blended frames. Draw the intermediate gesture or use a clean hold. |
-| A cut-out rig loses texture or softens the pose. | Return to the approved full cels. Compare approaches side by side before any technique change. |
-| Hands float, disappear into a prop or look painted on the face. | Redraw wrist connections, maintain grip through turns and keep outlined hands distinct from body colour. |
-| The action rushes and then freezes. | Give the strongest pose a readable hold. Shorten the end rest to 150–250 ms with subtle idle motion. |
-| The last frame looks like a reset. | Review the loop seam for expression, silhouette, prop and light. Draw the hand-off back to the opening pose. |
-| The effect swims across the face or starts a frame early. | Key it to the actual registered cel and exposure start. Reduce refraction over the face. |
-| Glow bands or spills at reaction size. | Render larger, downsample, test dither, and compare a dark matte with transparent art on both themes. Fade the effect before the edge. |
-| A review destroys the accepted baseline. | Snapshot to a new folder before each review and each fix pass. Keep the old assets and reports intact. |
-| The picker has several names for the same reaction. | Keep the clearest animated version, pick a short name such as `coffee`, and let the user decide which weak reactions to drop. |
+| A recurring character changes shape across a pack. | Compare a few frames to one reference. Try registering a torso mask and compare the before and after. |
+| An attitude change makes the character hard to recognise. | Try familiar proportions with a different expression, drawing or pose. |
+| Repeated movement feels generic. | Consider a distinct action, an unexpected stillness, or a sharper timing contrast. |
+| Eyes or hands smear during interpolation. | Compare a separately drawn pose, an edited cel or a clean hold with the interpolated version. |
+| A technique change loses the line or texture you liked. | Put both versions side by side. Ask which works better at the actual display size. |
+| A prop overlaps the face or a hand reads as detached. | Try a different grip, contour colour, prop angle or spacing. |
+| The loop feels rushed, stalled or abrupt. | Adjust the holds and review the seam. Try a deliberate cut if it suits the idea. |
+| An effect drifts across the pose. | Bind its position to each source exposure or supply a coordinate curve. |
+| Glow bands or crowds the artwork. | Compare a larger render, dithering, a matte or a stronger graphic shape. |
+| Revisions get hard to compare. | Snapshot before changes so you can compare in one preview or return to a prior version. |
+| Several exports communicate the same thing. | Let the user choose whether to keep both or share one shorter-named reaction. |

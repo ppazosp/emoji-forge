@@ -1,15 +1,11 @@
-# Animation timing
+# Timing ideas
 
-Start at 3–5 seconds per loop. Give a large build-up or reveal more time when the action needs it. Use fewer good poses with distinct exposures and draw more cels wherever the wrist, pupils or prop take a distracting jump.
+These are experiments to try when they fit the reaction. Forge accepts your exposure lengths, timing curves or Python-generated timing. See the [technical input formats](workflow.md#cels-and-exposure-timing).
 
-| Beat | Example for a 3.6 s wave |
-| --- | --- |
-| Anticipation | 0–0.65 s. Notice the viewer and start lifting the elbow. |
-| Action | 0.65–1.85 s. The wrist swings out, reverses twice and reaches its clearest silhouette. |
-| Readable hold | 1.85–2.35 s. The grin stays open and the hand stays visible. |
-| Follow-through | 2.35–3.40 s. Lower the arm in an arc. Ease the grin back into the resting smile. |
-| Living rest | 3.40–3.60 s. A half-blink finishes into the opening look. |
+- Watch a loop at full speed and at display size. If the action goes by too fast, try holding one strong drawing or giving the face more time to change.
+- For an action with several beats, try an anticipation, the main motion and a follow-through. A wave, for example, can lift slowly, turn quickly at the wrist and settle at its own pace.
+- Try wider drawing spacing through a fast move and closer spacing around a reversal. Adjust the actual poses when changing timing alone leaves an awkward jump.
+- A loop can be a brief accent or a slower reveal. A few seconds or a quick blink at the seam can be useful starting experiments. Pick the rhythm that fits the user’s idea.
+- Play the first and last exposures together to see whether a smooth seam, hard cut or repeating rhythm works best.
 
-Plan spacing in pixels as well as exposure times. Put closer cels around a reversal and wider spacing into a throw or strike. Hold long enough to see the reaction at 22–32 px. A long hold on a key expression can retain a blink, breath or flicker. Keep the final resting beat around 150–250 ms. Play the last and first exposures together and check that silhouette, prop placement, facing, lighting and velocity carry through. A repeating stride can move directly across the seam.
-
-Use millisecond exposure data from the same timeline for art and effects. Derive encoded delays once, in GIF centiseconds, and do not round shaders onto a second frame clock. Use the GIF's decoded delays for the review grid and strips. Adjacent identical frames can share a longer hold. If palette reductions harm the face or silhouette, replace low-value in-betweens with holds, keep total time and key beats, and recheck the loop. Never insert blended images between drawings.
+Align any effects to the exposure clock. The shader receives elapsed time and normalized progress. The final GIF stores delays in centiseconds, so use the decoded export for review.

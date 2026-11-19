@@ -5,20 +5,41 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 if __package__:
-    from .common import cli, decode, output_path
+    from .common import (
+        Timeline,
+        add_timing_flags,
+        cli,
+        decode,
+        output_path,
+        read_cel,
+        read_timing,
+    )
 else:
-    from common import cli, decode, output_path
+    from common import (
+        Timeline,
+        add_timing_flags,
+        cli,
+        decode,
+        output_path,
+        read_cel,
+        read_timing,
+    )
 
 
 def configure(parser):
     parser.add_argument("input", type=Path)
+    add_timing_flags(parser)
     parser.add_argument("output", type=Path)
     parser.add_argument("--columns", type=int, default=8)
     parser.add_argument("--size", type=int, nargs="+", default=[32, 128, 512])
 
 
 def strips(args):
-    timeline = decode(args.input)
+    if args.input.is_dir() or args.input.suffix.lower() == ".json":
+        rows, delays = read_timing(args.input, args.timing_spec, args.frame_ms)
+        timeline = Timeline([read_cel(args.input.parent, row) for row in rows], delays)
+    else:
+        timeline = decode(args.input)
     if args.columns < 1 or min(args.size) < 1:
         raise ValueError("column count and sizes must be positive")
     font = ImageFont.load_default(size=13)
@@ -30,7 +51,7 @@ def strips(args):
     draw = ImageDraw.Draw(canvas)
     for i, (frame, start) in enumerate(zip(timeline.frames, timeline.starts, strict=True)):
         x, y = (i % columns) * cell_width + 4, (i // columns) * row_height + 4
-        draw.text((x, y), f"{i + 1} / {start} ms", fill="#192234", font=font)
+        draw.text((x, y), f"{i + 1} / {start:g} ms", fill="#192234", font=font)
         y += 21
         for size in args.size:
             resample = Image.Resampling.NEAREST if size >= frame.width else Image.Resampling.LANCZOS

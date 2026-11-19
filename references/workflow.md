@@ -1,95 +1,95 @@
-# Workflow and script interfaces
+# Forge tool reference
 
-| Phase | What to produce |
-| --- | --- |
-| Brief | Reference permissions, action list, target format, byte and frame limits, display size and light/dark backgrounds. |
-| Style lock | One reference sheet showing neutral face, silhouette, texture swatches, outline thickness, hands, feet and allowed pose changes. Record how much clear canvas the export needs. |
-| Storyboard and personality | A use case and timed beat sheet for each reaction. State what an eye, hand, prop or foot does at each beat. For a still, pick the one drawing that communicates the whole reaction. |
-| Key poses | Generate one full cel per key pose from the same reference. Use image edits to fix local hand and face errors. Keep the original cels. |
-| Registration | Mark torso and face per pose. Register against the approved neutral pose. Check feet and joins after resampling. Keep designed jumps, leans and squash as explicit motion. |
-| In-betweens and timing | Draw or edit transitional poses and hold the readable expressions. Keep a timing file with one entry per exposure. Save the lossless RGBA master cels. |
-| Effects | Layer procedural effects over registered art at 512 px or more. Attach emitters to the exposed pose. Preserve a clean base export for comparison. |
-| Checks | Decode the final files. Check size, bytes, frames, borders, the seam and registered geometry. |
-| Motion review | Snapshot, inspect and document every frame at three sizes on both backgrounds. Fix in a new folder and recheck. |
-| Pack and distribution | Fit the target profile, deliver one labelled grid and still, timestamped strips and a ZIP of individually named assets and the ordered names table. |
+Run `uv run forge COMMAND --help` from the checkout. Commands accept `--json` for machine-readable results and exit nonzero on failure. Use the tools that fit the work.
 
-## Timing JSON
+| Command | Plain input | Result |
+| --- | --- | --- |
+| `new PROJECT` | New folder | Free-form style and storyboard prompts, plus an optional example manifest. Use `--no-manifest` to skip it. |
+| `register CELS OUT` | Image, GIF or folder of cels | Cels aligned using body masks, or visible alpha when there are no masks. |
+| `render CELS EFFECT OUT` | Image or cel folder, plus a fragment file or pass-chain JSON | RGBA frames rendered by [custom GLSL](shaders.md). |
+| `assemble CELS OUT.gif` | GIF or cel folder | GIF from supplied exposures. |
+| `fit CELS OUT.gif` | GIF or cel folder | GIF fitted to a size, byte and frame budget. |
+| `check FILES` | Export image or folder | Decoded dimensions, bytes, frame count, border and seam. Geometry is available when you supply annotated timing. |
+| `strips CELS OUT.png` | Image, GIF or cel folder | Timestamped frames at configurable sizes on light and dark. |
+| `preview FILES STEM` | Export image or folder | Labelled GIF grid and still PNG. |
+| `bundle FILES OUT` | Export image or folder | Individually named files, `NAMES.md` and ZIP. |
+| `all INPUT OUT` | Cel folder, export folder with GIFs, single export, Python generator or pack JSON | A new version with checks, preview, strips and the distribution pack. |
+| `snapshot INPUT OUT` | File or folder | A UTC-dated copy. |
+| `compare BEFORE AFTER STEM` | Two files or two version folders | Side-by-side GIF and PNG. |
 
-Paths are relative to the timing file. Each `file` points to a full RGBA cel. For registration and geometry checks, draw same-canvas grayscale `body` and `face` masks. Use white for the torso silhouette (including the area behind facial features) and facial ink respectively, and black elsewhere. Omit limbs, props and effects from the body mask. Mark the facial features where they actually appear. Avoid approximating the masks with a shared rectangle.
+Folders use filename order, so zero-pad frame numbers. On plain inputs Forge derives lowercase output filenames. A GIF used as a cel source supplies its decoded frames and holds. Registration recognizes `frame-body.png` and `frame-face.png` beside `frame.png`. Masks use white for the torso or face ink and black elsewhere. A body mask excludes props, limbs or effects that would throw off alignment. Use `all --no-register` with a plain cel folder or run the rendering and assembly commands independently to keep source positions. Use short lowercase export names for a pack. For Slack targets, follow the [Slack reference](slack.md).
+
+## Cels and exposure timing
+
+The cel commands accept a timing JSON as an alternative to the folder. Paths in it are relative to the JSON file. Masks are optional. Use `motion: [dx, dy, width_change]` in source pixels when registering an intentional change. Positive y is down. Shader params in a frame can override settings for that exposure.
 
 ```json
 {
   "frames": [
-    {"file": "ready.png", "body": "ready-body.png", "face": "ready-face.png", "ms": 260},
-    {"file": "reach.png", "body": "reach-body.png", "face": "reach-face.png", "ms": 140,
-     "motion": [0, -3, 0], "anchor": [0.72, 0.64]}
+    {"file": "cels/01.png", "body": "cels/01-body.png", "face": "cels/01-face.png", "ms": 123.5},
+    {"file": "cels/02.png", "ms": 266.5, "params": {"sparkFloor": 0.7}}
   ]
 }
 ```
 
-`motion` is the allowed offset `[dx, dy, width_change]` in source canvas pixels. Positive y moves down. Registration applies that offset relative to the reference. For intentionally nonuniform squash, redraw against the intended registered pose and audit it separately, since the helper uses a uniform transform. `anchor` gives the shader emitter position in normalized UV from the bottom left of the **registered** cel. Set it after registration if the prop shifted. One animated GIF delay is 20 ms or more in 10 ms increments.
+Use any positive finite per-frame delay in milliseconds. For folders, `--frame-ms` sets the default and `--timing-spec TIMING.json` accepts any of the following. A timing JSON or a pack entry can also put the same data under `timing`.
 
-## Pack JSON
+- A list of delays in frame order, such as `[123.5, 266.5]`, or an object containing `durations_ms`.
+- An object with `duration_ms` and `easing` to space the frame boundaries over the run.
+- An object with `keyframes` giving `frame`, `ms` and optional `ease` for the next segment. Start at boundary zero and end at the boundary after the final cel.
 
-List entries in display and upload order. Paths are relative to the manifest. For effects, point `timing` to the registered art before effects. Decoded checks still inspect the final effects GIF. Use the optional `matte` for an intentionally opaque border and record a case-specific `seam` threshold only after reviewing a deliberate continuous motion across the seam.
+Frame-boundary easing supports `linear`, `ease-in`, `ease-out` and `ease-in-out`. It changes exposure spacing while preserving the supplied drawings. For custom timing, supply exact durations or use a Python hook. GIF stores delays in 10 ms units. Forge encodes with a 20 ms minimum and keeps the total near the requested length when the minimum allows. It merges identical adjacent cels and can try reduced palettes with and without dithering. If a budget still cannot fit the distinct exposures, the command reports why.
 
-```json
-{
-  "emojis": [
-    {"name": "wave", "file": "exports/wave.gif", "use": "Say hello.",
-     "timing": "wave-registered/timing.json"},
-    {"name": "thanks", "file": "exports/thanks.png", "use": "Show appreciation."}
-  ]
-}
-```
+## Optional pack JSON
 
-## Commands
-
-Run from the skill directory. Use new output directories for versions and preserve the previous render.
-
-```sh
-uv run --with pillow python scripts/register_frames.py art/timing.json work/registered
-uv run --with pillow python scripts/assemble_gif.py work/registered/timing.json exports/wave.gif --size 128 --max-bytes 128000 --max-frames 50
-uv run --with pillow python scripts/check_pack.py pack.json --size 128 --max-bytes 128000 --max-frames 50 --drift-px 2 --require-masks
-uv run --with pillow python scripts/build_preview.py pack.json report/preview --still-ms 1200
-uv run --with pillow python scripts/make_strips.py exports/wave.gif report/wave.png --size 32 128 512
-uv run --with pillow python scripts/bundle.py pack.json delivery/pack
-```
-
-The size, frame and byte values shown here are example profile settings. Pass the intended target's limits. `check_pack.py` measures annotated geometry at the chosen export size and compares the decoded final seam by mean premultiplied pixel difference. Hand attachment, face centring and seam pacing need human judgement. For an all-static pack it applies only canvas dimensions, byte size and border checks per asset. The scripts process raster files. An optional SVG companion can be exported separately and checked visually after rasterizing at the target size.
-
-The preview keeps each emoji on its own loop clock within the grid. It defaults to the longest item duration, then repeats the grid as a whole. Choose `--duration-ms` to show more cycles or a shared repeat point. Strips show every decoded frame including its start timestamp, native and zoomed pixels, and the reduced display size.
-
-## One-command packs
-
-`forge new` writes a brief and a source manifest. Put exposure rows inline under each emoji's `frames`. Paths are relative to the manifest file.
+A pack can describe repeatable inputs for `forge all`. Use inline frame rows, filenames or a folder path under `frames`, a Python `script`, or both. This example uses short poses just to show the fields.
 
 ```json
 {
   "target": "slack",
   "preview_ms": 500,
   "emojis": [
-    {"name": "spark", "use": "Celebrate a win.", "effect": {
-      "shader": "sparkle", "params": {"anchor": [0.7, 0.8], "intensity": 0.8, "speed": 1.0}
-    }, "frames": [
-      {"file": "cels/rest.png", "body": "cels/rest-body.png", "face": "cels/rest-face.png", "ms": 350},
-      {"file": "cels/cheer.png", "body": "cels/cheer-body.png", "face": "cels/cheer-face.png", "ms": 750},
-      {"file": "cels/rest.png", "body": "cels/rest-body.png", "face": "cels/rest-face.png", "ms": 200}
-    ]},
-    {"name": "hello", "target": "generic", "static": true, "frames": [{"file": "cels/hello.png"}]}
+    {
+      "name": "spark",
+      "use": "Celebrate a win.",
+      "frames": "cels/spark",
+      "timing": {"duration_ms": 1800, "easing": "ease-in-out"},
+      "effect": {"shader": "effects/spark.frag", "params": {"ink": "#f1c548"}},
+      "register": false
+    },
+    {"name": "hello", "target": "generic", "static": true, "frames": ["cels/hello.png"]}
   ]
 }
 ```
 
-Use `effect.shader` to select a bundled shader by name or a local fragment file by path. Parameters set a default emitter position, strength and effect clock speed. Exposure fields can override them. Choose `matte` for an opaque background. Set `reference` to a 1-based exposure if the neutral cel comes later. The optional per-emoji `target` overrides the pack default. `preview_ms` selects the still preview timestamp.
+Per-entry `target` overrides the pack default. `register: false` preserves the supplied placements. You can set the 1-based `reference` exposure for registration, choose a `matte` and GIF `loop` count, and set an optional `seam` tolerance for a deliberate visual cut. The checker reports decoded seam distance as an average premultiplied pixel difference. Set a limit with `check --seam` or a pack entry’s `seam` when a smooth loop matters. To check face containment and registration, annotate body and face masks and use `--require-masks`. The visual review still helps with fine details and pacing.
 
 | Preset | Square canvas | Byte budget | GIF frame cap |
 | --- | ---: | ---: | ---: |
 | `slack` | 128 px | 128,000 | 50 |
 | `generic` | 256 px | 1,000,000 | 120 |
 
-`forge all PACK OUTPUT` runs registration, effects, fitting, checks and reports. Use `--jobs` for worker count, `--draft` for 64 px exports and 128 px shader renders, and `--cache` to share a cache directory across runs. The default cache is `.forge-cache` next to the manifest. The cache key covers cel and mask bytes, timing, shader source and render settings. A new version directory receives its own copies of the checked assets. `forge check OUTPUT/pack.json` reads each asset's recorded limits unless you supply an explicit budget.
+`forge all` renders emoji in parallel. Choose the worker count with `--jobs`. Draft runs export at 64 px and render effects at 128 px. Each hit in the content cache covers one emoji and its inputs. Use `--cache` to point to a shared cache folder. Pass a new version folder on each run. `forge check` reads the recorded limits on an exported pack unless you supply a budget. Use `all --exports` for a folder of finished stills. This export manifest can also feed `preview` and `bundle`, or either can read the exports folder directly.
 
-Run `forge COMMAND --help` for `register`, `render`, `assemble`, `fit`, `check`, `strips`, `preview` and `bundle`. `fit` applies a preset or explicit `--size`, `--max-bytes` and `--max-frames`. It merges identical adjacent holds and tries smaller palettes with and without dithering. If it cannot fit distinct poses, it reports the budget problem and keeps the source untouched.
+## Python animation hooks
 
-Before review or changes, use `forge snapshot VERSION SNAPSHOTS` for a UTC-dated copy. Use `forge compare BEFORE AFTER REPORT_STEM` to put matching names side by side on the same preview clock. Missing entries show an empty tile. Add `--json` to any command for one machine-readable result and use its exit status to detect failure.
+Use a hook to draw cels, edit a sequence, or set poses and durations in code. A pack entry can set `"script": "draw.py:animate"` or supply an object.
+
+```json
+{
+  "path": "draw.py",
+  "function": "animate",
+  "mode": "emoji",
+  "params": {"line_width": 2},
+  "deps": ["palette.json"]
+}
+```
+
+Use `forge all PACK OUT --allow-scripts` for a manifest with trusted local Python. You can also run `forge all draw.py OUT` directly or `forge all cels/ OUT --script draw.py:animate`. Python hooks run with your local process permissions. Treat them as code.
+
+- In `emoji` mode, `animate(frames, context)` receives a list of cels and returns a list. With no cels supplied, it receives an empty list and can create a sequence.
+- In `frame` mode, `animate(frame, context)` receives and returns one cel. For drawing from scratch, use `count` in the script object to create timed blank frame records. This mode adds zero-based `index`, `time` in seconds and `progress` in the loop to the context.
+- Each frame is a Python dictionary with a Pillow `image`, optional `body` and `face` mask images, and timing or custom parameter metadata. Return `ms` to specify the cel's hold. Without returned holds, Forge uses the supplied timing spec or the default.
+- Context includes `name`, suggested canvas `size`, `draft`, `project_dir`, `source_dir` and the hook's `params`. List any additional files your hook reads in `deps` so a change invalidates the cache. Use a new cache if behavior depends on external state.
+
+See the [custom animation example](../examples/custom/README.md) for a hook and two bespoke passes working together.

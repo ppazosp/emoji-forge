@@ -1,15 +1,13 @@
-# Expressions and poses
+# Expression ideas
 
-Write the expression arc as resting face → anticipation → peak → recovery. Preserve the reference eye spacing and signature marks. Change the lids, mouth shape and gaze in ways that make the action legible. Keep the mouth below the gaze and the ensemble near the body centre. Judge the pose and face together in silhouette and at display size.
+Use these when the user wants character performance. A symbol, abstract pattern or static pose may need a different approach.
 
-| Reaction | Pose and expression |
+| Intent | An idea to try |
 | --- | --- |
-| This is fine | Hold the recognisable polite smile while lifting a cup. Narrow one lid and add a sweat drop to reveal the strain. |
-| Excited | Lift the arms through the shoulders and open a broad grin. Hold the most legible shape through the celebration. |
-| Determined | Narrow the eyes and steady the mouth as the character braces. Use focus or joy as the default. Reserve an angry glare for an explicit request. |
-| Cool or chad | Keep the same body, cheeks, feet and proportions. Change the lids, smirk, wrist gesture and pace. |
-| Skeptical | Lift one brow and move the pupils in their sockets. Follow with pursed lips and a small hold. |
+| Under pressure | Keep a polite smile through a sip, then add a twitch or sweat drop. |
+| Excited | Lift both arms and open the grin on the same beat. |
+| Determined | Use a narrower gaze and a steady mouth while the pose braces. |
+| Cool | Try a half-lid and uneven smile. If this is the same character, try keeping the familiar proportions. |
+| Skeptical | Let one brow lead, move the eyes, and pause on the sideways look. |
 
-Inspect the wrists at each gesture change. Use an outline and an open or neutral hand interior so a prop or cheek cannot visually fill the fingers. Keep the prop seated in the grip until the moment of release. If a face edit changes surrounding texture, constrain the edit to the old and new strokes and compare the cheeks at 4×.
-
-Choose static poses that read without the lead-in. Put the most telling gesture, clear prop and expressive face in the same drawing.
+A reference sheet can help with a recurring character. Consider showing the user two choices for the silhouette, reference texture or resting face before drawing a full pack. At the smallest display size, compare which detail carries the idea. A hand outline, a different prop angle or a clearer background can help if the gesture gets hard to read.

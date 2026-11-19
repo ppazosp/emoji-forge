@@ -6,26 +6,51 @@ from pathlib import Path
 from PIL import Image
 
 if __package__:
-    from .common import cli, image, mask_geometry, read_timing
+    from .common import (
+        add_timing_flags,
+        cli,
+        image,
+        mask_geometry,
+        read_cel,
+        read_timing,
+    )
+    from .shader_config import parameter_images
 else:
-    from common import cli, image, mask_geometry, read_timing
+    from common import (
+        add_timing_flags,
+        cli,
+        image,
+        mask_geometry,
+        read_cel,
+        read_timing,
+    )
+    from shader_config import parameter_images
 import json
 
 
 def configure(parser):
-    parser.add_argument("timing", type=Path)
+    parser.add_argument("timing", type=Path, help="timing JSON, image, or folder of cels")
+    add_timing_flags(parser)
     parser.add_argument("output", type=Path, help="new directory")
     parser.add_argument("--reference", type=int, default=1, help="1-based exposure")
     parser.add_argument("--size", type=int, help="output square size; defaults to reference canvas")
 
 
+def body_mask(row, root, source=None):
+    if "body" in row:
+        return image(root / row["body"], "L")
+    if source is None:
+        source = read_cel(root, row)
+    return source.getchannel("A")
+
+
 def register(args):
-    rows, delays = read_timing(args.timing)
+    rows, delays = read_timing(args.timing, args.timing_spec, args.frame_ms)
     if not 1 <= args.reference <= len(rows) or (args.size is not None and args.size < 1):
         raise ValueError("invalid reference exposure or output size")
     root = args.timing.parent
     reference = rows[args.reference - 1]
-    reference_mask = image(root / reference["body"], "L")
+    reference_mask = body_mask(reference, root)
     (target_x, target_y), (width, height) = mask_geometry(reference_mask)
     size = (args.size, args.size) if args.size else reference_mask.size
     target_x += (size[0] - reference_mask.width) / 2
@@ -33,8 +58,8 @@ def register(args):
 
     cels = {}
     for row in rows:
-        source = image(root / row["file"])
-        body = image(root / row["body"], "L")
+        source = read_cel(root, row)
+        body = body_mask(row, root, source)
         face = image(root / row["face"], "L") if "face" in row else None
         if body.size != source.size or (face and face.size != source.size):
             raise ValueError(f"mask canvas differs from cel: {row['file']}")
@@ -46,7 +71,7 @@ def register(args):
             raise ValueError("expected motion produces a nonpositive scale")
         cx, cy = target_x + dx, target_y + dy
         cels.setdefault(
-            (row["file"], row["body"], row.get("face"), dx, dy, dw),
+            (row["file"], row.get("source_frame"), row.get("body"), row.get("face"), dx, dy, dw),
             (source, body, face, (1 / scale, 0, x - cx / scale, 0, 1 / scale, y - cy / scale)),
         )
 
@@ -66,8 +91,12 @@ def register(args):
 
     result = []
     for row, ms in zip(rows, delays, strict=True):
-        key = (row["file"], row["body"], row.get("face"), *row.get("motion", [0, 0, 0]))
-        result.append({**row, **outputs[key], "ms": ms})
+        key = (row["file"], row.get("source_frame"), row.get("body"), row.get("face"), *row.get("motion", [0, 0, 0]))
+        updated = {**row, **outputs[key], "ms": ms}
+        updated.pop("source_frame", None)
+        if "params" in updated:
+            updated["params"] = parameter_images(updated["params"], root)
+        result.append(updated)
     (args.output / "timing.json").write_text(json.dumps({"frames": result}, indent=2) + "\n")
 
 

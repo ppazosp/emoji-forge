@@ -1,6 +1,6 @@
 # Emoji Forge
 
-An open-source agent skill for making custom emoji, stickers and reactions. Start with any character or style. Draw expressive key poses, register the cels, add optional GLSL effects, and check the final files at reaction size.
+Emoji Forge gives you and your agent tools to make and share custom emoji, stickers and reactions. Bring drawings or generate cels, write your own GLSL passes, or animate with a Python hook. Forge handles registration, export budgets, previews, and comparisons. You and your agent decide what to make.
 
 ![Example pack with four named reactions: wave, coffee, hooray and hello](examples/demo/preview.gif)
 
@@ -20,44 +20,40 @@ See the [Claude Code skill docs](https://code.claude.com/docs/en/skills) and [Co
 
 ## Five-command loop
 
-From the checkout, scaffold the brief. Fill in the style sheet and storyboard, draw your cels, then reference them from the JSON manifest. Compare the two exports before choosing one for delivery.
+Start with the tools you need. This example uses a folder of cels and a shader you write. A pack manifest is useful when you want to reuse the same steps across several emoji.
 
 ```sh
-uv run forge new my-emoji --preset slack
-# Fill in my-emoji/style.md, storyboard.md, cels/ and pack.json.
-uv run --extra gpu forge all my-emoji/pack.json build/draft --draft --jobs 2
+uv run forge new my-emoji --no-manifest
+# Sketch ideas together, draw cels into my-emoji/cels, and write my-emoji/glow.frag.
+uv run --extra gpu forge all my-emoji/cels build/draft --preset slack --effect my-emoji/glow.frag --draft
 uv run forge snapshot build/draft build/review
-# Review every frame. Update source cels and timing before the final export.
-uv run --extra gpu forge all my-emoji/pack.json build/final --jobs 2 --json
+uv run --extra gpu forge all my-emoji/cels build/final --preset slack --effect my-emoji/glow.frag --json
 uv run forge compare build/draft build/final build/comparison
 ```
 
-The final folder contains the named uploads, checks, timestamped strips, GIF and PNG previews, and a ZIP. `all` builds emoji in parallel and caches each one by its inputs and render options. Reuse the manifest with a fresh output folder to skip unchanged work. Draft renders use a smaller canvas and a separate cache key. `--json` supplies artifact paths, file dimensions, frame counts, or structured check results. A failing check exits nonzero. See [commands and manifest fields](references/workflow.md).
+The style and storyboard files are conversation prompts. Use them for sketches, links or whatever helps you iterate. Run any command on its own. For example, `forge fit cels/ wave.gif --preset slack` takes a folder and returns a sized GIF. The [tool reference](references/workflow.md) covers timing, optional manifests, Python hooks and all commands.
 
-## Pipeline
+## How the tools fit together
 
 ```mermaid
 flowchart LR
-    A[Brief and style lock] --> B[Storyboard and full cels]
-    B --> C{Animated?}
-    C -->|Yes| D[Register, time and optionally render effects]
-    C -->|No| E[Export PNG]
-    D --> F[Fit GIF to target]
-    E --> G[Check and snapshot]
-    F --> G
-    G --> H[Review every frame]
-    H -->|Fix in a new version| B
-    H -->|Pass| I[Preview, strips and ZIP]
+    A[Your idea] --> B[Draw, generate or script cels]
+    B --> C[Optional registration and custom shaders]
+    B --> D[Fit or export]
+    C --> D
+    D --> E[Check, preview and compare]
+    E -->|Revise| B
+    E --> F[Bundle]
 ```
 
-## Rebuild the example
+## Examples
 
-```sh
-uv run --extra gpu python examples/build.py build/example
-uv run --extra gpu --extra test pytest -q
-```
+- [Sprout pack](examples/demo/) shows three animated reactions and one still. Rebuild it with `uv run --extra gpu python examples/build.py build/example`.
+- [Custom animation and shader chain](examples/custom/) uses a Python function to draw the sequence and two original GLSL passes. See the [shader walkthrough](references/shaders.md) to write your own.
 
-The original sprout drawings are tiny reproducible fixtures. The [workflow](SKILL.md) describes how to produce your own full cels from a style reference. [Slack](references/slack.md) is an optional target. The generic preset works with a 256 px canvas and can be extended with other profiles.
+`forge all` can build multiple emoji in parallel and reuse cached renders. Add `--draft` to try an idea quickly and `--json` to read results programmatically. The [Slack reference](references/slack.md) describes its export targets. The generic preset and independent commands also work without Slack.
+
+Run `uv run --extra gpu --extra test pytest -q` for the local test suite. To include WebGL, install Chrome and run with `--extra webgl` and `FORGE_TEST_CHROME=chrome`.
 
 ## Authors
 
