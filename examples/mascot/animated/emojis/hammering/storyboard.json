@@ -1,0 +1,38 @@
+{
+  "style_sheet": "../../images/model/three-quarter.png",
+  "direction": "Edit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+  "panels": [
+    {
+      "id": "beat-1",
+      "file": "panels/001.png",
+      "beat": "Ready",
+      "action": "Hammer upright by Ember\u2019s right ear, above a low navy anvil holding a gold disc.",
+      "expression": "focused eyes",
+      "ms": 360
+    },
+    {
+      "id": "beat-2",
+      "file": "panels/002.png",
+      "beat": "Swing",
+      "action": "Hammer swings down halfway, elbow unfolds. Disc and anvil stay still.",
+      "expression": "focused squint",
+      "ms": 120
+    },
+    {
+      "id": "beat-3",
+      "file": "panels/003.png",
+      "beat": "Strike",
+      "action": "Hammer face touches the disc on the anvil. Ember bends the elbow into the strike.",
+      "expression": "determined squint",
+      "ms": 160
+    },
+    {
+      "id": "beat-4",
+      "file": "panels/004.png",
+      "beat": "Rebound",
+      "action": "Hammer bounces just clear of the disc and Ember eases into a smile.",
+      "expression": "small smile",
+      "ms": 280
+    }
+  ]
+}

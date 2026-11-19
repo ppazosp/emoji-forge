@@ -1,0 +1,82 @@
+{
+  "target": "slack",
+  "emojis": [
+    {
+      "name": "hammering",
+      "file": "animated/result/exports/hammering.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "animated/result/master/hammering/timing.json",
+      "use": "Firing up a build or working on something."
+    },
+    {
+      "name": "quench",
+      "file": "animated/result/exports/quench.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "animated/result/master/quench/timing.json",
+      "use": "Cool down or call a job finished."
+    },
+    {
+      "name": "sketch",
+      "file": "animated/result/exports/sketch.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "animated/result/master/sketch/timing.json",
+      "use": "Sketching a storyboard or proposing a plan."
+    },
+    {
+      "name": "ship",
+      "file": "animated/result/exports/ship.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "animated/result/master/ship/timing.json",
+      "use": "Send or deliver something that is ready."
+    },
+    {
+      "name": "idea",
+      "file": "animated/result/exports/idea.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "animated/result/master/idea/timing.json",
+      "use": "A new idea or an aha moment."
+    },
+    {
+      "name": "wave",
+      "file": "animated/result/exports/wave.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "animated/result/master/wave/timing.json",
+      "use": "Say a warm hello."
+    },
+    {
+      "name": "logo",
+      "file": "static/result/exports/logo.png",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "static/result/master/logo/still.png",
+      "use": "Sign a note or label the tool."
+    }
+  ]
+}

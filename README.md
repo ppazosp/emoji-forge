@@ -2,9 +2,9 @@
 
 Emoji Forge gives you and your agent tools to make and share custom emoji, stickers and reactions. Draw a consistent cel sequence with your agent’s native image tool, then add any effects you want. You can also bring your own artwork or use a Python hook. Forge handles registration, export budgets, previews, and comparisons. You and your agent decide what to make.
 
-![Four native image edits threaded into a waving paper bird](skills/emoji-forge/assets/threaded/overview.gif)
+![Ember the blacksmith in six animated reactions and a still logo](examples/mascot/ember/overview.gif)
 
-[Threaded example and prompt log](skills/emoji-forge/assets/threaded/) · [Sprout example ZIP](examples/demo/pack.zip)
+[Ember production files](examples/mascot/) · [Download the Ember pack](examples/mascot/ember.zip)
 
 ## Install
 
@@ -69,10 +69,18 @@ flowchart LR
 
 `forge report` and `forge bundle` make one overview, a folder of scale variants and a matching ZIP. The overview is a PNG for an all-static pack and a GIF when any emoji is animated. Set the scales with `--scales 64,128,256,512`. Larger variants use the original-resolution cels. [Package layout](skills/emoji-forge/references/workflow.md#report-and-distribution)
 
+## Made with emoji-forge
+
+Ember started as a model sheet, then worked through thumbnail boards, a timed animatic and threaded native image edits. The short hammer strike adds GPU-rendered sparks. [Follow the production files and reviews](examples/mascot/).
+
+| Model sheet | Hammering storyboard | Timed animatic |
+| --- | --- | --- |
+| ![Ember turnaround](examples/mascot/animated/review/hammering/sheets/model.png) | ![Four pencil storyboard panels for hammering](examples/mascot/animated/review/hammering/sheets/storyboard.png) | ![Timing test of the hammering storyboard](examples/mascot/animated/review/hammering/sheets/animatic.gif) |
+
 ## Examples
 
 - [Threaded paper bird](skills/emoji-forge/assets/threaded/) includes native image edits, a model sheet, storyboard, animatic and exposure sheet.
-- [Sprout pack](examples/demo/) shows three animated reactions and one still. Rebuild it from a checkout with `uv run --project skills/emoji-forge --extra gpu python examples/build.py build/example`.
+- [Sprout pack](examples/demo/) demonstrates the optional Python drawing hook, with three animated reactions and a still.
 - [Custom animation and shader chain](skills/emoji-forge/assets/lantern/) uses a Python function to draw the sequence and two original GLSL passes. See the [shader walkthrough](skills/emoji-forge/references/shaders.md) to write your own.
 
 `forge all` can build multiple emoji in parallel and reuse cached renders. Add `--draft` to try an idea quickly and `--json` to read results programmatically. The [Slack reference](skills/emoji-forge/references/slack.md) describes its export targets. The generic preset and independent commands also work without Slack.

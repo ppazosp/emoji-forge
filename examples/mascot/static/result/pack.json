@@ -1,0 +1,15 @@
+{
+  "target": "slack",
+  "emojis": [
+    {
+      "name": "logo",
+      "file": "exports/logo.png",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/logo/still.png"
+    }
+  ]
+}

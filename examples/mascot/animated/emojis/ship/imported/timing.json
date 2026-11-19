@@ -1,0 +1,24 @@
+{
+  "frames": [
+    {
+      "ms": 320,
+      "file": "001.png",
+      "body": "001-body.png"
+    },
+    {
+      "ms": 150,
+      "file": "002.png",
+      "body": "002-body.png"
+    },
+    {
+      "ms": 260,
+      "file": "003.png",
+      "body": "003-body.png"
+    },
+    {
+      "ms": 260,
+      "file": "004.png",
+      "body": "004-body.png"
+    }
+  ]
+}

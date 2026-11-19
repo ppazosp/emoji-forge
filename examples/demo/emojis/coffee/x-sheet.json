@@ -1,0 +1,68 @@
+{
+  "frames": [
+    {
+      "panel": "1",
+      "pose": "rest, gesture amount 0",
+      "ms": 410,
+      "key_pose": "keys/001.png"
+    },
+    {
+      "panel": "1",
+      "pose": "rest, gesture amount 0.18",
+      "ms": 240
+    },
+    {
+      "panel": "1",
+      "pose": "rest, gesture amount 0.44",
+      "ms": 210
+    },
+    {
+      "panel": "2",
+      "pose": "sip, gesture amount 0.72",
+      "ms": 220,
+      "key_pose": "keys/004.png"
+    },
+    {
+      "panel": "2",
+      "pose": "sip, gesture amount 0.91",
+      "ms": 260
+    },
+    {
+      "panel": "3",
+      "pose": "sip, gesture amount 1",
+      "ms": 530,
+      "key_pose": "keys/006.png"
+    },
+    {
+      "panel": "3",
+      "pose": "blink, gesture amount 0.93",
+      "ms": 250
+    },
+    {
+      "panel": "3",
+      "pose": "happy, gesture amount 0.69",
+      "ms": 300
+    },
+    {
+      "panel": "3",
+      "pose": "happy, gesture amount 0.43",
+      "ms": 260
+    },
+    {
+      "panel": "3",
+      "pose": "rest, gesture amount 0.18",
+      "ms": 270
+    },
+    {
+      "panel": "3",
+      "pose": "blink, gesture amount 0",
+      "ms": 170
+    },
+    {
+      "panel": "4",
+      "pose": "rest, gesture amount 0",
+      "ms": 180,
+      "key_pose": "keys/012.png"
+    }
+  ]
+}

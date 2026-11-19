@@ -1,0 +1,52 @@
+{
+  "frames": [
+    {
+      "file": "raw/001.png",
+      "ms": 360,
+      "key_frame": true,
+      "references": {
+        "previous_frame": null,
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 01/04: Hammer upright by Ember\u2019s right ear, above a low navy anvil holding a gold disc.\nExpression: focused eyes\nEdit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+      "body": "masks/001.png"
+    },
+    {
+      "file": "raw/002.png",
+      "ms": 120,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/001.png",
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 02/04: Hammer swings down halfway, elbow unfolds. Disc and anvil stay still.\nExpression: focused squint\nEdit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+      "body": "masks/002.png"
+    },
+    {
+      "file": "raw/003.png",
+      "ms": 160,
+      "key_frame": true,
+      "references": {
+        "previous_frame": "raw/002.png",
+        "key_pose": "keys/003.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 03/04: Hammer face touches the disc on the anvil. Ember bends the elbow into the strike.\nExpression: determined squint\nEdit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+      "body": "masks/003.png"
+    },
+    {
+      "file": "raw/004.png",
+      "ms": 280,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/003.png",
+        "key_pose": "keys/003.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 04/04: Hammer bounces just clear of the disc and Ember eases into a smile.\nExpression: small smile\nEdit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+      "body": "masks/004.png"
+    }
+  ]
+}

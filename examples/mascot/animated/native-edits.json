@@ -1,0 +1,200 @@
+[
+  {
+    "emoji": "hammering",
+    "kind": "keys",
+    "outputs": [
+      "keys/001.png",
+      "keys/003.png"
+    ],
+    "references": [
+      "../../images/model/three-quarter.png",
+      "panels/001.png",
+      "panels/003.png",
+      "../../images/expressions/neutral.png"
+    ],
+    "prompt": "Edit the original blacksmith ember in reference #1 into TWO polished key drawings for the same emoji animation using precisely the storyboard poses in refs #2 and #3. Wide transparent production atlas, two completely separate equally sized square panels horizontally (left and right, no labels or borders, no other drawing). Keep 12% safety padding around EACH drawing and a clear empty middle gutter. In left panel: Ember raises a tiny hammer beside its right goggle while a golden disc rests on a low navy tabletop anvil at its right. In right panel: Hammer swings down into contact with the golden disc on the anvil, with a focused happy squint. The anvil and disc do not move. Keep the body location, crown silhouette, height, boots and layout identical inside each cell. Same clean thick cocoa outlines, orange gold core, small dark aprons, two dark eyes and soot goggles with two blue lenses pushed up. Flat friendly illustration with clear silhouettes. Use the pencil thumbnails only for arrangement and expression. Transparent outside figures and props. No text, borders, shadows, cast floor, painted marks outside the illustrations, light rays, bulb, sparks, steam or effects. Output both stickers at the same scale and on the same baseline.",
+    "seed": null
+  },
+  {
+    "emoji": "hammering",
+    "kind": "inbetweens",
+    "outputs": [
+      "raw/002.png",
+      "raw/004.png"
+    ],
+    "references": [
+      "keys/001.png",
+      "keys/003.png",
+      "../../images/model/three-quarter.png",
+      "panels/002.png",
+      "panels/004.png"
+    ],
+    "prompt": "Make TWO in-between animation cels by editing these exact transparent key drawings. Panel LEFT is frame 02 of 04: edit reference #1 (the previous cel and nearest key), using storyboard ref #4 for the small change and ref #2 for the destination. Change only this: Swing halfway down at a diagonal, hammer still in one mitten, with its head clearly ABOVE the golden disc. Panel RIGHT is frame 04 of 04: edit reference #2 (the previous cel and nearest key), using storyboard ref #5 and ref #1 for the return. Change only this: Rebound: hammer head has just bounced slightly upward after the strike, a little higher than the right key, in a relaxed hand; closed small smile. Both independent outputs share same model sheet ref #3. Match silhouette, heavy dark outline, head and goggles, two short boots, apron and colour. Anchor the head, props and feet at the exact same screen position and size as the previous key drawings. Arrange the two new full-body square cels left and right in a wide 2:1 atlas on transparent background. Ensure clear empty margins surrounding each square and no overlapping. No borders, shadows, floor, text, ambient steam, bulb, rays, sparks or glow. Target crisp flat sticker with transparency.",
+    "seed": null
+  },
+  {
+    "emoji": "quench",
+    "kind": "keys",
+    "outputs": [
+      "keys/001.png",
+      "keys/003.png"
+    ],
+    "references": [
+      "../../images/model/three-quarter.png",
+      "panels/001.png",
+      "panels/003.png",
+      "../../images/expressions/neutral.png"
+    ],
+    "prompt": "Edit the original blacksmith ember in reference #1 into TWO polished key drawings for the same emoji animation using precisely the storyboard poses in refs #2 and #3. Wide transparent production atlas, two completely separate equally sized square panels horizontally (left and right, no labels or borders, no other drawing). Keep 12% safety padding around EACH drawing and a clear empty middle gutter. In left panel: Ember holds a round pale gold puck with slim black tongs above a short wide sky blue water bucket to its right. In right panel: The same Ember angles the tongs downward and submerges the puck into the same bucket in the same position. Ember squints at the bucket. Keep the body location, crown silhouette, height, boots and layout identical inside each cell. Same clean thick cocoa outlines, orange gold core, small dark aprons, two dark eyes and soot goggles with two blue lenses pushed up. Flat friendly illustration with clear silhouettes. Use the pencil thumbnails only for arrangement and expression. Transparent outside figures and props. No text, borders, shadows, cast floor, painted marks outside the illustrations, light rays, bulb, sparks, steam or effects. Output both stickers at the same scale and on the same baseline.",
+    "seed": null
+  },
+  {
+    "emoji": "quench",
+    "kind": "inbetweens",
+    "outputs": [
+      "raw/002.png",
+      "raw/004.png"
+    ],
+    "references": [
+      "keys/001.png",
+      "keys/003.png",
+      "../../images/model/three-quarter.png",
+      "panels/002.png",
+      "panels/004.png"
+    ],
+    "prompt": "Make TWO in-between animation cels by editing these exact transparent key drawings. Panel LEFT is frame 02 of 04: edit reference #1 (the previous cel and nearest key), using storyboard ref #4 for the small change and ref #2 for the destination. Change only this: Lower the puck until just clear of the water, in tongs, partway between key 1 and key 3. Panel RIGHT is frame 04 of 04: edit reference #2 (the previous cel and nearest key), using storyboard ref #5 and ref #1 for the return. Change only this: Lift the same puck just clear of the bucket; the puck is visibly gripped by tongs. Proud open smile. Do not draw steam, spray or droplets. Both independent outputs share same model sheet ref #3. Match silhouette, heavy dark outline, head and goggles, two short boots, apron and colour. Anchor the head, props and feet at the exact same screen position and size as the previous key drawings. Arrange the two new full-body square cels left and right in a wide 2:1 atlas on transparent background. Ensure clear empty margins surrounding each square and no overlapping. No borders, shadows, floor, text, ambient steam, bulb, rays, sparks or glow. Target crisp flat sticker with transparency.",
+    "seed": null
+  },
+  {
+    "emoji": "sketch",
+    "kind": "keys",
+    "outputs": [
+      "keys/001.png",
+      "keys/003.png"
+    ],
+    "references": [
+      "../../images/model/three-quarter.png",
+      "panels/001.png",
+      "panels/003.png",
+      "../../images/expressions/neutral.png"
+    ],
+    "prompt": "Edit the original blacksmith ember in reference #1 into TWO polished key drawings for the same emoji animation using precisely the storyboard poses in refs #2 and #3. Wide transparent production atlas, two completely separate equally sized square panels horizontally (left and right, no labels or borders, no other drawing). Keep 12% safety padding around EACH drawing and a clear empty middle gutter. In left panel: Ember holds a short charcoal pencil poised at the top left of the empty pale square drawing board, on a small wood easel to its right. In right panel: The pencil nib is at the bottom edge of the same board. A large single smiley is drawn on it. Ember smiles at the work. Keep the body location, crown silhouette, height, boots and layout identical inside each cell. Same clean thick cocoa outlines, orange gold core, small dark aprons, two dark eyes and soot goggles with two blue lenses pushed up. Flat friendly illustration with clear silhouettes. Use the pencil thumbnails only for arrangement and expression. Transparent outside figures and props. No text, borders, shadows, cast floor, painted marks outside the illustrations, light rays, bulb, sparks, steam or effects. Output both stickers at the same scale and on the same baseline.",
+    "seed": null
+  },
+  {
+    "emoji": "sketch",
+    "kind": "inbetweens",
+    "outputs": [
+      "raw/002.png",
+      "raw/004.png"
+    ],
+    "references": [
+      "keys/001.png",
+      "keys/003.png",
+      "../../images/model/three-quarter.png",
+      "panels/002.png",
+      "panels/004.png"
+    ],
+    "prompt": "Make TWO in-between animation cels by editing these exact transparent key drawings. Panel LEFT is frame 02 of 04: edit reference #1 (the previous cel and nearest key), using storyboard ref #4 for the small change and ref #2 for the destination. Change only this: Put pencil nib against pale board near the upper third where one curved charcoal mark has just appeared. No smiley yet. Panel RIGHT is frame 04 of 04: edit reference #2 (the previous cel and nearest key), using storyboard ref #5 and ref #1 for the return. Change only this: Lift the pencil a small distance back off the board, with the same completed smiley still visible. Relaxed pleased eyes. Both independent outputs share same model sheet ref #3. Match silhouette, heavy dark outline, head and goggles, two short boots, apron and colour. Anchor the head, props and feet at the exact same screen position and size as the previous key drawings. Arrange the two new full-body square cels left and right in a wide 2:1 atlas on transparent background. Ensure clear empty margins surrounding each square and no overlapping. No borders, shadows, floor, text, ambient steam, bulb, rays, sparks or glow. Target crisp flat sticker with transparency.",
+    "seed": null
+  },
+  {
+    "emoji": "ship",
+    "kind": "keys",
+    "outputs": [
+      "keys/001.png",
+      "keys/003.png"
+    ],
+    "references": [
+      "../../images/model/three-quarter.png",
+      "panels/001.png",
+      "panels/003.png",
+      "../../images/expressions/neutral.png"
+    ],
+    "prompt": "Edit the original blacksmith ember in reference #1 into TWO polished key drawings for the same emoji animation using precisely the storyboard poses in refs #2 and #3. Wide transparent production atlas, two completely separate equally sized square panels horizontally (left and right, no labels or borders, no other drawing). Keep 12% safety padding around EACH drawing and a clear empty middle gutter. In left panel: Ember holds a round golden smiley disc just above a small open cedar crate to its right. In right panel: Ember grins and pushes the lid closed flat with one mitten. The disc is inside and fully hidden. The closed crate is at the same ground position. Keep the body location, crown silhouette, height, boots and layout identical inside each cell. Same clean thick cocoa outlines, orange gold core, small dark aprons, two dark eyes and soot goggles with two blue lenses pushed up. Flat friendly illustration with clear silhouettes. Use the pencil thumbnails only for arrangement and expression. Transparent outside figures and props. No text, borders, shadows, cast floor, painted marks outside the illustrations, light rays, bulb, sparks, steam or effects. Output both stickers at the same scale and on the same baseline.",
+    "seed": null
+  },
+  {
+    "emoji": "ship",
+    "kind": "inbetweens",
+    "outputs": [
+      "raw/002.png",
+      "raw/004.png"
+    ],
+    "references": [
+      "keys/001.png",
+      "keys/003.png",
+      "../../images/model/three-quarter.png",
+      "panels/002.png",
+      "panels/004.png"
+    ],
+    "prompt": "Make TWO in-between animation cels by editing these exact transparent key drawings. Panel LEFT is frame 02 of 04: edit reference #1 (the previous cel and nearest key), using storyboard ref #4 for the small change and ref #2 for the destination. Change only this: Lower the gold smiley disc until it is entering the open crate. Mitten still visible. Keep proportions and box edges aligned to left key. Panel RIGHT is frame 04 of 04: edit reference #2 (the previous cel and nearest key), using storyboard ref #5 and ref #1 for the return. Change only this: Lift mitten and let the lid bounce slightly ajar about 25 degrees. Disc is fully hidden inside. Crate stays in original place. Both independent outputs share same model sheet ref #3. Match silhouette, heavy dark outline, head and goggles, two short boots, apron and colour. Anchor the head, props and feet at the exact same screen position and size as the previous key drawings. Arrange the two new full-body square cels left and right in a wide 2:1 atlas on transparent background. Ensure clear empty margins surrounding each square and no overlapping. No borders, shadows, floor, text, ambient steam, bulb, rays, sparks or glow. Target crisp flat sticker with transparency.",
+    "seed": null
+  },
+  {
+    "emoji": "idea",
+    "kind": "keys",
+    "outputs": [
+      "keys/001.png",
+      "keys/003.png"
+    ],
+    "references": [
+      "../../images/model/three-quarter.png",
+      "panels/001.png",
+      "panels/003.png",
+      "../../images/expressions/neutral.png"
+    ],
+    "prompt": "Edit the original blacksmith ember in reference #1 into TWO polished key drawings for the same emoji animation using precisely the storyboard poses in refs #2 and #3. Wide transparent production atlas, two completely separate equally sized square panels horizontally (left and right, no labels or borders, no other drawing). Keep 12% safety padding around EACH drawing and a clear empty middle gutter. In left panel: Ember touches one apron strap with its mitten and thinks, with a small thoughtful closed mouth and its body left of center. In right panel: Same body position. Ember lifts one small mitten to the upper right and grins, looking excitedly upward. Leave empty space upper right. Keep the body location, crown silhouette, height, boots and layout identical inside each cell. Same clean thick cocoa outlines, orange gold core, small dark aprons, two dark eyes and soot goggles with two blue lenses pushed up. Flat friendly illustration with clear silhouettes. Use the pencil thumbnails only for arrangement and expression. Transparent outside figures and props. No text, borders, shadows, cast floor, painted marks outside the illustrations, light rays, bulb, sparks, steam or effects. Output both stickers at the same scale and on the same baseline.",
+    "seed": null
+  },
+  {
+    "emoji": "idea",
+    "kind": "inbetweens",
+    "outputs": [
+      "raw/002.png",
+      "raw/004.png"
+    ],
+    "references": [
+      "keys/001.png",
+      "keys/003.png",
+      "../../images/model/three-quarter.png",
+      "panels/002.png",
+      "panels/004.png"
+    ],
+    "prompt": "Make TWO in-between animation cels by editing these exact transparent key drawings. Panel LEFT is frame 02 of 04: edit reference #1 (the previous cel and nearest key), using storyboard ref #4 for the small change and ref #2 for the destination. Change only this: Move the mitten just away from the strap toward the original right shoulder and widen the eyes as Ember looks upper right. Thoughtful excitement. Panel RIGHT is frame 04 of 04: edit reference #2 (the previous cel and nearest key), using storyboard ref #5 and ref #1 for the return. Change only this: Bring the mitten down to shoulder height on the same right side, return eyes toward viewer and close mouth to a friendly smile. Both independent outputs share same model sheet ref #3. Match silhouette, heavy dark outline, head and goggles, two short boots, apron and colour. Anchor the head, props and feet at the exact same screen position and size as the previous key drawings. Arrange the two new full-body square cels left and right in a wide 2:1 atlas on transparent background. Ensure clear empty margins surrounding each square and no overlapping. No borders, shadows, floor, text, ambient steam, bulb, rays, sparks or glow. Target crisp flat sticker with transparency.",
+    "seed": null
+  },
+  {
+    "emoji": "wave",
+    "kind": "keys",
+    "outputs": [
+      "keys/001.png",
+      "keys/003.png"
+    ],
+    "references": [
+      "../../images/model/three-quarter.png",
+      "panels/001.png",
+      "panels/003.png",
+      "../../images/expressions/neutral.png"
+    ],
+    "prompt": "Edit the original blacksmith ember in reference #1 into TWO polished key drawings for the same emoji animation using precisely the storyboard poses in refs #2 and #3. Wide transparent production atlas, two completely separate equally sized square panels horizontally (left and right, no labels or borders, no other drawing). Keep 12% safety padding around EACH drawing and a clear empty middle gutter. In left panel: Ember smiles while its right mitten is raised just above shoulder height, tilted outward. In right panel: The same right mitten waves inward closer to its cheek with an open delighted smile. The other arm is at rest. Keep both eyes visible. Keep the body location, crown silhouette, height, boots and layout identical inside each cell. Same clean thick cocoa outlines, orange gold core, small dark aprons, two dark eyes and soot goggles with two blue lenses pushed up. Flat friendly illustration with clear silhouettes. Use the pencil thumbnails only for arrangement and expression. Transparent outside figures and props. No text, borders, shadows, cast floor, painted marks outside the illustrations, light rays, bulb, sparks, steam or effects. Output both stickers at the same scale and on the same baseline.",
+    "seed": null
+  },
+  {
+    "emoji": "wave",
+    "kind": "inbetweens",
+    "outputs": [
+      "raw/002.png",
+      "raw/004.png"
+    ],
+    "references": [
+      "keys/001.png",
+      "keys/003.png",
+      "../../images/model/three-quarter.png",
+      "panels/002.png",
+      "panels/004.png"
+    ],
+    "prompt": "Make TWO in-between animation cels by editing these exact transparent key drawings. Panel LEFT is frame 02 of 04: edit reference #1 (the previous cel and nearest key), using storyboard ref #4 for the small change and ref #2 for the destination. Change only this: Extend the same brown-gloved arm toward the upper right, with the hand a bit higher and farther outside the body than in the opening pose. Keep both feet and eyes fixed. Panel RIGHT is frame 04 of 04: edit reference #2 (the previous cel and nearest key), using storyboard ref #5 and ref #1 for the return. Change only this: The same brown glove moves outward a little and lowers to just above the shoulder after the inward peak. Closed happy smile. Both independent outputs share same model sheet ref #3. Match silhouette, heavy dark outline, head and goggles, two short boots, apron and colour. Anchor the head, props and feet at the exact same screen position and size as the previous key drawings. Arrange the two new full-body square cels left and right in a wide 2:1 atlas on transparent background. Ensure clear empty margins surrounding each square and no overlapping. No borders, shadows, floor, text, ambient steam, bulb, rays, sparks or glow. Target crisp flat sticker with transparency.",
+    "seed": null
+  }
+]

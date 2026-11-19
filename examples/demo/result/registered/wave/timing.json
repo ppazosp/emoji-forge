@@ -1,0 +1,76 @@
+{
+  "frames": [
+    {
+      "ms": 330,
+      "file": "001-file.png",
+      "body": "001-body.png",
+      "face": "001-face.png"
+    },
+    {
+      "ms": 200,
+      "file": "002-file.png",
+      "body": "002-body.png",
+      "face": "002-face.png"
+    },
+    {
+      "ms": 180,
+      "file": "003-file.png",
+      "body": "003-body.png",
+      "face": "003-face.png"
+    },
+    {
+      "ms": 350,
+      "file": "004-file.png",
+      "body": "004-body.png",
+      "face": "004-face.png"
+    },
+    {
+      "ms": 260,
+      "file": "005-file.png",
+      "body": "005-body.png",
+      "face": "005-face.png"
+    },
+    {
+      "ms": 290,
+      "file": "006-file.png",
+      "body": "006-body.png",
+      "face": "006-face.png"
+    },
+    {
+      "ms": 270,
+      "file": "007-file.png",
+      "body": "007-body.png",
+      "face": "007-face.png"
+    },
+    {
+      "ms": 380,
+      "file": "008-file.png",
+      "body": "008-body.png",
+      "face": "008-face.png"
+    },
+    {
+      "ms": 320,
+      "file": "009-file.png",
+      "body": "009-body.png",
+      "face": "009-face.png"
+    },
+    {
+      "ms": 260,
+      "file": "010-file.png",
+      "body": "010-body.png",
+      "face": "010-face.png"
+    },
+    {
+      "ms": 180,
+      "file": "011-file.png",
+      "body": "011-body.png",
+      "face": "011-face.png"
+    },
+    {
+      "ms": 180,
+      "file": "012-file.png",
+      "body": "012-body.png",
+      "face": "012-face.png"
+    }
+  ]
+}

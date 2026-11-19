@@ -386,7 +386,9 @@ def run_step(root, state, stage, invoke):
                     {
                         **row,
                         **{
-                            key: str(emoji / "cels" / row[key])
+                            key: (emoji / "cels" / row[key])
+                            .relative_to(root)
+                            .as_posix()
                             for key in ("file", "body", "face")
                             if key in row
                         },
@@ -396,7 +398,7 @@ def run_step(root, state, stage, invoke):
             }
             for effect in (emoji / "effect.json", emoji / "effect.frag"):
                 if effect.is_file():
-                    entry["effect"] = str(effect)
+                    entry["effect"] = effect.relative_to(root).as_posix()
                     break
             entries.append(entry)
         manifest = production.save_json(

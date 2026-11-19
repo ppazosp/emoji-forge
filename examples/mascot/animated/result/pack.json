@@ -1,0 +1,65 @@
+{
+  "target": "slack",
+  "emojis": [
+    {
+      "name": "hammering",
+      "file": "exports/hammering.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/hammering/timing.json"
+    },
+    {
+      "name": "quench",
+      "file": "exports/quench.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/quench/timing.json"
+    },
+    {
+      "name": "sketch",
+      "file": "exports/sketch.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/sketch/timing.json"
+    },
+    {
+      "name": "ship",
+      "file": "exports/ship.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/ship/timing.json"
+    },
+    {
+      "name": "idea",
+      "file": "exports/idea.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/idea/timing.json"
+    },
+    {
+      "name": "wave",
+      "file": "exports/wave.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/wave/timing.json"
+    }
+  ]
+}

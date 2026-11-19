@@ -1,0 +1,38 @@
+{
+  "style_sheet": "../../images/model/three-quarter.png",
+  "direction": "Edit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+  "panels": [
+    {
+      "id": "beat-1",
+      "file": "panels/001.png",
+      "beat": "Ready",
+      "action": "Ember smiles in the model pose, with its right mitten raised to shoulder height.",
+      "expression": "small smile",
+      "ms": 330
+    },
+    {
+      "id": "beat-2",
+      "file": "panels/002.png",
+      "beat": "Out",
+      "action": "Ember waves by moving its right mitten outward and up beside the goggles.",
+      "expression": "happy smile",
+      "ms": 140
+    },
+    {
+      "id": "beat-3",
+      "file": "panels/003.png",
+      "beat": "In",
+      "action": "The same mitten waves inward closer to the cheek without touching the face.",
+      "expression": "open grin",
+      "ms": 210
+    },
+    {
+      "id": "beat-4",
+      "file": "panels/004.png",
+      "beat": "Return",
+      "action": "The mitten waves outward again but held a little lower as the smile relaxes.",
+      "expression": "happy smile",
+      "ms": 250
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "idea": "Ember forges and shares emoji",
+  "names": [
+    "hammering",
+    "quench",
+    "sketch",
+    "ship",
+    "idea",
+    "wave"
+  ],
+  "target": "slack",
+  "static": false,
+  "refs": [],
+  "phase": 6,
+  "gates": [
+    "bible",
+    "storyboard",
+    "keys",
+    "inbetweens",
+    "effects",
+    "final"
+  ],
+  "yes": false,
+  "generator": null,
+  "scales": "64,128,256,512",
+  "master_size": 512,
+  "register": true
+}

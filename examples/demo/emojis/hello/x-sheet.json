@@ -1,0 +1,10 @@
+{
+  "frames": [
+    {
+      "panel": "1",
+      "pose": "rest, gesture amount 0",
+      "ms": 400,
+      "key_pose": "keys/001.png"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "emojis": {
+    "wave": [
+      {
+        "name": "Sprout",
+        "type": "character",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      }
+    ],
+    "coffee": [
+      {
+        "name": "Sprout",
+        "type": "character",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      },
+      {
+        "name": "Mug",
+        "type": "prop",
+        "status": "approved"
+      }
+    ],
+    "hooray": [
+      {
+        "name": "Sprout",
+        "type": "character",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      },
+      {
+        "name": "Sparkle",
+        "type": "effect",
+        "status": "approved"
+      }
+    ],
+    "hello": [
+      {
+        "name": "Sprout",
+        "type": "character",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      }
+    ]
+  }
+}

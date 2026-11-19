@@ -1,0 +1,14 @@
+{
+  "style_sheet": "../../images/model/front.png",
+  "panels": [
+    {
+      "id": "1",
+      "file": "panels/01.png",
+      "beat": "Opening",
+      "action": "Faces viewer",
+      "expression": "rest",
+      "ms": 400
+    }
+  ],
+  "direction": "Sprout is an optional Python-hook example."
+}

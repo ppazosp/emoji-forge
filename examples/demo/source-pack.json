@@ -1,0 +1,59 @@
+{
+  "target": "slack",
+  "preview_ms": 1550,
+  "emojis": [
+    {
+      "name": "wave",
+      "use": "Say hello or goodbye.",
+      "static": false,
+      "script": {
+        "path": "../build.py",
+        "params": {
+          "name": "wave"
+        }
+      }
+    },
+    {
+      "name": "coffee",
+      "use": "Taking a coffee break.",
+      "static": false,
+      "script": {
+        "path": "../build.py",
+        "params": {
+          "name": "coffee"
+        }
+      }
+    },
+    {
+      "name": "hooray",
+      "use": "Celebrate a small win.",
+      "static": false,
+      "script": {
+        "path": "../build.py",
+        "params": {
+          "name": "hooray"
+        }
+      },
+      "effect": {
+        "shader": "sparkle",
+        "params": {
+          "anchor": [
+            0.5,
+            0.76
+          ]
+        }
+      }
+    },
+    {
+      "name": "hello",
+      "use": "A quiet greeting.",
+      "static": true,
+      "script": {
+        "path": "../build.py",
+        "params": {
+          "name": "hello"
+        }
+      }
+    }
+  ]
+}

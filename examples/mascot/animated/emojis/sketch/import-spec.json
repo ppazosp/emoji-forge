@@ -1,0 +1,52 @@
+{
+  "frames": [
+    {
+      "file": "raw/001.png",
+      "ms": 310,
+      "key_frame": true,
+      "references": {
+        "previous_frame": null,
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 01/04: Ember holds a charcoal pencil just above a small pale board on an easel to its right.\nExpression: thoughtful smile\nEdit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+      "body": "masks/001.png"
+    },
+    {
+      "file": "raw/002.png",
+      "ms": 160,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/001.png",
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 02/04: The nib makes a short mark at the top of the board. The board shows one simple stroke.\nExpression: focused squint\nEdit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+      "body": "masks/002.png"
+    },
+    {
+      "file": "raw/003.png",
+      "ms": 350,
+      "key_frame": true,
+      "references": {
+        "previous_frame": "raw/002.png",
+        "key_pose": "keys/003.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 03/04: A large friendly smiley sketch is complete. Ember holds the charcoal to the bottom right edge of the board.\nExpression: pleased smile\nEdit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+      "body": "masks/003.png"
+    },
+    {
+      "file": "raw/004.png",
+      "ms": 220,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/003.png",
+        "key_pose": "keys/003.png",
+        "style_sheet": "../../images/model/three-quarter.png"
+      },
+      "prompt": "Frame 04/04: Ember lifts the pencil off the page. Smiley clears as the board flips to the next sheet.\nExpression: cheerful smile\nEdit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+      "body": "masks/004.png"
+    }
+  ]
+}

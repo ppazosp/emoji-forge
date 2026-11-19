@@ -1,0 +1,17 @@
+{
+  "target": "slack",
+  "emojis": [
+    {
+      "name": "logo",
+      "static": true,
+      "register": false,
+      "frames": [
+        {
+          "ms": 400,
+          "file": "emojis/logo/cels/001.png",
+          "body": "emojis/logo/cels/001-body.png"
+        }
+      ]
+    }
+  ]
+}

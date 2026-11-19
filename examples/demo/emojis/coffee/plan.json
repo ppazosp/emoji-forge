@@ -1,0 +1,150 @@
+{
+  "durations_ms": [
+    410,
+    240,
+    210,
+    220,
+    260,
+    530,
+    250,
+    300,
+    260,
+    270,
+    170,
+    180
+  ],
+  "frames": [
+    {
+      "file": "raw/001.png",
+      "ms": 410,
+      "key_frame": true,
+      "references": {
+        "previous_frame": null,
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 01/12: rest, gesture amount 0\nExpression: rest\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/002.png",
+      "ms": 240,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/001.png",
+        "key_pose": "keys/001.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 02/12: rest, gesture amount 0.18\nExpression: rest\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/003.png",
+      "ms": 210,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/002.png",
+        "key_pose": "keys/004.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 03/12: rest, gesture amount 0.44\nExpression: rest\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/004.png",
+      "ms": 220,
+      "key_frame": true,
+      "references": {
+        "previous_frame": "raw/003.png",
+        "key_pose": "keys/004.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 04/12: sip, gesture amount 0.72\nExpression: sip\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/005.png",
+      "ms": 260,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/004.png",
+        "key_pose": "keys/004.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 05/12: sip, gesture amount 0.91\nExpression: sip\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/006.png",
+      "ms": 530,
+      "key_frame": true,
+      "references": {
+        "previous_frame": "raw/005.png",
+        "key_pose": "keys/006.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 06/12: sip, gesture amount 1\nExpression: sip\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/007.png",
+      "ms": 250,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/006.png",
+        "key_pose": "keys/006.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 07/12: blink, gesture amount 0.93\nExpression: sip\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/008.png",
+      "ms": 300,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/007.png",
+        "key_pose": "keys/006.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 08/12: happy, gesture amount 0.69\nExpression: sip\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/009.png",
+      "ms": 260,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/008.png",
+        "key_pose": "keys/006.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 09/12: happy, gesture amount 0.43\nExpression: sip\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/010.png",
+      "ms": 270,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/009.png",
+        "key_pose": "keys/012.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 10/12: rest, gesture amount 0.18\nExpression: sip\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/011.png",
+      "ms": 170,
+      "key_frame": false,
+      "references": {
+        "previous_frame": "raw/010.png",
+        "key_pose": "keys/012.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 11/12: blink, gesture amount 0\nExpression: sip\nSprout is an optional Python-hook example."
+    },
+    {
+      "file": "raw/012.png",
+      "ms": 180,
+      "key_frame": true,
+      "references": {
+        "previous_frame": "raw/011.png",
+        "key_pose": "keys/012.png",
+        "style_sheet": "../../images/model/front.png"
+      },
+      "prompt": "Frame 12/12: rest, gesture amount 0\nExpression: rest\nSprout is an optional Python-hook example."
+    }
+  ]
+}

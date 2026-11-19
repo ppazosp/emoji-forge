@@ -1,0 +1,130 @@
+{
+  "emojis": {
+    "hammering": [
+      {
+        "name": "Ember",
+        "type": "character",
+        "status": "approved",
+        "file": "images/model/three-quarter.png"
+      },
+      {
+        "name": "tiny steel anvil and pale-gold round blank",
+        "type": "prop",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      },
+      {
+        "name": "sparks",
+        "type": "effect",
+        "status": "approved",
+        "file": "emojis/hammering/effect.frag"
+      }
+    ],
+    "quench": [
+      {
+        "name": "Ember",
+        "type": "character",
+        "status": "approved",
+        "file": "images/model/three-quarter.png"
+      },
+      {
+        "name": "little blue water bucket, slim tongs and round blank",
+        "type": "prop",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      },
+      {
+        "name": "steam",
+        "type": "effect",
+        "status": "approved",
+        "file": "emojis/quench/effect.frag"
+      }
+    ],
+    "sketch": [
+      {
+        "name": "Ember",
+        "type": "character",
+        "status": "approved",
+        "file": "images/model/three-quarter.png"
+      },
+      {
+        "name": "small wooden easel, ivory board and charcoal pencil",
+        "type": "prop",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      }
+    ],
+    "ship": [
+      {
+        "name": "Ember",
+        "type": "character",
+        "status": "approved",
+        "file": "images/model/three-quarter.png"
+      },
+      {
+        "name": "low wooden crate and one gold emoji disc",
+        "type": "prop",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      }
+    ],
+    "idea": [
+      {
+        "name": "Ember",
+        "type": "character",
+        "status": "approved",
+        "file": "images/model/three-quarter.png"
+      },
+      {
+        "name": "empty air to upper right reserved for the shader bulb",
+        "type": "prop",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      },
+      {
+        "name": "bulb",
+        "type": "effect",
+        "status": "approved",
+        "file": "emojis/idea/effect.frag"
+      }
+    ],
+    "wave": [
+      {
+        "name": "Ember",
+        "type": "character",
+        "status": "approved",
+        "file": "images/model/three-quarter.png"
+      },
+      {
+        "name": "raised right mitten",
+        "type": "prop",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      }
+    ]
+  }
+}

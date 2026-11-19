@@ -1,0 +1,23 @@
+{
+  "idea": "Ember logo",
+  "names": [
+    "logo"
+  ],
+  "target": "slack",
+  "static": true,
+  "refs": [],
+  "phase": 6,
+  "gates": [
+    "bible",
+    "storyboard",
+    "keys",
+    "inbetweens",
+    "effects",
+    "final"
+  ],
+  "yes": false,
+  "generator": null,
+  "scales": "64,128,256,512",
+  "master_size": 512,
+  "register": true
+}

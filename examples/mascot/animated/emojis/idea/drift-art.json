@@ -1,0 +1,81 @@
+{
+  "flagged": 0,
+  "frames": [
+    {
+      "frame": 1,
+      "file": "001-file.png",
+      "style": {
+        "file": "three-quarter.png",
+        "color_distance": 0.0518,
+        "mask_iou": 0.8894,
+        "hash_distance": 0.0312
+      },
+      "previous": null,
+      "next": {
+        "color_distance": 0.0669,
+        "mask_iou": 0.9023,
+        "hash_distance": 0.0781
+      },
+      "flags": []
+    },
+    {
+      "frame": 2,
+      "file": "002-file.png",
+      "style": {
+        "file": "back.png",
+        "color_distance": 0.0775,
+        "mask_iou": 0.8698,
+        "hash_distance": 0.1094
+      },
+      "previous": {
+        "color_distance": 0.0669,
+        "mask_iou": 0.9023,
+        "hash_distance": 0.0781
+      },
+      "next": {
+        "color_distance": 0.0924,
+        "mask_iou": 0.6563,
+        "hash_distance": 0.1875
+      },
+      "flags": []
+    },
+    {
+      "frame": 3,
+      "file": "003-file.png",
+      "style": {
+        "file": "three-quarter.png",
+        "color_distance": 0.0681,
+        "mask_iou": 0.7588,
+        "hash_distance": 0.1406
+      },
+      "previous": {
+        "color_distance": 0.0924,
+        "mask_iou": 0.6563,
+        "hash_distance": 0.1875
+      },
+      "next": {
+        "color_distance": 0.1335,
+        "mask_iou": 0.7495,
+        "hash_distance": 0.1094
+      },
+      "flags": []
+    },
+    {
+      "frame": 4,
+      "file": "004-file.png",
+      "style": {
+        "file": "three-quarter.png",
+        "color_distance": 0.0973,
+        "mask_iou": 0.8632,
+        "hash_distance": 0.0625
+      },
+      "previous": {
+        "color_distance": 0.1335,
+        "mask_iou": 0.7495,
+        "hash_distance": 0.1094
+      },
+      "next": null,
+      "flags": []
+    }
+  ]
+}

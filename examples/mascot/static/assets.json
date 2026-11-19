@@ -1,0 +1,22 @@
+{
+  "emojis": {
+    "logo": [
+      {
+        "name": "Ember",
+        "type": "character",
+        "status": "approved",
+        "file": "images/model/three-quarter.png"
+      },
+      {
+        "name": "mini hammer tucked against apron",
+        "type": "prop",
+        "status": "approved"
+      },
+      {
+        "name": "Transparent",
+        "type": "background",
+        "status": "approved"
+      }
+    ]
+  }
+}

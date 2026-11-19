@@ -1,0 +1,38 @@
+{
+  "style_sheet": "../../images/model/front.png",
+  "panels": [
+    {
+      "id": "1",
+      "file": "panels/01.png",
+      "beat": "Opening",
+      "action": "Mug at belt",
+      "expression": "rest",
+      "ms": 860
+    },
+    {
+      "id": "2",
+      "file": "panels/02.png",
+      "beat": "Anticipation",
+      "action": "Mug lifts",
+      "expression": "sip",
+      "ms": 480
+    },
+    {
+      "id": "3",
+      "file": "panels/03.png",
+      "beat": "Action",
+      "action": "Sips",
+      "expression": "sip",
+      "ms": 1780
+    },
+    {
+      "id": "4",
+      "file": "panels/04.png",
+      "beat": "Settle",
+      "action": "Mug lowers",
+      "expression": "rest",
+      "ms": 180
+    }
+  ],
+  "direction": "Sprout is an optional Python-hook example."
+}

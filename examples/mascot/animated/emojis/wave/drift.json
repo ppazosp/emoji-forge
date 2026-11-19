@@ -1,0 +1,97 @@
+{
+  "flagged": 4,
+  "frames": [
+    {
+      "frame": 1,
+      "file": "001-file.png",
+      "style": {
+        "file": "front.png",
+        "color_distance": 0.5036,
+        "mask_iou": 0.4091,
+        "hash_distance": 0.3906
+      },
+      "previous": null,
+      "next": {
+        "color_distance": 0.2653,
+        "mask_iou": 0.9554,
+        "hash_distance": 0.0156
+      },
+      "flags": [
+        "style:palette",
+        "style:perceptual-hash",
+        "style:silhouette"
+      ]
+    },
+    {
+      "frame": 2,
+      "file": "002-file.png",
+      "style": {
+        "file": "front.png",
+        "color_distance": 0.6619,
+        "mask_iou": 0.3943,
+        "hash_distance": 0.375
+      },
+      "previous": {
+        "color_distance": 0.2653,
+        "mask_iou": 0.9554,
+        "hash_distance": 0.0156
+      },
+      "next": {
+        "color_distance": 0.2025,
+        "mask_iou": 0.974,
+        "hash_distance": 0.0156
+      },
+      "flags": [
+        "style:palette",
+        "style:perceptual-hash",
+        "style:silhouette"
+      ]
+    },
+    {
+      "frame": 3,
+      "file": "003-file.png",
+      "style": {
+        "file": "front.png",
+        "color_distance": 0.5068,
+        "mask_iou": 0.4021,
+        "hash_distance": 0.3906
+      },
+      "previous": {
+        "color_distance": 0.2025,
+        "mask_iou": 0.974,
+        "hash_distance": 0.0156
+      },
+      "next": {
+        "color_distance": 0.1677,
+        "mask_iou": 0.964,
+        "hash_distance": 0.0
+      },
+      "flags": [
+        "style:palette",
+        "style:perceptual-hash",
+        "style:silhouette"
+      ]
+    },
+    {
+      "frame": 4,
+      "file": "004-file.png",
+      "style": {
+        "file": "front.png",
+        "color_distance": 0.6215,
+        "mask_iou": 0.395,
+        "hash_distance": 0.3906
+      },
+      "previous": {
+        "color_distance": 0.1677,
+        "mask_iou": 0.964,
+        "hash_distance": 0.0
+      },
+      "next": null,
+      "flags": [
+        "style:palette",
+        "style:perceptual-hash",
+        "style:silhouette"
+      ]
+    }
+  ]
+}

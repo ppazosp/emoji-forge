@@ -1,0 +1,38 @@
+{
+  "style_sheet": "../../images/model/three-quarter.png",
+  "direction": "Edit Ember from the references: keep the three rounded flame points, warm golden core, dark cocoa contour, soot goggles pushed up with two blue lenses, leather apron, two squat boots and simple face. Flat inked sticker art, centred on a fixed square canvas with transparent padding. Limit props to the named object and keep them in the same position across the loop. No letters, background, ambient spark, steam, bulb, or outer glow.",
+  "panels": [
+    {
+      "id": "beat-1",
+      "file": "panels/001.png",
+      "beat": "Ready",
+      "action": "Ember holds a golden puck with tongs just above a short blue water bucket at right.",
+      "expression": "focused eyes",
+      "ms": 340
+    },
+    {
+      "id": "beat-2",
+      "file": "panels/002.png",
+      "beat": "Lower",
+      "action": "The tongs lower the puck to the water line; bucket and feet stay still.",
+      "expression": "watchful eyes",
+      "ms": 130
+    },
+    {
+      "id": "beat-3",
+      "file": "panels/003.png",
+      "beat": "Dunk",
+      "action": "The tongs dip into the bucket so the puck mostly disappears into the water.",
+      "expression": "squint",
+      "ms": 230
+    },
+    {
+      "id": "beat-4",
+      "file": "panels/004.png",
+      "beat": "Lift",
+      "action": "The tongs bring the puck just clear of the water as Ember smiles proudly.",
+      "expression": "proud grin",
+      "ms": 300
+    }
+  ]
+}

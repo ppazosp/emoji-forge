@@ -1,0 +1,52 @@
+{
+  "target": "slack",
+  "emojis": [
+    {
+      "name": "wave",
+      "use": "Say hello or goodbye.",
+      "file": "exports/wave.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/wave/timing.json",
+      "timing": "registered/wave/timing.json"
+    },
+    {
+      "name": "coffee",
+      "use": "Taking a coffee break.",
+      "file": "exports/coffee.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/coffee/timing.json",
+      "timing": "registered/coffee/timing.json"
+    },
+    {
+      "name": "hooray",
+      "use": "Celebrate a small win.",
+      "file": "exports/hooray.gif",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/hooray/timing.json",
+      "timing": "registered/hooray/timing.json"
+    },
+    {
+      "name": "hello",
+      "use": "A quiet greeting.",
+      "file": "exports/hello.png",
+      "limits": {
+        "size": 128,
+        "max_bytes": 128000,
+        "max_frames": 50
+      },
+      "master": "master/hello/still.png"
+    }
+  ]
+}

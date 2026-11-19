@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "emojis": [
+    {
+      "name": "wave",
+      "path": "exports/wave.gif",
+      "frames": 12,
+      "duration_ms": 3200,
+      "bytes": 50307,
+      "size": [
+        128,
+        128
+      ],
+      "loop": 0,
+      "seam": 0.0,
+      "geometry_checked": true,
+      "ok": true
+    },
+    {
+      "name": "coffee",
+      "path": "exports/coffee.gif",
+      "frames": 12,
+      "duration_ms": 3300,
+      "bytes": 50728,
+      "size": [
+        128,
+        128
+      ],
+      "loop": 0,
+      "seam": 0.0,
+      "geometry_checked": true,
+      "ok": true
+    },
+    {
+      "name": "hooray",
+      "path": "exports/hooray.gif",
+      "frames": 14,
+      "duration_ms": 3470,
+      "bytes": 59814,
+      "size": [
+        128,
+        128
+      ],
+      "loop": 0,
+      "seam": 0.0,
+      "geometry_checked": true,
+      "ok": true
+    },
+    {
+      "name": "hello",
+      "path": "exports/hello.png",
+      "frames": 1,
+      "bytes": 9073,
+      "size": [
+        128,
+        128
+      ],
+      "ok": true
+    }
+  ]
+}

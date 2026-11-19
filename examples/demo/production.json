@@ -1,0 +1,168 @@
+{
+  "emojis": {
+    "wave": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "Fixed seafoam outline, two leaves and short feet across the model and pose sheet.",
+          "snapshot": "review/wave/bible-20261119T144315.734722Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "The thumbnail animatic separates opening, action and return; hello uses one pose.",
+          "snapshot": "review/wave/storyboard-20261119T144315.793629Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "The selected drawings make the gesture clear while retaining the same round face and lower body.",
+          "snapshot": "review/wave/keys-20261119T144315.854084Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "The working cels step through the planned amounts. Reviewed at 32 and 128 px, with the full strip for edge checks.",
+          "snapshot": "review/wave/inbetweens-20261119T144315.915988Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "Only hooray uses the sparkle shader. Keep the flecks beside the face and within the padded canvas.",
+          "snapshot": "review/wave/effects-20261119T144315.988655Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Export checks pass at 128 px. The overview includes the three animated files and one still.",
+          "snapshot": "review/wave/final-20261119T144316.058058Z.zip"
+        }
+      ]
+    },
+    "coffee": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "Fixed seafoam outline, two leaves and short feet across the model and pose sheet.",
+          "snapshot": "review/coffee/bible-20261119T144316.129308Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "The thumbnail animatic separates opening, action and return; hello uses one pose.",
+          "snapshot": "review/coffee/storyboard-20261119T144316.184820Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "The selected drawings make the gesture clear while retaining the same round face and lower body.",
+          "snapshot": "review/coffee/keys-20261119T144316.244414Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "The working cels step through the planned amounts. Reviewed at 32 and 128 px, with the full strip for edge checks.",
+          "snapshot": "review/coffee/inbetweens-20261119T144316.304225Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "Only hooray uses the sparkle shader. Keep the flecks beside the face and within the padded canvas.",
+          "snapshot": "review/coffee/effects-20261119T144316.382611Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Export checks pass at 128 px. The overview includes the three animated files and one still.",
+          "snapshot": "review/coffee/final-20261119T144316.458853Z.zip"
+        }
+      ]
+    },
+    "hooray": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "Fixed seafoam outline, two leaves and short feet across the model and pose sheet.",
+          "snapshot": "review/hooray/bible-20261119T144316.533788Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "The thumbnail animatic separates opening, action and return; hello uses one pose.",
+          "snapshot": "review/hooray/storyboard-20261119T144316.589547Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "The selected drawings make the gesture clear while retaining the same round face and lower body.",
+          "snapshot": "review/hooray/keys-20261119T144316.651798Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "The working cels step through the planned amounts. Reviewed at 32 and 128 px, with the full strip for edge checks.",
+          "snapshot": "review/hooray/inbetweens-20261119T144316.721913Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "Only hooray uses the sparkle shader. Keep the flecks beside the face and within the padded canvas.",
+          "snapshot": "review/hooray/effects-20261119T144316.803151Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Export checks pass at 128 px. The overview includes the three animated files and one still.",
+          "snapshot": "review/hooray/final-20261119T144316.878763Z.zip"
+        }
+      ]
+    },
+    "hello": {
+      "stage": "final",
+      "reviews": [
+        {
+          "stage": "bible",
+          "result": "pass",
+          "notes": "Fixed seafoam outline, two leaves and short feet across the model and pose sheet.",
+          "snapshot": "review/hello/bible-20261119T144316.952605Z.zip"
+        },
+        {
+          "stage": "storyboard",
+          "result": "pass",
+          "notes": "The thumbnail animatic separates opening, action and return; hello uses one pose.",
+          "snapshot": "review/hello/storyboard-20261119T144317.011251Z.zip"
+        },
+        {
+          "stage": "keys",
+          "result": "pass",
+          "notes": "The selected drawings make the gesture clear while retaining the same round face and lower body.",
+          "snapshot": "review/hello/keys-20261119T144317.070678Z.zip"
+        },
+        {
+          "stage": "inbetweens",
+          "result": "pass",
+          "notes": "The working cels step through the planned amounts. Reviewed at 32 and 128 px, with the full strip for edge checks.",
+          "snapshot": "review/hello/inbetweens-20261119T144317.129723Z.zip"
+        },
+        {
+          "stage": "effects",
+          "result": "pass",
+          "notes": "Only hooray uses the sparkle shader. Keep the flecks beside the face and within the padded canvas.",
+          "snapshot": "review/hello/effects-20261119T144317.188667Z.zip"
+        },
+        {
+          "stage": "final",
+          "result": "pass",
+          "notes": "Export checks pass at 128 px. The overview includes the three animated files and one still.",
+          "snapshot": "review/hello/final-20261119T144317.246467Z.zip"
+        }
+      ]
+    }
+  }
+}

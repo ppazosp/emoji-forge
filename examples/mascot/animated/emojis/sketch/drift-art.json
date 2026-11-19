@@ -1,0 +1,93 @@
+{
+  "flagged": 4,
+  "frames": [
+    {
+      "frame": 1,
+      "file": "001-file.png",
+      "style": {
+        "file": "three-quarter.png",
+        "color_distance": 0.2633,
+        "mask_iou": 0.4535,
+        "hash_distance": 0.5
+      },
+      "previous": null,
+      "next": {
+        "color_distance": 0.0708,
+        "mask_iou": 0.9753,
+        "hash_distance": 0.0
+      },
+      "flags": [
+        "style:perceptual-hash",
+        "style:silhouette"
+      ]
+    },
+    {
+      "frame": 2,
+      "file": "002-file.png",
+      "style": {
+        "file": "three-quarter.png",
+        "color_distance": 0.274,
+        "mask_iou": 0.449,
+        "hash_distance": 0.5
+      },
+      "previous": {
+        "color_distance": 0.0708,
+        "mask_iou": 0.9753,
+        "hash_distance": 0.0
+      },
+      "next": {
+        "color_distance": 0.0965,
+        "mask_iou": 0.958,
+        "hash_distance": 0.0312
+      },
+      "flags": [
+        "style:perceptual-hash",
+        "style:silhouette"
+      ]
+    },
+    {
+      "frame": 3,
+      "file": "003-file.png",
+      "style": {
+        "file": "front.png",
+        "color_distance": 0.2002,
+        "mask_iou": 0.3969,
+        "hash_distance": 0.5
+      },
+      "previous": {
+        "color_distance": 0.0965,
+        "mask_iou": 0.958,
+        "hash_distance": 0.0312
+      },
+      "next": {
+        "color_distance": 0.0766,
+        "mask_iou": 0.9653,
+        "hash_distance": 0.0156
+      },
+      "flags": [
+        "style:perceptual-hash",
+        "style:silhouette"
+      ]
+    },
+    {
+      "frame": 4,
+      "file": "004-file.png",
+      "style": {
+        "file": "three-quarter.png",
+        "color_distance": 0.2853,
+        "mask_iou": 0.4567,
+        "hash_distance": 0.4844
+      },
+      "previous": {
+        "color_distance": 0.0766,
+        "mask_iou": 0.9653,
+        "hash_distance": 0.0156
+      },
+      "next": null,
+      "flags": [
+        "style:perceptual-hash",
+        "style:silhouette"
+      ]
+    }
+  ]
+}

@@ -204,6 +204,11 @@ def test_make_waits_resumes_approves_and_finishes_with_fixture_cels(
     assert Path(result["zip"]).is_file()
     assert not (project / "next-task.json").exists()
     assert (project / "image-prompts.jsonl").is_file()
+    source_pack = json.loads((project / "source-pack.json").read_text())
+    for frame in source_pack["emojis"][0]["frames"]:
+        for field in ("file", "body"):
+            assert not Path(frame[field]).is_absolute()
+            assert (project / frame[field]).is_file()
     assert call("make", "--resume", "--project", project)["zip"] == result["zip"]
     reviews = call("status", "--project", project)["emojis"]["blue-bird-wave"][
         "reviews"

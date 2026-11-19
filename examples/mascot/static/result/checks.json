@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "emojis": [
+    {
+      "name": "logo",
+      "path": "exports/logo.png",
+      "frames": 1,
+      "bytes": 12837,
+      "size": [
+        128,
+        128
+      ],
+      "ok": true
+    }
+  ]
+}

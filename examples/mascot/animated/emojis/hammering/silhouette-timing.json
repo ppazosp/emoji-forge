@@ -1,0 +1,20 @@
+{
+  "frames": [
+    {
+      "file": "cels/001-file.png",
+      "ms": 360
+    },
+    {
+      "file": "cels/002-file.png",
+      "ms": 120
+    },
+    {
+      "file": "cels/003-file.png",
+      "ms": 160
+    },
+    {
+      "file": "cels/004-file.png",
+      "ms": 280
+    }
+  ]
+}

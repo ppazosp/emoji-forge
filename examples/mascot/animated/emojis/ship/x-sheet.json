@@ -1,0 +1,22 @@
+{
+  "frames": [
+    {
+      "panel": "beat-1",
+      "ms": 320,
+      "key_pose": "keys/001.png"
+    },
+    {
+      "panel": "beat-2",
+      "ms": 150
+    },
+    {
+      "panel": "beat-3",
+      "ms": 260,
+      "key_pose": "keys/003.png"
+    },
+    {
+      "panel": "beat-4",
+      "ms": 260
+    }
+  ]
+}
