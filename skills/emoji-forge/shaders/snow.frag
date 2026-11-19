@@ -10,5 +10,5 @@ vec4 effect(vec2 uv, vec4 art) {
         float core = forgeFill(sdCircle(p,width * .54),.004);
         snow = max(snow,max(core,arms) * (.55 + .45 * seed.y));
     }
-    return over(vec4(.82,.93,1.36,clamp(snow * intensity * edgeFade(uv),0.0,1.0)),art);
+    return over(vec4(mix(vec3(.39,.67,.94),vec3(.90,.96,1.24),snow*snow),clamp(snow * intensity * edgeFade(uv),0.0,1.0)),art);
 }

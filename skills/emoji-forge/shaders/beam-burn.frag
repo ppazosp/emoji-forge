@@ -12,7 +12,7 @@ vec4 effect(vec2 uv, vec4 art) {
     float flare = halo(sdCircle(uv - tip, 0.0), .036 / front.z) * shot;
 
     float burn = envelope(.38, .51, .68, .89);
-    float radiusBurn = .02 + .19 * smoothstep(.39, .70, phase);
+    float radiusBurn = .02 + .19 * smoothstep(.39, .64, phase) * (1.0 - smoothstep(.67, .90, phase));
     float edge = length(p) - radiusBurn + .072 * (fbm(p * 36.0 + fbm(p * 12.0)) - .5);
     float cut = smoothstep(-.007, .009, edge);
     vec3 charred = mix(art.rgb, vec3(.12, .08, .11), halo(edge - .012, .05));

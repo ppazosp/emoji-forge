@@ -10,8 +10,8 @@ vec4 effect(vec2 uv, vec4 art) {
     float flash = forgePulse(phase, .16, .32, .65);
     float seed = floor(phase * 8.0);
     vec2 foot = anchor + vec2(.15, -.12);
-    float core = bolt(uv, foot, seed, .018);
-    float branch = bolt(uv, foot + vec2(-.21, .20), seed + 5.0, .011);
+    float core = bolt(uv, foot, seed, .028);
+    float branch = bolt(uv, foot + vec2(-.21, .20), seed + 5.0, .019);
     float light = clamp(max(core, branch) * flash * intensity * edgeFade(uv), 0.0, 1.0);
-    return over(art, vec4(mix(vec3(.26,.56,1.52), vec3(1.52,1.56,1.66), core), light));
+    return over(art, vec4(mix(vec3(.26,.56,1.52), vec3(1.42,1.49,1.66), smoothstep(.75,.99,core)), light));
 }

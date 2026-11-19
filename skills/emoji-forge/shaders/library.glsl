@@ -50,6 +50,9 @@ vec4 cel(vec2 p) {
 }
 
 vec4 over(vec4 front, vec4 back) {
+    // Keep HDR radiance, but layer coverage is always a fraction.
+    front.a = clamp(front.a, 0.0, 1.0);
+    back.a = clamp(back.a, 0.0, 1.0);
     float a = front.a + back.a * (1.0 - front.a);
     vec3 premult = front.rgb * front.a + back.rgb * back.a * (1.0 - front.a);
     return vec4(premult / max(a, 1e-5), a);
@@ -150,7 +153,10 @@ vec2 forgeView(vec2 uv, vec2 center, vec2 translation, float zoom) {
     return center + (uv - center - translation) / max(0.1, zoom);
 }
 
-vec2 forgeShake(float framePhase, float amplitude) {
-    float strength = forgePulse(framePhase, 0.19, 0.36, 0.67) * amplitude;
+vec2 forgeShakeOffset(float framePhase, float strength) {
     return vec2(sin(framePhase * 79.0), cos(framePhase * 116.0)) * strength;
+}
+
+vec2 forgeShake(float framePhase, float amplitude) {
+    return forgeShakeOffset(framePhase, forgePulse(framePhase, 0.19, 0.36, 0.67) * amplitude);
 }

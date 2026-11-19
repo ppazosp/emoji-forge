@@ -83,6 +83,6 @@ Browse the [shader recipes](shader-recipes.md) for techniques to use, combine or
 | Sample, outline or light the cel | `forgeSample`, `forgeDilateAlpha`, `forgeOutline`, `brightPass`, `blurPass`, `over` |
 | Move or shake the view around a point | `forgeView`, `forgeShake` |
 
-For a repeating energy effect, feed `progress` into `forgeLoopNoise(uv * 8.0, progress, 1.2)` to return to the initial noise field. For a single hit, start particles where the objects meet, then animate `forgeBallistic` with each particle's local age. Use `forgePalette` to cool the particles as they move. A short `forgePulse` can drive both the contact flash and the shake so they land together.
+For a repeating energy effect, feed `progress` into `forgeLoopNoise(uv * 8.0, progress, 1.2)` to return to the initial noise field. For a single hit, start particles where the objects meet, then animate `forgeBallistic` with each particle's local age. Use `forgePalette` to cool the particles as they move. Pass an envelope of your own to `forgeShakeOffset(phase, amount)` to place recoil on a particular exposure. A short `forgePulse` can drive both the contact flash and the shake so they land together.
 
 Inspect the exported GIF at its real display size. Sample the setup, peak and recovery at 32 px on light and dark backgrounds. Larger shapes, brighter contrast and a clear contact point can help a short effect survive downsampling and GIF palette fitting.

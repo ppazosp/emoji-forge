@@ -8,7 +8,7 @@ float orderedPattern(vec2 p) {
 }
 
 vec4 effect(vec2 uv, vec4 art) {
-    vec2 grid = floor(uv * 42.0 + vec2(floor(phase*4.0),0.0));
+    vec2 grid = floor(uv * 29.0 + vec2(floor(phase*4.0),0.0));
     float threshold = orderedPattern(grid);
     vec3 graded = clamp(art.rgb * 1.09 + vec3(.026,-.009,.048),0.0,1.0);
     vec3 swatches = clamp(floor(graded * 3.0 + threshold) / 3.0,0.0,1.0);
