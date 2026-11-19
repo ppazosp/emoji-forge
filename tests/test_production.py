@@ -168,7 +168,7 @@ def test_studio_scaffold_sheets_animatic_and_stage_review_zip(tmp_path):
     )
 
 
-def test_make_waits_resumes_approves_and_finishes_with_fixture_cels(
+def test_make_pauses_only_at_requested_checkpoints_with_fixture_cels(
     tmp_path, monkeypatch
 ):
     monkeypatch.delenv("FORGE_IMAGE_API_KEY", raising=False)
@@ -179,16 +179,28 @@ def test_make_waits_resumes_approves_and_finishes_with_fixture_cels(
         "--animated",
         "--project",
         project,
-        "--gate",
-        "bible",
+        "--checkpoints",
+        "storyboard,keys",
         "--scales",
         "64,128",
     )
+    assert result["status"] == "needs-image"
+    assert (
+        "pending user checkpoint"
+        in call("make", "--resume", "--approve", "--project", project, status=1)[
+            "error"
+        ]
+    )
+    checkpoints = []
     count = 0
     while result["status"] != "complete" and count < 24:
         if result["status"] == "needs-review":
-            assert result["stage"] == "bible"
-            assert len(result["task"]["review_packs"]) == 1
+            checkpoints.append(result["stage"])
+            assert Path(result["task"]["review_packs"][0]["archive"]).is_file()
+            if result["stage"] == "storyboard":
+                pending = call("make", "--resume", "--project", project)
+                assert pending["status"] == "needs-review"
+                assert pending["stage"] == "storyboard"
             result = call("make", "--resume", "--approve", "--project", project)
         else:
             job = result["task"]
@@ -200,6 +212,7 @@ def test_make_waits_resumes_approves_and_finishes_with_fixture_cels(
             result = call("make", "--resume", "--project", project)
         count += 1
     assert result["status"] == "complete"
+    assert checkpoints == ["storyboard", "keys"]
     assert Path(result["overview"]).name == "overview.gif"
     assert Path(result["zip"]).is_file()
     assert not (project / "next-task.json").exists()
@@ -323,9 +336,6 @@ frame.save(job["output"])
         "--static",
         "--generator",
         adapter,
-        "--yes",
-        "--gate",
-        "bible",
         "--scales",
         "64,128",
     )
@@ -333,6 +343,31 @@ frame.save(job["output"])
     assert Path(result["overview"]).suffix == ".png"
     assert (Path(result["pack"]) / "emoji/64/amber-circle.png").is_file()
     assert not (Path(result["pack"]) / "overview.gif").exists()
+    reviews = call("status", "--project", project)["emojis"]["amber-circle"]["reviews"]
+    assert [review["stage"] for review in reviews] == [
+        "bible",
+        "storyboard",
+        "keys",
+        "inbetweens",
+        "effects",
+        "final",
+    ]
+    assert all((project / review["snapshot"]).is_file() for review in reviews)
+
+
+def test_make_rejects_unknown_checkpoints_before_scaffolding(tmp_path):
+    project = tmp_path / "pack"
+    result = call(
+        "make",
+        "Blue dot",
+        "--project",
+        project,
+        "--checkpoints",
+        "keys,unknown",
+        status=1,
+    )
+    assert "choose checkpoints from" in result["error"]
+    assert not project.exists()
 
 
 def test_inventory_threads_props_and_bundles_three_review_levels(tmp_path):
@@ -409,7 +444,7 @@ def test_make_mixed_pack_scaffolds_only_one_exposure_for_still(tmp_path):
     )
     assert result["status"] == "needs-image"
     data = json.loads((project / "make.json").read_text())
-    assert data["names"] == ["tap", "mark"] and not data["gates"]
+    assert data["names"] == ["tap", "mark"] and not data["checkpoints"]
     for name, count in [("tap", 4), ("mark", 1)]:
         rows = json.loads((project / "emojis" / name / "x-sheet.json").read_text())
         assert len(rows["frames"]) == count

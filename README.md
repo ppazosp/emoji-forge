@@ -51,7 +51,9 @@ Select your agent when prompted. Install uv so your agent can run the bundled to
 /emoji-forge make 6 animated Slack emojis of our mascot: a blue robot with spring arms
 ```
 
-For a one-shot run that skips optional review approvals, enter `/emoji-forge make <idea> --yes`. If you installed through the marketplace, use `/emoji-forge:emoji-forge` in place of `/emoji-forge`. [Claude Code skills](https://code.claude.com/docs/en/skills)
+For a one-shot run, enter `/emoji-forge make <idea>`. Your agent reviews the work and returns the finished GIF or PNG overview and ZIP. To see something along the way, add “show me the storyboard before animating” or `--checkpoints storyboard,keys` to your prompt.
+
+If you installed through the marketplace, use `/emoji-forge:emoji-forge` in place of `/emoji-forge`. [Claude Code skills](https://code.claude.com/docs/en/skills)
 
 **Codex CLI or IDE.** Type `$` and select `emoji-forge`, or enter `$emoji-forge` followed by your request. You can also find the skill through `/skills`. [Codex skills](https://learn.chatgpt.com/docs/build-skills#how-chatgpt-and-codex-use-skills)
 

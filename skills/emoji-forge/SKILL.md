@@ -15,9 +15,11 @@ Use `forge new`, `sheets`, `stage` and `review-pack` for [production scaffolds a
 
 ## One-shot requests
 
-Treat `make <idea>` after the skill name, or an equivalent request for a finished pack, as a one-shot request. Run `forge make "<idea>" --project <pack-dir> --json` yourself. Use a project directory in the user's workspace. Pass request details as CLI options. Use `--refs` for attached images, `--count` for pack size, `--target` for the platform preset, `--static` or `--animated` for the requested format, and `--emoji` for each explicitly named emoji. Pass `--yes` when they ask to skip approvals. Optional review gates are off by default.
+Treat `make <idea>` after the skill name, or an equivalent request for a finished pack, as a one-shot request. Run `forge make "<idea>" --project <pack-dir> --json` yourself. Use a project directory in the user's workspace. Pass request details as CLI options. Use `--refs` for attached images, `--count` for pack size, `--target` for the platform preset, `--static` or `--animated` for the requested format, and `--emoji` for each explicitly named emoji.
 
-When the result is `needs-image`, create the requested file with the available image tool and run `forge make --resume --project <pack-dir> --json`. Repeat until the result includes an overview and ZIP. On follow-ups about an unfinished pack, resume the same project using its saved `make.json`. Ask for approval only on `needs-review`, then resume with `--approve` when the user approves. Share the overview and ZIP when the run completes. See the [one-shot workflow](references/production-pipeline.md#one-shot-mode) for the full hand-off.
+Handle `needs-image` with the available image tool and continue with `forge make --resume --project <pack-dir> --json`. Use the same project's `make.json` on follow-ups. Review stage outputs yourself, fix issues, and continue through the final checks. By default, return only the finished overview GIF or PNG and the ZIP.
+
+Add `--checkpoints` only when the user asks to see intermediate work. For “show me the storyboard before animating,” set `--checkpoints storyboard`. Share the requested materials on `needs-review` and continue with `--resume --approve` once the user approves. [One-shot workflow](references/production-pipeline.md#one-shot-mode)
 
 Write shaders for the idea at hand using the [custom effect walkthrough](references/shaders.md). The bundled shaders are examples you can remix.
 
