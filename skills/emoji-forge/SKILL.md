@@ -15,7 +15,7 @@ Use `forge new`, `sheets`, `stage` and `review-pack` for [production scaffolds a
 
 ## One-shot requests
 
-Treat `make <idea>` after the skill name, or an equivalent request for a finished pack, as a one-shot request. Run `forge make "<idea>" --project <pack-dir> --json` yourself. Use a project directory in the user's workspace. Carry over their references, count, target and still or animated preference. Pass `--yes` when they ask to skip approvals. Optional review gates are off by default.
+Treat `make <idea>` after the skill name, or an equivalent request for a finished pack, as a one-shot request. Run `forge make "<idea>" --project <pack-dir> --json` yourself. Use a project directory in the user's workspace. Pass request details as CLI options. Use `--refs` for attached images, `--count` for pack size, `--target` for the platform preset, `--static` or `--animated` for the requested format, and `--emoji` for each explicitly named emoji. Pass `--yes` when they ask to skip approvals. Optional review gates are off by default.
 
 When the result is `needs-image`, create the requested file with the available image tool and run `forge make --resume --project <pack-dir> --json`. Repeat until the result includes an overview and ZIP. On follow-ups about an unfinished pack, resume the same project using its saved `make.json`. Ask for approval only on `needs-review`, then resume with `--approve` when the user approves. Share the overview and ZIP when the run completes. See the [one-shot workflow](references/production-pipeline.md#one-shot-mode) for the full hand-off.
 
